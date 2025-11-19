@@ -6,23 +6,23 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const testimonials = [
   {
     id: 1,
-    name: 'Jane Doe',
+    name: 'Joana Pons',
     title: 'CEO, Tech Innovators',
-    quote: "Ivora Solutions revolutionized our supply chain. Their custom logistics plan saved us 20% on operational costs within the first quarter. Truly remarkable service!",
+    quote: "Ivora Solutions va revolucionar la nostra cadena de subministrament. El seu pla logístic personalitzat ens va estalviar un 20% en costos operatius durant el primer trimestre. Un servei realment extraordinari!",
     avatarId: 'testimonial-avatar-1',
   },
   {
     id: 2,
-    name: 'John Smith',
-    title: 'Operations Manager, Global Goods',
-    quote: "The team's expertise in warehousing and distribution is unmatched. Our products now reach customers faster and more reliably than ever before. Highly recommended.",
+    name: 'Joan Smith',
+    title: 'Director d\'Operacions, Global Goods',
+    quote: "L'experiència de l'equip en emmagatzematge i distribució és inigualable. Ara els nostres productes arriben als clients més ràpid i de manera més fiable que mai. Molt recomanable.",
     avatarId: 'testimonial-avatar-2',
   },
   {
     id: 3,
-    name: 'Samantha Ray',
-    title: 'Founder, Eco-Friendly Wares',
-    quote: "As a growing business, we needed a logistics partner that could scale with us. Ivora's consulting and flexible solutions have been instrumental in our expansion.",
+    name: 'Sònia Ray',
+    title: 'Fundadora, Eco-Friendly Wares',
+    quote: "Com a empresa en creixement, necessitàvem un soci logístic que pogués escalar amb nosaltres. La consultoria i les solucions flexibles d'Ivora han estat fonamentals en la nostra expansió.",
     avatarId: 'testimonial-avatar-3',
   },
 ];
@@ -32,9 +32,9 @@ export default function Testimonials() {
     <section id="testimonials" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">Què Diuen els Nostres Clients</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            We're proud to have earned the trust of businesses of all sizes.
+            Estem orgullosos d'haver-nos guanyat la confiança d'empreses de totes les mides.
           </p>
         </div>
         <Carousel

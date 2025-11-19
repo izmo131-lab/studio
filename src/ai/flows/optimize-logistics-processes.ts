@@ -14,7 +14,7 @@ import {z} from 'genkit';
 const OptimizeLogisticsProcessesInputSchema = z.object({
   logisticalChallenges: z
     .string()
-    .describe('A detailed description of the logistical challenges.'),
+    .describe('Una descripció detallada dels reptes logístics.'),
 });
 export type OptimizeLogisticsProcessesInput = z.infer<
   typeof OptimizeLogisticsProcessesInputSchema
@@ -24,7 +24,7 @@ const OptimizeLogisticsProcessesOutputSchema = z.object({
   suggestions: z
     .string()
     .describe(
-      'Data-driven suggestions for optimizing logistical processes and improving efficiency.'
+      'Suggeriments basats en dades per optimitzar els processos logístics i millorar l\'eficiència.'
     ),
 });
 export type OptimizeLogisticsProcessesOutput = z.infer<
@@ -41,7 +41,7 @@ const prompt = ai.definePrompt({
   name: 'optimizeLogisticsProcessesPrompt',
   input: {schema: OptimizeLogisticsProcessesInputSchema},
   output: {schema: OptimizeLogisticsProcessesOutputSchema},
-  prompt: `You are an expert logistics consultant. Analyze the following logistical challenges and provide data-driven suggestions for optimizing the processes and improving efficiency.\n\nLogistical Challenges: {{{logisticalChallenges}}}\n\nSuggestions:`,
+  prompt: `Ets un consultor expert en logística. Analitza els següents reptes logístics i proporciona suggeriments basats en dades per optimitzar els processos i millorar l'eficiència. Respon en català.\n\nReptes Logístics: {{{logisticalChallenges}}}\n\nSuggeriments:`,
 });
 
 const optimizeLogisticsProcessesFlow = ai.defineFlow(
