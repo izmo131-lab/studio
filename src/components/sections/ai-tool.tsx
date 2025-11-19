@@ -1,12 +1,12 @@
 "use client";
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect, useRef } from 'react';
+import { useFormStatus } from 'react-dom';
 import { getLogisticsSuggestion } from '@/app/actions';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Bot, Loader2, ThumbsUp } from 'lucide-react';
-import { useEffect, useRef } from 'react';
 
 const initialState = {
   message: null,
@@ -34,7 +34,7 @@ function SubmitButton() {
 }
 
 export default function AiTool() {
-  const [state, formAction] = useFormState(getLogisticsSuggestion, initialState);
+  const [state, formAction] = useActionState(getLogisticsSuggestion, initialState);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
