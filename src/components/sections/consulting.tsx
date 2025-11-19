@@ -1,0 +1,54 @@
+import Image from 'next/image';
+import { CheckCircle } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Card, CardContent } from '@/components/ui/card';
+
+export default function Consulting() {
+  const consultingImage = PlaceHolderImages.find(p => p.id === 'consulting-image');
+
+  const benefits = [
+    'Optimize supply chain management.',
+    'Reduce operational costs effectively.',
+    'Improve delivery speed and reliability.',
+    'Gain strategic insights and a competitive edge.',
+  ];
+
+  return (
+    <section id="consulting" className="py-16 md:py-24 bg-background">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1">
+            <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">Expert Logistics Consulting</h2>
+            <p className="text-lg text-muted-foreground mb-6">
+              Our consulting services are designed to unlock the full potential of your supply chain. We analyze your processes, identify bottlenecks, and implement data-driven strategies for peak performance.
+            </p>
+            <ul className="space-y-4">
+              {benefits.map((benefit, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  <CheckCircle className="h-6 w-6 text-primary" />
+                  <span className="text-lg">{benefit}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="order-1 md:order-2">
+            {consultingImage && (
+              <Card className="overflow-hidden">
+                <CardContent className="p-0">
+                  <Image
+                    src={consultingImage.imageUrl}
+                    alt={consultingImage.description}
+                    width={800}
+                    height={600}
+                    className="object-cover w-full h-full rounded-lg shadow-lg"
+                    data-ai-hint={consultingImage.imageHint}
+                  />
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
