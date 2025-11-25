@@ -31,7 +31,7 @@ const products: Product[] = [
 
 export default function Products() {
   return (
-    <section id="products" className="py-16 md:py-24 bg-background">
+    <section id="products" className="py-16 md:py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-tight">Els Nostres Productes</h2>
@@ -52,7 +52,7 @@ export default function Products() {
                return (
                 <CarouselItem key={index} className="md:basis-1/2">
                   <div className="p-1 h-full">
-                    <Card className="h-full overflow-hidden group">
+                    <Card className="h-full overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300">
                        {productImage && (
                          <div className="relative h-80 w-full">
                           <Image

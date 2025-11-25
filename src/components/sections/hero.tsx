@@ -18,7 +18,7 @@ export default function Hero() {
           data-ai-hint={heroImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent" />
       <div className="relative z-10 max-w-4xl mx-auto px-4 animate-fade-in-up">
         <h1 className="text-4xl md:text-7xl font-headline font-bold mb-4 tracking-tight text-shadow-lg">
           Ivora Logistics: Excel·lència en transport i logística.
