@@ -18,6 +18,7 @@ const navLinks = [
   { href: '/#products', label: 'Productes' },
   { href: '/#consulting', label: 'Innovació' },
   { href: '/#ai-tool', label: 'Optimitzador IA' },
+  { href: '/#chatbot', label: 'Atenció al Client' },
   { href: '/blog', label: 'Blog' },
   { href: '/#testimonials', label: 'Clients' },
   { href: '/#contact', label: 'Contacte' },

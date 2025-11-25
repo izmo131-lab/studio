@@ -5,6 +5,7 @@ import Services from '@/components/sections/services';
 import Products from '@/components/sections/products';
 import Consulting from '@/components/sections/consulting';
 import AiTool from '@/components/sections/ai-tool';
+import Chatbot from '@/components/sections/chatbot';
 import Testimonials from '@/components/sections/testimonials';
 import Contact from '@/components/sections/contact';
 import Footer from '@/components/layout/footer';
@@ -20,6 +21,7 @@ export default function Home() {
         <Products />
         <Consulting />
         <AiTool />
+        <Chatbot />
         <Testimonials />
         <Contact />
       </main>
