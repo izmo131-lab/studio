@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { CheckCircle } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Card } from '@/components/ui/card';
 
 export default function Consulting() {
   const consultingImage = PlaceHolderImages.find(p => p.id === 'consulting-image');
@@ -33,16 +32,15 @@ export default function Consulting() {
           </div>
           <div className="order-1 md:order-2">
             {consultingImage && (
-              <Card className="overflow-hidden shadow-lg rounded-lg">
+              <div className="overflow-hidden shadow-lg rounded-lg relative h-[450px]">
                 <Image
                   src={consultingImage.imageUrl}
                   alt={consultingImage.description}
-                  width={800}
-                  height={600}
+                  fill
                   className="object-cover w-full h-full"
                   data-ai-hint={consultingImage.imageHint}
                 />
-              </Card>
+              </div>
             )}
           </div>
         </div>
