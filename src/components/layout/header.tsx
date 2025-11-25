@@ -2,9 +2,15 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, Package } from 'lucide-react';
+import { Menu, Package, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const navLinks = [
   { href: '/#about', label: 'Sobre Nosaltres' },
@@ -37,6 +43,25 @@ export default function Header() {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Globe className="h-5 w-5" />
+                <span className="sr-only">Seleccionar idioma</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem>
+                Català
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                Español
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button asChild>
             <Link href="#contact">Demana un Pressupost</Link>
           </Button>
@@ -70,7 +95,26 @@ export default function Header() {
                     </Link>
                   ))}
                 </nav>
-                <div className="mt-auto p-4">
+                <div className="mt-auto p-4 border-t">
+                 <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" className="w-full justify-start mb-4">
+                        <Globe className="mr-2 h-4 w-4" />
+                        Seleccionar idioma
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-[250px]">
+                      <DropdownMenuItem>
+                        Català
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        English
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        Español
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                   <Button asChild className="w-full">
                     <Link href="#contact" onClick={() => setIsOpen(false)}>Demana un Pressupost</Link>
                   </Button>
