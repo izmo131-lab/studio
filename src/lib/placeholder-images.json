@@ -2,68 +2,68 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Un magatzem logístic modern amb prestatgeries i caixes",
-      "imageUrl": "https://images.unsplash.com/photo-1656857169908-4ffa5fae56dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYWdhdHplbSUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "magatzem logística"
+      "description": "Un camió de logística circulant per una autopista al capvespre, simbolitzant el transport i l'eficiència.",
+      "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8Mnx8Y2FtaW9uJTIwbG9naXN0aWNzfGVufDB8fHx8MTcxOTM0MzYwNA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "camió logística"
     },
     {
       "id": "about-us-image",
-      "description": "L'equip d'Ivora Logistics treballant a l'oficina",
-      "imageUrl": "https://picsum.photos/seed/teamwork/800/600",
+      "description": "Tres persones en un magatzem logístic revisant documents, representant els tres fundadors d'Ivora Logistics.",
+      "imageUrl": "https://images.unsplash.com/photo-1565581938424-11f1762e0088?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8NHx8ZXF1aXAlMjBsb2dpc3RpY2F8ZW58MHx8fDE3MTkzNDM2MDU&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "equip logística"
     },
     {
       "id": "consulting-image",
-      "description": "Un equip de professionals discutint un pla logístic en una pissarra blanca",
-      "imageUrl": "https://images.unsplash.com/photo-1618393678187-fb258b8ee191?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbGFuaWZpY2FjaSVDMyVCMyUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "planificació logística"
+      "description": "Una imatge que mostra un dron volant dins d'un magatzem modern, representant la innovació i tecnologia en la logística.",
+      "imageUrl": "https://images.unsplash.com/photo-1629904850937-553c6c06a3e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8N3x8aW5ub3ZhY2lvJTIwbG9naXN0aWNhfGVufDB8fHx8MTcxOTM0MzYwNg&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "innovació logística"
     },
     {
       "id": "testimonial-avatar-1",
-      "description": "Avatar per a un testimoni de client",
-      "imageUrl": "https://picsum.photos/seed/testimonial-avatar-1/100/100",
-      "imageHint": "retrat persona"
-    },
-    {
-      "id": "testimonial-avatar-2",
-      "description": "Avatar per a un testimoni de client",
-      "imageUrl": "https://images.unsplash.com/photo-1592206934769-67dc0e88b5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Retrat d'una dona professional per a un testimoni.",
+      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8MXx8cmV0cmF0JTIwZG9uYXxlbnwwfHx8fDE3MTkzNDM2MDc&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "retrat dona"
     },
     {
-      "id": "testimonial-avatar-3",
-      "description": "Avatar per a un testimoni de client",
-      "imageUrl": "https://picsum.photos/seed/testimonial-avatar-3/100/100",
+      "id": "testimonial-avatar-2",
+      "description": "Retrat d'un home professional per a un testimoni.",
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8MXx8cmV0cmF0JTIwaG9tZXxlbnwwfHx8fDE3MTkzNDM2MDg&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "retrat home"
     },
     {
+      "id": "testimonial-avatar-3",
+      "description": "Retrat d'una altra dona professional per a un testimoni.",
+      "imageUrl": "https://images.unsplash.com/photo-1554151228-14d9def656e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8Mnx8cmV0cmF0JTIwZG9uYXxlbnwwfHx8fDE3MTkzNDM2MDc&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "retrat dona"
+    },
+    {
       "id": "blog-post-1",
-      "description": "Una imatge que representa el futur de la logística amb IA",
-      "imageUrl": "https://picsum.photos/seed/blog-post-1/800/400",
+      "description": "Una imatge futurista amb robots i IA en un magatzem logístic.",
+      "imageUrl": "https://images.unsplash.com/photo-1620712943543-95b8c3a1a3b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8MXx8SUElMjBsb2dpc3RpY2F8ZW58MHx8fHwxNzE5MzQzNjA5&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "IA logística"
     },
     {
       "id": "blog-post-2",
-      "description": "Una imatge sobre cadenes de subministrament sostenibles",
+      "description": "Panells solars en el sostre d'un magatzem i camions elèctrics, representant la sostenibilitat.",
       "imageUrl": "https://images.unsplash.com/photo-1637851634651-f7c85aa9a9e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYWRlbmElMjBzdWJtaW5pc3RyYW1lbnQlMjBzb3N0ZW5pYmxlfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cadena subministrament sostenible"
     },
     {
       "id": "blog-post-3",
-      "description": "Una imatge sobre l'optimització del lliurament d'última milla",
-      "imageUrl": "https://images.unsplash.com/photo-1649451844931-57e22fc82de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvcHRpbWl0emFjaSVDMyVCMyUyMGxsaXVyYW1lbnR8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "optimització lliurament"
+      "description": "Una mà sostenint un telèfon mòbil que mostra el seguiment d'un paquet en un mapa, representant la transparència.",
+      "imageUrl": "https://images.unsplash.com/photo-1588673390025-5d7c9a94161f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8MXx8dHJhY2FiaWxpdGF0JTIwbG9naXN0aWNhfGVufDB8fHx8MTcxOTM0MzYxMQ&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "traçabilitat logística"
     },
     {
       "id": "product-design-specialists",
-      "description": "Una habitació elegant amb mobles de disseny modern.",
-      "imageUrl": "https://images.unsplash.com/photo-1602500501334-7a1324ae8fe2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkaXNzZW55JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "disseny interior"
+      "description": "Un sofà de disseny en un interior modern i minimalista.",
+      "imageUrl": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8MXx8bW9ibGVzJTIwZGlzc2VueXxlbnwwfHx8fDE3MTkzNDM2MTI&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "mobles disseny"
     },
     {
       "id": "product-home-decor",
-      "description": "Prestatgeries amb diversos articles decoratius com plantes i ceràmica.",
-      "imageUrl": "https://images.unsplash.com/photo-1720798231764-06391343c4f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Un prestatge amb objectes de decoració com gerros, plantes i llibres.",
+      "imageUrl": "https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxzZWFyY2h8MXx8ZGVjb3JhY2lvJTIwbGxhcnxlbnwwfHx8fDE3MTkzNDM2MTM&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "decoració llar"
     }
   ]
