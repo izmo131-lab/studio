@@ -33,17 +33,15 @@ export default function Consulting() {
           </div>
           <div className="order-1 md:order-2">
             {consultingImage && (
-              <Card className="overflow-hidden">
-                <CardContent className="p-0">
-                  <Image
-                    src={consultingImage.imageUrl}
-                    alt={consultingImage.description}
-                    width={800}
-                    height={600}
-                    className="object-cover w-full h-full rounded-lg shadow-lg"
-                    data-ai-hint={consultingImage.imageHint}
-                  />
-                </CardContent>
+              <Card className="overflow-hidden shadow-lg rounded-lg">
+                <Image
+                  src={consultingImage.imageUrl}
+                  alt={consultingImage.description}
+                  width={800}
+                  height={600}
+                  className="object-cover w-full h-full"
+                  data-ai-hint={consultingImage.imageHint}
+                />
               </Card>
             )}
           </div>
