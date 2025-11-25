@@ -2,33 +2,33 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Un magatzem logístic modern amb prestatgeries i caixes",
+      "description": "A modern logistics warehouse with shelves and boxes",
       "imageUrl": "https://images.unsplash.com/photo-1627309366653-2dedc084cdf1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsb2dpc3RpY3MlMjB3YXJlaG91c2V8ZW58MHx8fHwxNzYzNTcyNjc2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "magatzem logística"
+      "imageHint": "logistics warehouse"
     },
     {
       "id": "consulting-image",
-      "description": "Un equip de professionals discutint un pla logístic en una pissarra blanca",
+      "description": "A team of professionals discussing a logistics plan on a whiteboard",
       "imageUrl": "https://images.unsplash.com/photo-1573205485246-ee99bb898ff6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2dpc3RpY3MlMjBwbGFubmluZ3xlbnwwfHx8fDE3NjM1ODAwNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "planificació logística"
+      "imageHint": "logistics planning"
     },
     {
       "id": "testimonial-avatar-1",
-      "description": "Avatar per a un testimoni de client",
+      "description": "Avatar for a customer testimonial",
       "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM0NzE1OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "retrat persona"
+      "imageHint": "person portrait"
     },
     {
       "id": "testimonial-avatar-2",
-      "description": "Avatar per a un testimoni de client",
+      "description": "Avatar for a customer testimonial",
       "imageUrl": "https://images.unsplash.com/photo-1592621385612-4d7129426394?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx3b21hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc2MzUzOTkzOHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "retrat dona"
+      "imageHint": "woman portrait"
     },
     {
       "id": "testimonial-avatar-3",
-      "description": "Avatar per a un testimoni de client",
+      "description": "Avatar for a customer testimonial",
       "imageUrl": "https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM0OTU3MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "retrat home"
+      "imageHint": "man portrait"
     }
   ]
 }

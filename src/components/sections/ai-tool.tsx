@@ -21,12 +21,12 @@ function SubmitButton() {
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Optimitzant...
+          Optimizing...
         </>
       ) : (
         <>
           <Bot className="mr-2 h-4 w-4" />
-          Obtenir Suggeriments d'IA
+          Get AI Suggestions
         </>
       )}
     </Button>
@@ -38,7 +38,7 @@ export default function AiTool() {
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (state.message === 'Èxit' && state.suggestions) {
+    if (state.message === 'Success' && state.suggestions) {
       formRef.current?.reset();
     }
   }, [state]);
@@ -47,9 +47,9 @@ export default function AiTool() {
     <section id="ai-tool" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Optimitzador Logístic amb IA</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">AI Logistics Optimizer</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Descriu els teus reptes logístics i deixa que la nostra IA proporcioni suggeriments basats en dades per millorar l'eficiència i reduir costos.
+            Describe your logistical challenges and let our AI provide data-driven suggestions to improve efficiency and reduce costs.
           </p>
         </div>
 
@@ -59,23 +59,23 @@ export default function AiTool() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Bot className="text-primary" />
-                  Descriu el Teu Repte
+                  Describe Your Challenge
                 </CardTitle>
                 <CardDescription>
-                  Sigues tan detallat com sigui possible per a les millors recomanacions. Per exemple, esmenta retards, costos elevats, problemes d'inventari o ineficiències de ruta.
+                  Be as detailed as possible for the best recommendations. For example, mention delays, high costs, inventory issues, or route inefficiencies.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Textarea
                   name="logisticalChallenges"
-                  placeholder="p. ex., 'Estem experimentant retards freqüents en el nostre lliurament d'última milla a les zones urbanes, la qual cosa comporta un augment dels costos de combustible i la insatisfacció dels clients...'"
+                  placeholder="e.g., 'We are experiencing frequent delays in our last-mile delivery in urban areas, leading to increased fuel costs and customer dissatisfaction...'"
                   rows={5}
                   required
                 />
                 {state.errors?.logisticalChallenges && (
                   <p className="text-sm font-medium text-destructive mt-2">{state.errors.logisticalChallenges[0]}</p>
                 )}
-                 {state.message && state.message !== 'Èxit' && !state.suggestions && (
+                 {state.message && state.message !== 'Success' && !state.suggestions && (
                   <p className="text-sm font-medium text-destructive mt-2">{state.message}</p>
                 )}
               </CardContent>
@@ -90,7 +90,7 @@ export default function AiTool() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <ThumbsUp className="text-green-500" />
-                  Suggeriments Impulsats per IA
+                  AI-Powered Suggestions
                 </CardTitle>
               </CardHeader>
               <CardContent>

@@ -15,10 +15,10 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
-  name: z.string().min(2, "El nom ha de tenir almenys 2 caràcters."),
-  email: z.string().email("Si us plau, introdueix una adreça de correu electrònic vàlida."),
-  inquiryType: z.string({ required_error: "Si us plau, selecciona un tipus de consulta." }),
-  message: z.string().min(10, "El missatge ha de tenir almenys 10 caràcters.").max(500, "El missatge no pot tenir més de 500 caràcters."),
+  name: z.string().min(2, "Name must be at least 2 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  inquiryType: z.string({ required_error: "Please select an inquiry type." }),
+  message: z.string().min(10, "Message must be at least 10 characters.").max(500, "Message cannot exceed 500 characters."),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -42,7 +42,7 @@ export default function Contact() {
       const result = await submitContactForm(data);
       if (result.success) {
         toast({
-          title: "Èxit!",
+          title: "Success!",
           description: result.message,
         });
         form.reset();
@@ -52,8 +52,8 @@ export default function Contact() {
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Ups! Alguna cosa ha anat malament.",
-        description: "Hi ha hagut un problema amb la teva sol·licitud. Si us plau, torna-ho a provar.",
+        title: "Uh oh! Something went wrong.",
+        description: "There was a problem with your request. Please try again.",
       });
     }
   }
@@ -63,9 +63,9 @@ export default function Contact() {
       <div className="container mx-auto px-4 max-w-4xl">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl md:text-4xl font-headline">Posa't en Contacte</CardTitle>
+            <CardTitle className="text-3xl md:text-4xl font-headline">Get in Touch</CardTitle>
             <CardDescription className="text-lg">
-              Tens alguna pregunta o necessites una solució logística a mida? Omple el formulari de sota.
+              Have a question or need a custom logistics solution? Fill out the form below.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -77,9 +77,9 @@ export default function Contact() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Nom Complert</FormLabel>
+                        <FormLabel>Full Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Joan Garcia" {...field} />
+                          <Input placeholder="John Doe" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -90,9 +90,9 @@ export default function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Adreça de correu electrònic</FormLabel>
+                        <FormLabel>Email Address</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="joan.garcia@exemple.com" {...field} />
+                          <Input type="email" placeholder="john.doe@example.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -104,18 +104,18 @@ export default function Contact() {
                   name="inquiryType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Tipus de Consulta</FormLabel>
+                      <FormLabel>Inquiry Type</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Selecciona un tipus de consulta" />
+                            <SelectValue placeholder="Select an inquiry type" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="custom-solution">Sol·licitud de Solució a Mida</SelectItem>
-                          <SelectItem value="consulting">Consulta de Consultoria</SelectItem>
-                          <SelectItem value="general">Pregunta General</SelectItem>
-                          <SelectItem value="partnership">Col·laboració</SelectItem>
+                          <SelectItem value="custom-solution">Custom Solution Request</SelectItem>
+                          <SelectItem value="consulting">Consulting Inquiry</SelectItem>
+                          <SelectItem value="general">General Question</SelectItem>
+                          <SelectItem value="partnership">Partnership</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
@@ -127,10 +127,10 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>El Teu Missatge</FormLabel>
+                      <FormLabel>Your Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Si us plau, descriu les teves necessitats o pregunta en detall..."
+                          placeholder="Please describe your needs or question in detail..."
                           className="min-h-[120px]"
                           {...field}
                         />
@@ -142,7 +142,7 @@ export default function Contact() {
                 <div className="flex justify-end">
                   <Button type="submit" disabled={isSubmitting}>
                     {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                    Envia Missatge
+                    Send Message
                   </Button>
                 </div>
               </form>

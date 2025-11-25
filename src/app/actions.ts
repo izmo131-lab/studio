@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const aiFormSchema = z.object({
   logisticalChallenges: z.string().min(10, {
-    message: 'Si us plau, descriu els teus reptes logístics en almenys 10 caràcters.',
+    message: 'Please describe your logistical challenges in at least 10 characters.',
   }),
 });
 
@@ -16,7 +16,7 @@ export async function getLogisticsSuggestion(prevState: any, formData: FormData)
 
   if (!validatedFields.success) {
     return {
-      message: 'La validació ha fallat.',
+      message: 'Validation failed.',
       errors: validatedFields.error.flatten().fieldErrors,
       suggestions: null,
     };
@@ -28,14 +28,14 @@ export async function getLogisticsSuggestion(prevState: any, formData: FormData)
     };
     const result = await optimizeLogisticsProcesses(input);
     return {
-      message: 'Èxit',
+      message: 'Success',
       suggestions: result.suggestions,
       errors: null,
     };
   } catch (error) {
     console.error(error);
     return {
-      message: 'S\'ha produït un error en generar els suggeriments. Si us plau, torna-ho a provar.',
+      message: 'An error occurred while generating suggestions. Please try again.',
       suggestions: null,
       errors: null,
     };
@@ -43,22 +43,22 @@ export async function getLogisticsSuggestion(prevState: any, formData: FormData)
 }
 
 const contactFormSchema = z.object({
-    name: z.string().min(2, "El nom ha de tenir almenys 2 caràcters."),
-    email: z.string().email("Si us plau, introdueix una adreça de correu electrònic vàlida."),
+    name: z.string().min(2, "Name must be at least 2 characters."),
+    email: z.string().email("Please enter a valid email address."),
     inquiryType: z.string(),
-    message: z.string().min(10, "El missatge ha de tenir almenys 10 caràcters."),
+    message: z.string().min(10, "Message must be at least 10 characters."),
 });
 
 export async function submitContactForm(data: z.infer<typeof contactFormSchema>) {
     const validation = contactFormSchema.safeParse(data);
 
     if (!validation.success) {
-        return { success: false, message: "Dades del formulari invàlides." };
+        return { success: false, message: "Invalid form data." };
     }
 
     // Here you would typically send an email, save to a database, etc.
     // For this demo, we'll just log it and return success.
-    console.log("Nou enviament de formulari de contacte:", validation.data);
+    console.log("New contact form submission:", validation.data);
 
-    return { success: true, message: "Gràcies pel teu missatge! Ens posarem en contacte amb tu aviat." };
+    return { success: true, message: "Thanks for your message! We'll be in touch soon." };
 }

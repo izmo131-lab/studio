@@ -11,7 +11,7 @@ export default function Footer() {
               <Package className="h-7 w-7 text-primary" />
               <span className="font-headline">Ivora Solutions</span>
             </Link>
-            <p className="mt-2 max-w-sm">El teu soci en transport de mercaderies, logística integral, emmagatzematge i distribució.</p>
+            <p className="mt-2 max-w-sm">Your partner in freight transport, comprehensive logistics, warehousing, and distribution.</p>
           </div>
           <div className="flex items-center space-x-4">
             <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-6 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Ivora Solutions. Tots els drets reservats.</p>
+          <p>&copy; {new Date().getFullYear()} Ivora Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>
