@@ -7,7 +7,7 @@ export default function Hero() {
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
 
   return (
-    <section className="relative h-[60vh] md:h-[80vh] w-full flex items-center justify-center text-center text-white">
+    <section className="relative h-[70vh] md:h-screen w-full flex items-center justify-center text-center text-white">
       {heroImage && (
         <Image
           src={heroImage.imageUrl}
@@ -18,12 +18,12 @@ export default function Hero() {
           data-ai-hint={heroImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-black/60" />
-      <div className="relative z-10 max-w-4xl mx-auto px-4">
-        <h1 className="text-4xl md:text-6xl font-headline font-bold mb-4 tracking-tight">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent" />
+      <div className="relative z-10 max-w-4xl mx-auto px-4 animate-fade-in-up">
+        <h1 className="text-4xl md:text-7xl font-headline font-bold mb-4 tracking-tight text-shadow-lg">
           Ivora Logistics: Excel·lència en transport i logística.
         </h1>
-        <p className="text-lg md:text-xl text-primary-foreground/80 mb-8">
+        <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto text-shadow">
           La vostra operadora de transport de confiança. Especialistes en productes de disseny i decoració, amb solucions integrals de logística i emmagatzematge.
         </p>
         <div className="flex gap-4 justify-center">
@@ -31,7 +31,7 @@ export default function Hero() {
             <Link href="#contact">Contacta amb Nosaltres</Link>
           </Button>
           <Button size="lg" variant="secondary" asChild>
-            <Link href="#products">Els Nostres Productes</Link>
+            <Link href="#services">Els Nostres Serveis</Link>
           </Button>
         </div>
       </div>

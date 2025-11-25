@@ -31,10 +31,10 @@ const products: Product[] = [
 
 export default function Products() {
   return (
-    <section id="products" className="py-16 md:py-24 bg-secondary">
+    <section id="products" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Els Nostres Productes</h2>
+          <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-tight">Els Nostres Productes</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             La nostra selecció especialitzada en disseny i decoració per a la teva llar o negoci.
           </p>
@@ -44,7 +44,7 @@ export default function Products() {
             align: 'start',
             loop: true,
           }}
-          className="w-full max-w-4xl mx-auto"
+          className="w-full max-w-5xl mx-auto"
         >
           <CarouselContent>
             {products.map((product, index) => {
@@ -52,14 +52,14 @@ export default function Products() {
                return (
                 <CarouselItem key={index} className="md:basis-1/2">
                   <div className="p-1 h-full">
-                    <Card className="h-full overflow-hidden">
+                    <Card className="h-full overflow-hidden group">
                        {productImage && (
-                         <div className="relative h-64 w-full">
+                         <div className="relative h-80 w-full">
                           <Image
                             src={productImage.imageUrl}
                             alt={productImage.description}
                             fill
-                            className="object-cover"
+                            className="object-cover transform transition-transform duration-500 group-hover:scale-105"
                             data-ai-hint={productImage.imageHint}
                           />
                          </div>
@@ -68,7 +68,7 @@ export default function Products() {
                         <div className="mx-auto bg-primary/10 p-3 rounded-full inline-block mb-4">
                           <product.icon className="h-8 w-8 text-primary" />
                         </div>
-                        <h3 className="font-headline text-xl font-bold mb-2">{product.title}</h3>
+                        <h3 className="font-headline text-xl font-semibold mb-2">{product.title}</h3>
                         <p className="text-muted-foreground">{product.description}</p>
                       </CardContent>
                     </Card>

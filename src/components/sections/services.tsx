@@ -33,24 +33,24 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 md:py-24 bg-background">
+    <section id="services" className="py-16 md:py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Els Nostres Serveis</h2>
+          <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-tight">Els Nostres Serveis</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Oferim una suite completa de serveis per combinar innovació, sostenibilitat i excel·lència.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="flex flex-col text-center items-center hover:shadow-lg transition-shadow duration-300 bg-card">
+            <Card key={index} className="flex flex-col text-center items-center transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl bg-card">
               <CardHeader>
                 <div className="mx-auto bg-primary/10 p-4 rounded-full">
                   <service.icon className="h-10 w-10 text-primary" />
                 </div>
               </CardHeader>
               <CardContent className="flex flex-col flex-grow">
-                <CardTitle className="mb-2 font-headline text-xl">{service.title}</CardTitle>
+                <CardTitle className="mb-2 font-headline text-xl font-semibold">{service.title}</CardTitle>
                 <p className="text-muted-foreground flex-grow">{service.description}</p>
               </CardContent>
             </Card>

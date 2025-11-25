@@ -28,15 +28,15 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
+      <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Package className="h-6 w-6 text-primary" />
-          <span className="font-headline">Ivora Logistics</span>
+          <span className="font-headline tracking-tight text-xl">Ivora Logistics</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-foreground/80 transition-colors hover:text-foreground">
+            <Link key={link.href} href={link.href} className="text-foreground/70 transition-colors hover:text-foreground">
               {link.label}
             </Link>
           ))}
@@ -80,7 +80,7 @@ export default function Header() {
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
                       <Package className="h-6 w-6 text-primary" />
-                      <span className="font-headline">Ivora Logistics</span>
+                      <span className="font-headline tracking-tight text-xl">Ivora Logistics</span>
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-4 p-4">

@@ -11,7 +11,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['Inter', 'sans-serif'],
-        headline: ['Inter', 'sans-serif'],
+        headline: ['Playfair Display', 'serif'],
         code: ['monospace'],
       },
       colors: {
@@ -66,6 +66,10 @@ export default {
           ring: 'hsl(var(--sidebar-ring))',
         },
       },
+      textShadow: {
+        DEFAULT: '0 2px 4px rgba(0,0,0,0.4)',
+        lg: '0 2px 10px rgba(0,0,0,0.5)',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -88,12 +92,39 @@ export default {
             height: '0',
           },
         },
+        'fade-in-up': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(20px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'),
+    function ({ addUtilities, theme }: { addUtilities: any; theme: any }) {
+      const newUtilities = {
+        '.text-shadow': {
+          textShadow: theme('textShadow.DEFAULT'),
+        },
+        '.text-shadow-lg': {
+          textShadow: theme('textShadow.lg'),
+        },
+        '.text-shadow-none': {
+          textShadow: 'none',
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    },
+  ],
 } satisfies Config;
