@@ -28,10 +28,10 @@ export default function Hero() {
         </p>
         <div className="flex gap-4 justify-center">
           <Button size="lg" asChild>
-            <Link href="#contact">Contacta amb Nosaltres</Link>
+            <Link href="/contacte">Contacta amb Nosaltres</Link>
           </Button>
           <Button size="lg" variant="secondary" asChild>
-            <Link href="#services">Els Nostres Serveis</Link>
+            <Link href="/serveis">Els Nostres Serveis</Link>
           </Button>
         </div>
       </div>

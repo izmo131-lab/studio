@@ -13,15 +13,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const navLinks = [
-  { href: '/#about', label: 'Sobre Nosaltres' },
-  { href: '/#services', label: 'Serveis' },
-  { href: '/#products', label: 'Productes' },
-  { href: '/#consulting', label: 'Innovació' },
-  { href: '/#ai-tool', label: 'Optimitzador IA' },
-  { href: '/#chatbot', label: 'Atenció al Client' },
+  { href: '/sobre-nosaltres', label: 'Sobre Nosaltres' },
+  { href: '/serveis', label: 'Serveis' },
+  { href: '/productes', label: 'Productes' },
+  { href: '/innovacio', label: 'Innovació' },
+  { href: '/optimitzador-ia', label: 'Optimitzador IA' },
+  { href: '/atencio-al-client', label: 'Atenció al Client' },
   { href: '/blog', label: 'Blog' },
-  { href: '/#testimonials', label: 'Clients' },
-  { href: '/#contact', label: 'Contacte' },
+  { href: '/contacte', label: 'Contacte' },
 ];
 
 export default function Header() {
@@ -64,7 +63,7 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
           <Button asChild>
-            <Link href="#contact">Demana un Pressupost</Link>
+            <Link href="/contacte">Demana un Pressupost</Link>
           </Button>
         </div>
 
@@ -117,7 +116,7 @@ export default function Header() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <Button asChild className="w-full">
-                    <Link href="#contact" onClick={() => setIsOpen(false)}>Demana un Pressupost</Link>
+                    <Link href="/contacte" onClick={() => setIsOpen(false)}>Demana un Pressupost</Link>
                   </Button>
                 </div>
               </div>

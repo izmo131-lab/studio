@@ -46,7 +46,7 @@ export default function About() {
               </div>
             </div>
             <Button asChild size="lg">
-              <Link href="#contact">Descobreix com podem ajudar-te</Link>
+              <Link href="/contacte">Descobreix com podem ajudar-te</Link>
             </Button>
           </div>
           <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-lg">

@@ -1,15 +1,13 @@
 import Header from '@/components/layout/header';
-import Hero from '@/components/sections/hero';
-import Testimonials from '@/components/sections/testimonials';
 import Footer from '@/components/layout/footer';
+import Services from '@/components/sections/services';
 
-export default function Home() {
+export default function ServeisPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
-        <Hero />
-        <Testimonials />
+        <Services />
       </main>
       <Footer />
     </div>
