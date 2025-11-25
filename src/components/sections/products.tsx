@@ -1,11 +1,17 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+"use client"
+
+import { Card, CardContent } from '@/components/ui/card';
 import { Palette, Home } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 interface Product {
   icon: LucideIcon;
   title: string;
   description: string;
+  imageId: string;
 }
 
 const products: Product[] = [
@@ -13,11 +19,13 @@ const products: Product[] = [
     icon: Palette,
     title: 'Especialistes en Disseny',
     description: 'Transport i emmagatzematge especialitzat per a productes de disseny, amb la màxima cura i precisió.',
+    imageId: 'product-design-specialists',
   },
   {
     icon: Home,
     title: 'Decoració de la Llar',
     description: 'Oferim una selecció curada de productes de decoració per transformar qualsevol espai.',
+    imageId: 'product-home-decor',
   },
 ];
 
@@ -31,21 +39,47 @@ export default function Products() {
             La nostra selecció especialitzada en disseny i decoració per a la teva llar o negoci.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {products.map((product, index) => (
-            <Card key={index} className="flex flex-col text-center items-center hover:shadow-lg transition-shadow duration-300 bg-card">
-              <CardHeader>
-                <div className="mx-auto bg-primary/10 p-4 rounded-full">
-                  <product.icon className="h-10 w-10 text-primary" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <CardTitle className="mb-2 font-headline text-xl">{product.title}</CardTitle>
-                <p className="text-muted-foreground">{product.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: 'start',
+            loop: true,
+          }}
+          className="w-full max-w-4xl mx-auto"
+        >
+          <CarouselContent>
+            {products.map((product, index) => {
+               const productImage = PlaceHolderImages.find(p => p.id === product.imageId);
+               return (
+                <CarouselItem key={index} className="md:basis-1/2">
+                  <div className="p-1 h-full">
+                    <Card className="h-full overflow-hidden">
+                       {productImage && (
+                         <div className="relative h-64 w-full">
+                          <Image
+                            src={productImage.imageUrl}
+                            alt={productImage.description}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={productImage.imageHint}
+                          />
+                         </div>
+                       )}
+                      <CardContent className="p-6 text-center">
+                        <div className="mx-auto bg-primary/10 p-3 rounded-full inline-block mb-4">
+                          <product.icon className="h-8 w-8 text-primary" />
+                        </div>
+                        <h3 className="font-headline text-xl font-bold mb-2">{product.title}</h3>
+                        <p className="text-muted-foreground">{product.description}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious className="hidden sm:flex" />
+          <CarouselNext className="hidden sm:flex" />
+        </Carousel>
       </div>
     </section>
   );
