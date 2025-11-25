@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Truck, Warehouse, Boxes, Wrench, Palette } from 'lucide-react';
+import { Truck, Warehouse, Boxes, Wrench, Palette, Home } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface Service {
@@ -12,7 +12,12 @@ const services: Service[] = [
   {
     icon: Palette,
     title: 'Especialistes en Disseny',
-    description: 'Transport i emmagatzematge especialitzat per a productes de disseny i decoració, amb la màxima cura i precisió.',
+    description: 'Transport i emmagatzematge especialitzat per a productes de disseny, amb la màxima cura i precisió.',
+  },
+  {
+    icon: Home,
+    title: 'Decoració de la Llar',
+    description: 'Oferim una selecció curada de productes de decoració per transformar qualsevol espai.',
   },
   {
     icon: Wrench,
@@ -36,7 +41,7 @@ export default function Products() {
             Oferim una suite completa de serveis per combinar innovació, sostenibilitat i excel·lència.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Card key={index} className="flex flex-col text-center items-center hover:shadow-lg transition-shadow duration-300 bg-card">
               <CardHeader>
