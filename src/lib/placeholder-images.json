@@ -3,13 +3,13 @@
     {
       "id": "hero-background",
       "description": "Un camió de logística modern en una autopista al capvespre, simbolitzant el moviment i l'eficiència.",
-      "imageUrl": "https://images.unsplash.com/photo-1754726370949-63be952a1d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYW1pJUMzJUIzJTIwbG9nJUMzJUFEc3RpY2F8ZW58MHx8fHwxNzY0MDg0NjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1754470276342-df40e5d4e607?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYW1pJUMzJUIzJTIwbG9nJUMzJUFEc3RpY2F8ZW58MHx8fHwxNzY0MDg0NjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "camió logística"
     },
     {
       "id": "about-us-image",
       "description": "Un equip de professionals col·laborant en un magatzem modern, representant el treball en equip i l'experiència.",
-      "imageUrl": "https://picsum.photos/seed/warehouse-team/800/600",
+      "imageUrl": "https://picsum.photos/seed/teamwork/800/600",
       "imageHint": "equip logística"
     },
     {
@@ -21,13 +21,13 @@
     {
       "id": "testimonial-avatar-1",
       "description": "Retrat d'una dona professional amb un somriure, per a un testimoni de client.",
-      "imageUrl": "https://images.unsplash.com/photo-1677537946831-4590ff82359c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmV0cmF0JTIwZG9uYXxlbnwwfHx8fDE3NjQwODM5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582561612646-279947d3ab98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "retrat dona"
     },
     {
       "id": "testimonial-avatar-2",
       "description": "Retrat d'un home professional amb un aspecte segur, per a un testimoni de client.",
-      "imageUrl": "https://picsum.photos/seed/testimonial-man/200/200",
+      "imageUrl": "https://picsum.photos/seed/man1/200/200",
       "imageHint": "retrat home"
     },
     {
@@ -39,31 +39,31 @@
     {
       "id": "blog-post-1",
       "description": "Una il·lustració d'un cervell digital i robots treballant, representant la IA a la logística.",
-      "imageUrl": "https://picsum.photos/seed/ai-logistics-blog/800/400",
+      "imageUrl": "https://picsum.photos/seed/ai-logistics/800/400",
       "imageHint": "IA logística"
     },
     {
       "id": "blog-post-2",
       "description": "Un paisatge verd amb turbines eòliques i un camió de repartiment, simbolitzant la logística sostenible.",
-      "imageUrl": "https://images.unsplash.com/photo-1585359069971-e12bba271987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsb2clQzMlQURzdGljYSUyMHNvc3RlbmlibGV8ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1723158098162-c326999a317e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2clQzMlQURzdGljYSUyMHNvc3RlbmlibGV8ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "logística sostenible"
     },
     {
       "id": "blog-post-3",
       "description": "Una visualització de dades de blockchain, representant la transparència i la traçabilitat.",
-      "imageUrl": "https://images.unsplash.com/photo-1582693692339-3f6556e86f43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0cmElQzMlQTdhYmlsaXRhdCUyMGJsb2NrY2hhaW58ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1642354984104-90e16a092c47?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dHJhJUMzJUE3YWJpbGl0YXQlMjBibG9ja2NoYWlufGVufDB8fHx8MTc2NDA4NDc5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "traçabilitat blockchain"
     },
     {
       "id": "product-design-specialists",
       "description": "Mobles de disseny modern en una habitació elegantment decorada.",
-      "imageUrl": "https://images.unsplash.com/photo-1670104344069-e91f7c913e01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2JsZXMlMjBkaXNzZW55fGVufDB8fHx8MTc2NDA4NDY2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1670222061552-c273834aee0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtb2JsZXMlMjBkaXNzZW55fGVufDB8fHx8MTc2NDA4NDY2OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "mobles disseny"
     },
     {
       "id": "product-home-decor",
       "description": "Detalls de decoració en un prestatge, incloent-hi plantes i objectes d'art.",
-      "imageUrl": "https://images.unsplash.com/photo-1709194406915-7b7fe700956b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1694440507448-358aaba4f7d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "decoració llar"
     }
   ]
