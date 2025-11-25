@@ -3,19 +3,19 @@
     {
       "id": "hero-background",
       "description": "Un magatzem logístic modern amb prestatgeries i caixes",
-      "imageUrl": "https://images.unsplash.com/photo-1560251406-57d2dca57aaf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtYWdhdHplbSUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1656857169908-4ffa5fae56dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYWdhdHplbSUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "magatzem logística"
     },
     {
       "id": "about-us-image",
       "description": "L'equip d'Ivora Logistics treballant a l'oficina",
-      "imageUrl": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsb2dpc3RpY3MlMjB0ZWFtfGVufDB8fHx8MTc2NDEwNDYxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/teamwork/800/600",
       "imageHint": "equip logística"
     },
     {
       "id": "consulting-image",
       "description": "Un equip de professionals discutint un pla logístic en una pissarra blanca",
-      "imageUrl": "https://images.unsplash.com/photo-1679132935019-7d349071bdc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwbGFuaWZpY2FjaSVDMyVCMyUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1618393678187-fb258b8ee191?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwbGFuaWZpY2FjaSVDMyVCMyUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "planificació logística"
     },
     {
@@ -27,7 +27,7 @@
     {
       "id": "testimonial-avatar-2",
       "description": "Avatar per a un testimoni de client",
-      "imageUrl": "https://images.unsplash.com/photo-1582561612646-279947d3ab98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1592206934769-67dc0e88b5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "retrat dona"
     },
     {
@@ -45,7 +45,7 @@
     {
       "id": "blog-post-2",
       "description": "Una imatge sobre cadenes de subministrament sostenibles",
-      "imageUrl": "https://images.unsplash.com/photo-1592495169089-a37c0b5b96bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjYWRlbmElMjBzdWJtaW5pc3RyYW1lbnQlMjBzb3N0ZW5pYmxlfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1637851634651-f7c85aa9a9e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYWRlbmElMjBzdWJtaW5pc3RyYW1lbnQlMjBzb3N0ZW5pYmxlfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cadena subministrament sostenible"
     },
     {
@@ -57,13 +57,13 @@
     {
       "id": "product-design-specialists",
       "description": "Una habitació elegant amb mobles de disseny modern.",
-      "imageUrl": "https://images.unsplash.com/photo-1646581792211-49251679987b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxkaXNzZW55JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1602500501334-7a1324ae8fe2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkaXNzZW55JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "disseny interior"
     },
     {
       "id": "product-home-decor",
       "description": "Prestatgeries amb diversos articles decoratius com plantes i ceràmica.",
-      "imageUrl": "https://images.unsplash.com/photo-1709194406915-7b7fe700956b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1720798231764-06391343c4f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "decoració llar"
     }
   ]
