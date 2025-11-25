@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { CheckCircle } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 
 export default function Consulting() {
   const consultingImage = PlaceHolderImages.find(p => p.id === 'consulting-image');
