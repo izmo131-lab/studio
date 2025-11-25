@@ -2,68 +2,68 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Un camió de logística circulant per una autopista al capvespre, simbolitzant el transport i l'eficiència.",
-      "imageUrl": "https://images.unsplash.com/photo-1711588312216-b722f0dec10a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2FtaSVDMyVCMyUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4NDY2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Un camió de logística modern en una autopista al capvespre, simbolitzant el moviment i l'eficiència.",
+      "imageUrl": "https://images.unsplash.com/photo-1754726370949-63be952a1d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYW1pJUMzJUIzJTIwbG9nJUMzJUFEc3RpY2F8ZW58MHx8fHwxNzY0MDg0NjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "camió logística"
     },
     {
       "id": "about-us-image",
-      "description": "Tres persones en un magatzem logístic revisant documents, representant els tres fundadors d'Ivora Logistics.",
-      "imageUrl": "https://picsum.photos/seed/logistics-team/800/600",
+      "description": "Un equip de professionals col·laborant en un magatzem modern, representant el treball en equip i l'experiència.",
+      "imageUrl": "https://picsum.photos/seed/warehouse-team/800/600",
       "imageHint": "equip logística"
     },
     {
       "id": "consulting-image",
-      "description": "Una imatge que mostra un dron volant dins d'un magatzem modern, representant la innovació i tecnologia en la logística.",
-      "imageUrl": "https://images.unsplash.com/photo-1547116262-a7365d627e61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpbm5vdmFjaSVDMyVCMyUyMGxvZyVDMyVBRHN0aWNhfGVufDB8fHx8MTc2NDA4NDY2OHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "innovació logística"
+      "description": "Una imatge abstracta de xarxes neuronals i tecnologia, simbolitzant la IA i la innovació en la logística.",
+      "imageUrl": "https://images.unsplash.com/photo-1589829068083-7cbcc8f6eed4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbm5vdmFjaSVDMyVCMyUyMHRlY25vbG9naWF8ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "innovació tecnologia"
     },
     {
       "id": "testimonial-avatar-1",
-      "description": "Retrat d'una dona professional per a un testimoni.",
-      "imageUrl": "https://images.unsplash.com/photo-1749755417237-1bc0ba8125f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Retrat d'una dona professional amb un somriure, per a un testimoni de client.",
+      "imageUrl": "https://images.unsplash.com/photo-1677537946831-4590ff82359c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmV0cmF0JTIwZG9uYXxlbnwwfHx8fDE3NjQwODM5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "retrat dona"
     },
     {
       "id": "testimonial-avatar-2",
-      "description": "Retrat d'un home professional per a un testimoni.",
-      "imageUrl": "https://picsum.photos/seed/man-portrait-1/200/200",
+      "description": "Retrat d'un home professional amb un aspecte segur, per a un testimoni de client.",
+      "imageUrl": "https://picsum.photos/seed/testimonial-man/200/200",
       "imageHint": "retrat home"
     },
     {
       "id": "testimonial-avatar-3",
-      "description": "Retrat d'una altra dona professional per a un testimoni.",
-      "imageUrl": "https://images.unsplash.com/photo-1592206934769-67dc0e88b5e3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Retrat d'una altra dona professional en un entorn d'oficina.",
+      "imageUrl": "https://images.unsplash.com/photo-1749755417237-1bc0ba8125f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "retrat dona"
     },
     {
       "id": "blog-post-1",
-      "description": "Una imatge futurista amb robots i IA en un magatzem logístic.",
-      "imageUrl": "https://picsum.photos/seed/ai-logistics/800/400",
+      "description": "Una il·lustració d'un cervell digital i robots treballant, representant la IA a la logística.",
+      "imageUrl": "https://picsum.photos/seed/ai-logistics-blog/800/400",
       "imageHint": "IA logística"
     },
     {
       "id": "blog-post-2",
-      "description": "Panells solars en el sostre d'un magatzem i camions elèctrics, representant la sostenibilitat.",
-      "imageUrl": "https://images.unsplash.com/photo-1707793751212-5a129621991e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYWRlbmElMjBzdWJtaW5pc3RyYW1lbnQlMjBzb3N0ZW5pYmxlfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "cadena subministrament sostenible"
+      "description": "Un paisatge verd amb turbines eòliques i un camió de repartiment, simbolitzant la logística sostenible.",
+      "imageUrl": "https://images.unsplash.com/photo-1585359069971-e12bba271987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxsb2clQzMlQURzdGljYSUyMHNvc3RlbmlibGV8ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "logística sostenible"
     },
     {
       "id": "blog-post-3",
-      "description": "Una mà sostenint un telèfon mòbil que mostra el seguiment d'un paquet en un mapa, representant la transparència.",
-      "imageUrl": "https://picsum.photos/seed/logistics-tracking/800/400",
-      "imageHint": "traçabilitat logística"
+      "description": "Una visualització de dades de blockchain, representant la transparència i la traçabilitat.",
+      "imageUrl": "https://images.unsplash.com/photo-1582693692339-3f6556e86f43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0cmElQzMlQTdhYmlsaXRhdCUyMGJsb2NrY2hhaW58ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "traçabilitat blockchain"
     },
     {
       "id": "product-design-specialists",
-      "description": "Un sofà de disseny en un interior modern i minimalista.",
-      "imageUrl": "https://images.unsplash.com/photo-1705408738609-4f782086d1ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2JsZXMlMjBkaXNzZW55fGVufDB8fHx8MTc2NDA4NDY2OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Mobles de disseny modern en una habitació elegantment decorada.",
+      "imageUrl": "https://images.unsplash.com/photo-1670104344069-e91f7c913e01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtb2JsZXMlMjBkaXNzZW55fGVufDB8fHx8MTc2NDA4NDY2OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "mobles disseny"
     },
     {
       "id": "product-home-decor",
-      "description": "Un prestatge amb objectes de decoració com gerros, plantes i llibres.",
-      "imageUrl": "https://images.unsplash.com/photo-1621715365938-9eab2b5d8ef1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Detalls de decoració en un prestatge, incloent-hi plantes i objectes d'art.",
+      "imageUrl": "https://images.unsplash.com/photo-1709194406915-7b7fe700956b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "decoració llar"
     }
   ]
