@@ -8,10 +8,10 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
   { href: '/#services', label: 'Serveis' },
-  { href: '/#consulting', label: 'Consultoria' },
+  { href: '/#consulting', label: 'Innovació' },
   { href: '/#ai-tool', label: 'Optimitzador IA' },
   { href: '/blog', label: 'Blog' },
-  { href: '/#testimonials', label: 'Testimonis' },
+  { href: '/#testimonials', label: 'Clients' },
   { href: '/#contact', label: 'Contacte' },
 ];
 
@@ -23,7 +23,7 @@ export default function Header() {
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg">
           <Package className="h-6 w-6 text-primary" />
-          <span className="font-headline">Ivora Solutions</span>
+          <span className="font-headline">Ivora Logistics</span>
         </Link>
         
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
@@ -53,7 +53,7 @@ export default function Header() {
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
                       <Package className="h-6 w-6 text-primary" />
-                      <span className="font-headline">Ivora Solutions</span>
+                      <span className="font-headline">Ivora Logistics</span>
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-4 p-4">

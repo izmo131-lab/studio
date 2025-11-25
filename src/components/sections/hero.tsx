@@ -21,14 +21,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/60" />
       <div className="relative z-10 max-w-4xl mx-auto px-4">
         <h1 className="text-4xl md:text-6xl font-headline font-bold mb-4 tracking-tight">
-          Ivora Solutions: Logística Intel·ligent, Entregada.
+          Ivora Logistics: Excel·lència en transport i logística.
         </h1>
         <p className="text-lg md:text-xl text-primary-foreground/80 mb-8">
-          Des del transport de mercaderies fins a la logística integral, emmagatzematge i distribució, oferim solucions a mida per optimitzar la teva cadena de subministrament.
+          La vostra operadora de transport de confiança. Especialistes en productes de disseny i decoració, amb solucions integrals de logística i emmagatzematge.
         </p>
         <div className="flex gap-4 justify-center">
           <Button size="lg" asChild>
-            <Link href="#contact">Demana una Consulta</Link>
+            <Link href="#contact">Contacta amb Nosaltres</Link>
           </Button>
           <Button size="lg" variant="secondary" asChild>
             <Link href="#services">Els Nostres Serveis</Link>

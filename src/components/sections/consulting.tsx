@@ -7,10 +7,10 @@ export default function Consulting() {
   const consultingImage = PlaceHolderImages.find(p => p.id === 'consulting-image');
 
   const benefits = [
-    'Optimitza la gestió de la teva cadena de subministrament.',
-    'Redueix eficaçment els costos operatius.',
-    'Millora la velocitat i la fiabilitat dels lliuraments.',
-    'Aconsegueix coneixements estratègics i un avantatge competitiu.',
+    'Optimització de rutes i gestió d\'inventaris amb IA.',
+    'Automatització i robòtica col·laborativa als nostres magatzems.',
+    'Logística verda amb vehicles elèctrics i embalatges sostenibles.',
+    'Transparència total amb tecnologia blockchain per a la traçabilitat.',
   ];
 
   return (
@@ -18,9 +18,9 @@ export default function Consulting() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">Consultoria Logística Experta</h2>
+            <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">Innovació, Sostenibilitat i Tecnologia</h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Els nostres serveis de consultoria estan dissenyats per desbloquejar tot el potencial de la teva cadena de subministrament. Analitzem els teus processos, identifiquem colls d'ampolla i implementem estratègies basades en dades per a un rendiment màxim.
+              Per mantenir-nos com a referents, combinem innovació tecnològica, sostenibilitat i excel·lència. Adoptem la digitalització, la IA i l'automatització per oferir un servei eficient, segur i respectuós amb el medi ambient.
             </p>
             <ul className="space-y-4">
               {benefits.map((benefit, index) => (

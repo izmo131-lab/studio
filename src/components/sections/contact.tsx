@@ -65,7 +65,7 @@ export default function Contact() {
           <CardHeader className="text-center">
             <CardTitle className="text-3xl md:text-4xl font-headline">Posa't en Contacte</CardTitle>
             <CardDescription className="text-lg">
-              Tens alguna pregunta o necessites una solució logística a mida? Emplena el formulari següent.
+              Tens alguna pregunta o necessites una solució logística a mida? Emplena el formulari.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -79,7 +79,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Nom Complert</FormLabel>
                         <FormControl>
-                          <Input placeholder="Joan Garcia" {...field} />
+                          <Input placeholder="El teu nom" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -92,7 +92,7 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>Adreça de Correu Electrònic</FormLabel>
                         <FormControl>
-                          <Input type="email" placeholder="joan.garcia@exemple.com" {...field} />
+                          <Input type="email" placeholder="el.teu@correu.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -112,10 +112,10 @@ export default function Contact() {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="custom-solution">Sol·licitud de Solució a Mida</SelectItem>
-                          <SelectItem value="consulting">Consulta de Consultoria</SelectItem>
+                          <SelectItem value="custom-solution">Solució a Mida per a Disseny</SelectItem>
+                          <SelectItem value="international">Transport Internacional</SelectItem>
+                          <SelectItem value="storage">Emmagatzematge</SelectItem>
                           <SelectItem value="general">Pregunta General</SelectItem>
-                          <SelectItem value="partnership">Col·laboració</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />

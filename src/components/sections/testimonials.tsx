@@ -6,23 +6,23 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const testimonials = [
   {
     id: 1,
-    name: 'Joana Pons',
-    title: 'CEO, Tech Innovators',
-    quote: "Ivora Solutions va revolucionar la nostra cadena de subministrament. El seu pla logístic personalitzat ens va estalviar un 20% en costos operatius el primer trimestre. Un servei realment excepcional!",
+    name: 'Marta Soler',
+    title: 'Gerent de Disseny a "La llar amb estil"',
+    quote: "Ivora Logistics va transformar la nostra logística de productes de decoració. El seu servei especialitzat i l'embalatge a mida van garantir que les nostres peces arribessin impecables. Un soci imprescindible!",
     avatarId: 'testimonial-avatar-1',
   },
   {
     id: 2,
-    name: 'Joan Smith',
-    title: 'COO, Global Goods',
-    quote: "L'experiència de l'equip en emmagatzematge i distribució és inigualable. Els nostres productes ara arriben als clients més ràpid i de manera més fiable que mai. Molt recomanable.",
+    name: 'Carles Puig',
+    title: 'Director d\'Operacions a "Global Deco"',
+    quote: "L'eficiència i la transparència que ofereixen són d'un altre nivell. La traçabilitat amb blockchain ens dona una tranquil·litat que no havíem tingut mai. Molt recomanables.",
     avatarId: 'testimonial-avatar-2',
   },
   {
     id: 3,
-    name: 'Sònia Ray',
-    title: 'Fundadora, Eco-Friendly Wares',
-    quote: "Com a empresa en creixement, necessitàvem un soci logístic que pogués escalar amb nosaltres. La consultoria i les solucions flexibles d'Ivora han estat fonamentals en la nostra expansió.",
+    name: 'Laura Vidal',
+    title: 'Fundadora d\'"EcoDecor"',
+    quote: "El seu compromís amb la sostenibilitat va ser clau per a nosaltres. Saber que utilitzen vehicles elèctrics i embalatges reciclables s'alinea perfectament amb els valors de la nostra marca.",
     avatarId: 'testimonial-avatar-3',
   },
 ];
@@ -34,7 +34,7 @@ export default function Testimonials() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Què Diuen Els Nostres Clients</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Estem orgullosos d'haver-nos guanyat la confiança d'empreses de totes les mides.
+            Estem orgullosos de la confiança que els nostres clients dipositen en nosaltres.
           </p>
         </div>
         <Carousel

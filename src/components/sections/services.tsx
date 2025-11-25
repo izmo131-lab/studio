@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Truck, Warehouse, Boxes, Wrench, BrainCircuit } from 'lucide-react';
+import { Truck, Warehouse, Boxes, Wrench, Palette } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface Service {
@@ -11,28 +11,28 @@ interface Service {
 const services: Service[] = [
   {
     icon: Truck,
-    title: 'Transport de Mercaderies',
-    description: 'Solucions de transport fiables i eficients per a tot tipus de càrrega, garantint lliuraments puntuals.',
+    title: 'Transport Internacional',
+    description: 'Solucions de transport internacional de mercaderies fiables i eficients, garantint lliuraments puntuals a tot el món.',
   },
   {
     icon: Boxes,
     title: 'Logística Integral',
-    description: 'Gestió completa de tota la teva cadena de subministrament, des de l\'origen fins a la destinació final.',
+    description: 'Gestió completa de la teva cadena de subministrament, des de la planificació i l\'origen fins a la destinació final.',
   },
   {
     icon: Warehouse,
     title: 'Emmagatzematge i Distribució',
-    description: 'Serveis d\'emmagatzematge segur i distribució estratègica per optimitzar el teu inventari i abast.',
+    description: 'Serveis d\'emmagatzematge segur al nostre magatzem de Constantí i distribució estratègica per optimitzar el teu inventari.',
+  },
+  {
+    icon: Palette,
+    title: 'Especialistes en Disseny',
+    description: 'Transport i emmagatzematge especialitzat per a productes de disseny i decoració, amb la màxima cura i precisió.',
   },
   {
     icon: Wrench,
     title: 'Solucions a Mida',
-    description: 'Plans logístics personalitzats dissenyats per satisfer els teus requisits i reptes empresarials únics.',
-  },
-  {
-    icon: BrainCircuit,
-    title: 'Consultoria Logística',
-    description: 'Assessorament expert per optimitzar la teva cadena de subministrament, reduir costos i millorar l\'eficiència general.',
+    description: 'Desenvolupem plans logístics personalitzats i serveis premium adaptats als reptes únics del teu negoci.',
   },
 ];
 
@@ -41,9 +41,9 @@ export default function Services() {
     <section id="services" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Els Nostres Serveis Principals</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">Els Nostres Serveis</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Oferim una suite completa de serveis logístics per impulsar el teu negoci.
+            Oferim una suite completa de serveis per combinar innovació, sostenibilitat i excel·lència.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

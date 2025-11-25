@@ -24,74 +24,62 @@ function createSlug(title: string) {
 const postsData = [
   {
     id: '1',
-    title: 'El Futur de la Logística: IA i Automatització',
-    author: 'Jane Doe, Experta en Logística',
+    title: 'El Futur de la Logística: IA i Automatització a Ivora Logistics',
+    author: 'Wiam, Co-fundador',
     date: '15 de juliol de 2024',
-    excerpt: 'Descobreix com la Intel·ligència Artificial i l\'automatització estan redefinint la indústria logística, des de l\'emmagatzematge fins a l\'entrega d\'última milla. Explorem els beneficis, els reptes i què esperar en els propers anys.',
+    excerpt: 'Descobreix com a Ivora Logistics aprofitem la Intel·ligència Artificial i l\'automatització per redefinir la logística, des del nostre magatzem a Constantí fins a l\'entrega internacional.',
     content: `
-<p>La indústria logística està a punt de viure una transformació massiva, impulsada pels ràpids avenços en Intel·ligència Artificial (IA) i automatització. A Ivora Solutions, estem a l'avantguarda d'aquest canvi, integrant tecnologies intel·ligents per oferir una eficiència i fiabilitat inigualables.</p>
+<p>La indústria logística està en plena transformació, i a Ivora Logistics estem al capdavant, integrant la Intel·ligència Artificial (IA) i l'automatització per oferir una eficiència i fiabilitat sense precedents.</p>
 
-<h3 class="font-bold text-xl my-4">Emmagatzematge Intel·ligent</h3>
-<p>Els sistemes de gestió de magatzems (SGM) impulsats per IA poden optimitzar l'emmagatzematge, predir les necessitats d'inventari i fins i tot gestionar sistemes robòtics per a la recollida i embalatge. Això es tradueix en menys errors, temps de processament més ràpids i una reducció significativa dels costos laborals. Imagina un magatzem que s'organitza a si mateix basant-se en previsions de demanda, assegurant que els articles de gran demanda estiguin sempre accessibles.</p>
+<h3 class="font-bold text-xl my-4">Digitalització i Intel·ligència Artificial</h3>
+<p>L'adopció de la intel·ligència artificial i el big data ens permet optimitzar les rutes de transport internacional i la gestió d'inventaris, reduint costos i temps de lliurament. Els nostres sistemes predictius ajuden a anticipar la demanda, minimitzant errors en el flux logístic i garantint que els productes de disseny i decoració, la nostra especialitat, es gestionin amb la màxima precisió.</p>
 
-<h3 class="font-bold text-xl my-4">Anàlisi Predictiva per a l'Optimització de Rutes</h3>
-<p>Ja han passat els dies de les rutes de lliurament estàtiques. Els algorismes d'IA ara poden analitzar dades de trànsit, condicions meteorològiques i fins i tot possibles retards de lliurament en temps real per suggerir les rutes més eficients per a la nostra flota. Això no només garanteix lliuraments puntuals, sinó que també redueix el consum de combustible i la nostra petjada de carboni.</p>
+<h3 class="font-bold text-xl my-4">Automatització al Nostre Magatzem de Constantí</h3>
+<p>La implementació de robòtica col·laborativa i sistemes automatitzats de picking al nostre magatzem de Constantí millora dràsticament l'eficiència i la seguretat. Aquests sistemes ens permeten gestionar grans volums de mercaderies, especialment objectes delicats, amb una precisió inigualable.</p>
 
-<h3 class="font-bold text-xl my-4">El Camí per Endavant</h3>
-<p>Tot i que l'adopció de la IA i l'automatització presenta alguns reptes, com els costos d'inversió inicials i la necessitat d'una mà d'obra qualificada, els beneficis són innegables. Les empreses que adoptin aquestes tecnologies obtindran un avantatge competitiu significatiu. A Ivora Solutions, estem compromesos a ajudar els nostres clients a navegar per aquest nou paisatge i a desbloquejar tot el potencial de la seva cadena de subministrament.</p>
+<h3 class="font-bold text-xl my-4">El Camí Cap al Futur</h3>
+<p>A Ivora Logistics, estem convençuts que l'aposta per la tecnologia no és només una inversió en eficiència, sinó també un compromís amb l'excel·lència en l'experiència del client. Estem preparats per liderar el futur de la logística.</p>
 `
   },
   {
     id: '2',
-    title: '5 Estratègies per a una Cadena de Subministrament Més Sostenible',
-    author: 'Joan Smith, Director de Sostenibilitat',
+    title: 'La nostra aposta per una Cadena de Subministrament Sostenible',
+    author: 'Álvaro, Co-fundador',
     date: '10 de juliol de 2024',
-    excerpt: 'La sostenibilitat ja no és una paraula de moda; és un imperatiu empresarial. Aprèn cinc estratègies accionables per fer la teva cadena de subministrament més respectuosa amb el medi ambient i econòmicament viable.',
+    excerpt: 'La sostenibilitat és un pilar fonamental a Ivora Logistics. A continuació, expliquem les nostres estratègies per una cadena de subministrament més respectuosa amb el medi ambient.',
     content: `
-<p>En el món actual, una cadena de subministrament sostenible no només és bona per al planeta, sinó també per al negoci. Els consumidors afavoreixen cada cop més les marques ecològiques, i les pràctiques eficients sovint condueixen a estalvis de costos. Aquí teniu cinc estratègies que recomanem a Ivora Solutions per construir una cadena de subministrament més verda.</p>
+<p>A Ivora Logistics, entenem que una cadena de subministrament sostenible no només és bona per al planeta, sinó que és essencial per a un negoci responsable i eficient. Aquest és el nostre compromís.</p>
 
-<h3 class="font-bold text-xl my-4">1. Optimitzar el Transport</h3>
-<p>Això inclou l'optimització de rutes per reduir el consum de combustible, l'ús de combustibles alternatius i la consolidació d'enviaments per garantir que els camions estiguin sempre plens. Cada quilòmetre estalviat és una victòria per al medi ambient i per al teu compte de resultats.</p>
+<h3 class="font-bold text-xl my-4">1. Logística Verda i Sostenibilitat</h3>
+<p>El nostre enfocament inclou la progressiva incorporació de vehicles elèctrics per al transport, l'ús d'embalatges reciclables i l'optimització energètica de les nostres instal·lacions a Constantí. Volem posicionar Ivora Logistics com una empresa responsable amb el medi ambient.</p>
 
-<h3 class="font-bold text-xl my-4">2. Adoptar l'Emmagatzematge Verd</h3>
-<p>Des de l'ús de panells solars per alimentar les instal·lacions fins a la implementació d'il·luminació eficient energèticament i mesures d'estalvi d'aigua, els magatzems verds poden reduir dràsticament el seu impacte ambiental.</p>
+<h3 class="font-bold text-xl my-4">2. Embalatges Reciclables</h3>
+<p>Minimitzem l'ús de materials i prioritzem embalatges fets amb contingut reciclat, especialment en els nostres serveis per a productes de disseny i decoració. Això redueix els residus i optimitza els costos.</p>
 
-<h3 class="font-bold text-xl my-4">3. Reduir i Reciclar Embalatges</h3>
-<p>Minimitzar els materials d'embalatge, utilitzar contingut reciclat i dissenyar embalatges per a una fàcil reutilització o reciclatge són passos crucials. Això no només redueix els residus, sinó que també pot disminuir els costos de material.</p>
+<h3 class="font-bold text-xl my-4">3. Transparència i Certificacions</h3>
+<p>Estem treballant per obtenir certificacions de pràctiques sostenibles com la ISO 14001 per reforçar la nostra reputació corporativa i garantir als nostres clients que la seva confiança en nosaltres també és una aposta per la sostenibilitat.</p>
 
-<h3 class="font-bold text-xl my-4">4. Col·laborar amb Proveïdors Sostenibles</h3>
-<p>La teva cadena de subministrament és tan forta com la seva baula més feble. Treballa amb proveïdors que comparteixin el teu compromís amb la sostenibilitat. Això crea un efecte dòmino de canvi positiu a tota la indústria.</p>
-
-<h3 class="font-bold text-xl my-4">5. Aprofitar la Tecnologia per a la Transparència</h3>
-<p>Utilitza la tecnologia per fer un seguiment i mesurar el teu impacte ambiental. Aquestes dades són essencials per identificar àrees de millora i per comunicar de manera transparent els teus esforços de sostenibilitat als teus clients.</p>
+<h3 class="font-bold text-xl my-4">4. Col·laboració amb Socis Compromesos</h3>
+<p>Treballem amb proveïdors que comparteixen el nostre compromís amb la sostenibilitat, creant un efecte positiu a tota la cadena de valor.</p>
 `
   },
     {
     id: '3',
-    title: 'Desxifrant el Codi del Lliurament d\'Última Milla',
-    author: 'Emily White, Gerent de Distribució',
+    title: 'Transparència i Solucions a Mida: El Segell d\'Ivora Logistics',
+    author: 'Izan, Co-fundador',
     date: '5 de juliol de 2024',
-    excerpt: 'El pas final del procés de lliurament és sovint el més complex i costós. Aprofundim en els reptes del lliurament d\'última milla i explorem solucions innovadores per optimitzar-lo en termes de velocitat i rendibilitat.',
+    excerpt: 'La confiança del client es basa en la transparència i l\'adaptabilitat. Descobreix com la tecnologia blockchain i les nostres solucions personalitzades marquen la diferència.',
     content: `
-<p>L'última milla del lliurament —el trajecte des d'un centre de distribució fins a la porta del client— és un punt de contacte crític. També és la part més desafiant i costosa de tot el procés logístic. A continuació, expliquem com a Ivora Solutions abordem aquest complex trencaclosques.</p>
+<p>A Ivora Logistics, creiem que cada client és únic i mereix una solució logística a la seva mida. A més, la transparència total és la base de la nostra relació amb ells.</p>
 
-<h3 class="font-bold text-xl my-4">El Repte Urbà</h3>
-<p>Els entorns urbans densos presenten obstacles únics, com ara la congestió del trànsit, les restriccions d'aparcament i un alt volum de lliuraments individuals. És aquí on entren en joc els centres de micro-compliment i els mètodes de lliurament innovadors.</p>
+<h3 class="font-bold text-xl my-4">Transparència i Traçabilitat amb Blockchain</h3>
+<p>Estem explorant la incorporació de la tecnologia blockchain als nostres processos. Això oferirà una transparència total als nostres clients, permetent-los veure el recorregut i l'estat de les seves mercaderies en temps real. Aquesta traçabilitat augmenta la confiança i reforça la percepció de qualitat del nostre servei.</p>
 
-<h3 class="font-bold text-xl my-4">La Tecnologia com a Solució</h3>
-<p>El nostre programari d'enrutament impulsat per IA és essencial per navegar aquests reptes. Proporciona als conductors les rutes més eficients en temps real, adaptant-se a les condicions canviants sobre el terreny. A més, oferir als clients un seguiment en temps real i opcions de lliurament flexibles millora significativament l'experiència del client.</p>
+<h3 class="font-bold text-xl my-4">Solucions Logístiques Personalitzades</h3>
+<p>La nostra especialització en transport i emmagatzematge de productes de disseny i decoració ens permet crear serveis premium. Oferim gestió d'embalatge fet a mida, control de temperatura i humitat, i assegurances específiques per a peces de gran valor. El nostre objectiu és anar més enllà de les expectatives.</p>
 
-<h3 class="font-bold text-xl my-4">Models de Lliurament Innovadors</h3>
-<p>Estem explorant diversos models per millorar l'eficiència de l'última milla, entre els quals s'inclouen:
-<ul>
-  <li class="ml-4 list-disc"><strong>Sistemes de Taquilles:</strong> Taquilles segures en ubicacions convenients permeten als clients recollir paquets quan els convingui.</li>
-  <li class="ml-4 list-disc"><strong>Lliurament Col·laboratiu (Crowdsourcing):</strong> Aprofitar una xarxa de conductors locals i independents pot proporcionar flexibilitat durant els pics de demanda.</li>
-  <li class="ml-4 list-disc"><strong>Vehicles Elèctrics (VE):</strong> Per als lliuraments urbans, els VE redueixen tant les emissions de carboni com el soroll operatiu.</li>
-</ul>
-</p>
-
-<h3 class="font-bold text-xl my-4">Un Enfocament Centrat en el Client</h3>
-<p>En última instància, l'objectiu del lliurament d'última milla és un client satisfet. En oferir velocitat, fiabilitat i transparència, convertim l'últim pas de la cadena de subministrament en una impressió positiva i duradora per a la teva marca.</p>
+<h3 class="font-bold text-xl my-4">Connectivitat i Atenció al Client 24/7</h3>
+<p>Estem desenvolupant una plataforma en línia perquè els nostres clients puguin gestionar els seus enviaments, consultar l'estat del seu estoc i programar lliuraments de forma autònoma. A més, amb l'ajuda de chatbots amb IA, oferirem atenció en temps real per resoldre qualsevol consulta, millorant així l'experiència del client de manera contínua.</p>
 `
   },
 ];
