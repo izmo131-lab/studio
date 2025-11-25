@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, Package, Globe } from 'lucide-react';
+import { Menu, Package, Globe, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
@@ -11,17 +11,51 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+import { cn } from "@/lib/utils"
+import React from 'react';
 
-const navLinks = [
-  { href: '/sobre-nosaltres', label: 'Sobre Nosaltres' },
+const mainLinks = [
   { href: '/serveis', label: 'Serveis' },
   { href: '/productes', label: 'Productes' },
-  { href: '/innovacio', label: 'Innovació' },
-  { href: '/optimitzador-ia', label: 'Optimitzador IA' },
-  { href: '/atencio-al-client', label: 'Atenció al Client' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/ubicacio', label: 'Ubicació' },
+  { href: '/sobre-nosaltres', label: 'Sobre Nosaltres' },
   { href: '/contacte', label: 'Contacte' },
+];
+
+const dropdownLinks: { title: string; href: string; description: string }[] = [
+    {
+        title: 'Innovació',
+        href: '/innovacio',
+        description: 'La nostra aposta per la tecnologia i la sostenibilitat.',
+    },
+    {
+        title: 'Optimitzador IA',
+        href: '/optimitzador-ia',
+        description: 'Eina d\'IA per optimitzar els teus reptes logístics.',
+    },
+    {
+        title: 'Atenció al Client',
+        href: '/atencio-al-client',
+        description: 'Resol els teus dubtes amb el nostre xatbot intel·ligent.',
+    },
+    {
+        title: 'Blog',
+        href: '/blog',
+        description: 'Notícies i anàlisis sobre el sector de la logística.',
+    },
+    {
+        title: 'Ubicació',
+        href: '/ubicacio',
+        description: 'On som i com pots contactar amb nosaltres.',
+    },
 ];
 
 export default function Header() {
@@ -35,13 +69,37 @@ export default function Header() {
           <span className="font-headline tracking-tight text-xl">Ivora Logistics</span>
         </Link>
         
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-foreground/70 transition-colors hover:text-foreground">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <NavigationMenu className="hidden md:flex">
+          <NavigationMenuList>
+             {mainLinks.map((link) => (
+               <NavigationMenuItem key={link.href}>
+                <Link href={link.href} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    {link.label}
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            ))}
+            
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Més</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                  {dropdownLinks.map((component) => (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={component.href}
+                    >
+                      {component.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+          </NavigationMenuList>
+        </NavigationMenu>
 
         <div className="hidden md:flex items-center gap-4">
           <DropdownMenu>
@@ -85,14 +143,14 @@ export default function Header() {
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-4 p-4">
-                  {navLinks.map((link) => (
+                  {[...mainLinks, ...dropdownLinks].map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
                       className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground"
                     >
-                      {link.label}
+                      {link.label || link.title}
                     </Link>
                   ))}
                 </nav>
@@ -128,3 +186,29 @@ export default function Header() {
     </header>
   );
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  )
+})
+ListItem.displayName = "ListItem"
