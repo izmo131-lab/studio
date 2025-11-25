@@ -21,12 +21,12 @@ function SubmitButton() {
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Optimizing...
+          Optimitzant...
         </>
       ) : (
         <>
           <Bot className="mr-2 h-4 w-4" />
-          Get AI Suggestions
+          Obtenir Suggeriments d'IA
         </>
       )}
     </Button>
@@ -47,9 +47,9 @@ export default function AiTool() {
     <section id="ai-tool" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">AI Logistics Optimizer</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">Optimitzador Logístic amb IA</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Describe your logistical challenges and let our AI provide data-driven suggestions to improve efficiency and reduce costs.
+            Descriu els teus reptes logístics i deixa que la nostra IA proporcioni suggeriments basats en dades per millorar l'eficiència i reduir costos.
           </p>
         </div>
 
@@ -59,16 +59,16 @@ export default function AiTool() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Bot className="text-primary" />
-                  Describe Your Challenge
+                  Descriu el Teu Repte
                 </CardTitle>
                 <CardDescription>
-                  Be as detailed as possible for the best recommendations. For example, mention delays, high costs, inventory issues, or route inefficiencies.
+                  Sigues tan detallat com sigui possible per a les millors recomanacions. Per exemple, esmenta retards, costos elevats, problemes d'inventari o ineficiències de ruta.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Textarea
                   name="logisticalChallenges"
-                  placeholder="e.g., 'We are experiencing frequent delays in our last-mile delivery in urban areas, leading to increased fuel costs and customer dissatisfaction...'"
+                  placeholder="p. ex., 'Estem experimentant retards freqüents en el nostre lliurament d'última milla a les zones urbanes, la qual cosa comporta un augment dels costos de combustible i la insatisfacció dels clients...'"
                   rows={5}
                   required
                 />
@@ -90,7 +90,7 @@ export default function AiTool() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <ThumbsUp className="text-green-500" />
-                  AI-Powered Suggestions
+                  Suggeriments Impulsats per IA
                 </CardTitle>
               </CardHeader>
               <CardContent>

@@ -16,7 +16,7 @@ export default function BlogPage() {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h1 className="text-4xl md:text-5xl font-headline font-bold">Ivora Insights</h1>
             <p className="mt-4 text-xl text-muted-foreground">
-              Your source for the latest news, trends, and expert analysis in the logistics industry.
+              La teva font per a les últimes notícies, tendències i anàlisis d'experts en la indústria logística.
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export default function BlogPage() {
                   </div>
                   <p className="text-muted-foreground flex-grow">{post.excerpt}</p>
                   <Button asChild className="mt-4 self-start">
-                    <Link href={`/blog/${post.slug}`}>Read More</Link>
+                    <Link href={`/blog/${post.slug}`}>Llegeix Més</Link>
                   </Button>
                 </CardContent>
               </Card>

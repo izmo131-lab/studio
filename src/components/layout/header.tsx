@@ -7,12 +7,12 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navLinks = [
-  { href: '/#services', label: 'Services' },
-  { href: '/#consulting', label: 'Consulting' },
-  { href: '/#ai-tool', label: 'AI Optimizer' },
+  { href: '/#services', label: 'Serveis' },
+  { href: '/#consulting', label: 'Consultoria' },
+  { href: '/#ai-tool', label: 'Optimitzador IA' },
   { href: '/blog', label: 'Blog' },
-  { href: '/#testimonials', label: 'Testimonials' },
-  { href: '/#contact', label: 'Contact' },
+  { href: '/#testimonials', label: 'Testimonis' },
+  { href: '/#contact', label: 'Contacte' },
 ];
 
 export default function Header() {
@@ -36,7 +36,7 @@ export default function Header() {
 
         <div className="hidden md:flex items-center gap-4">
           <Button asChild>
-            <Link href="#contact">Request a Quote</Link>
+            <Link href="#contact">Demana un Pressupost</Link>
           </Button>
         </div>
 
@@ -45,7 +45,7 @@ export default function Header() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle Menu</span>
+                <span className="sr-only">Obrir Menú</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
@@ -70,7 +70,7 @@ export default function Header() {
                 </nav>
                 <div className="mt-auto p-4">
                   <Button asChild className="w-full">
-                    <Link href="#contact" onClick={() => setIsOpen(false)}>Request a Quote</Link>
+                    <Link href="#contact" onClick={() => setIsOpen(false)}>Demana un Pressupost</Link>
                   </Button>
                 </div>
               </div>

@@ -11,28 +11,28 @@ interface Service {
 const services: Service[] = [
   {
     icon: Truck,
-    title: 'Freight Transport',
-    description: 'Reliable and efficient transport solutions for all types of cargo, ensuring timely delivery.',
+    title: 'Transport de Mercaderies',
+    description: 'Solucions de transport fiables i eficients per a tot tipus de càrrega, garantint lliuraments puntuals.',
   },
   {
     icon: Boxes,
-    title: 'Comprehensive Logistics',
-    description: 'Complete management of your entire supply chain, from origin to final destination.',
+    title: 'Logística Integral',
+    description: 'Gestió completa de tota la teva cadena de subministrament, des de l\'origen fins a la destinació final.',
   },
   {
     icon: Warehouse,
-    title: 'Warehousing & Distribution',
-    description: 'Secure storage and strategic distribution services to optimize your inventory and reach.',
+    title: 'Emmagatzematge i Distribució',
+    description: 'Serveis d\'emmagatzematge segur i distribució estratègica per optimitzar el teu inventari i abast.',
   },
   {
     icon: Wrench,
-    title: 'Custom Solutions',
-    description: 'Tailor-made logistics plans designed to meet your unique business requirements and challenges.',
+    title: 'Solucions a Mida',
+    description: 'Plans logístics personalitzats dissenyats per satisfer els teus requisits i reptes empresarials únics.',
   },
   {
     icon: BrainCircuit,
-    title: 'Logistics Consulting',
-    description: 'Expert advice to optimize your supply chain, reduce costs, and improve overall efficiency.',
+    title: 'Consultoria Logística',
+    description: 'Assessorament expert per optimitzar la teva cadena de subministrament, reduir costos i millorar l\'eficiència general.',
   },
 ];
 
@@ -41,9 +41,9 @@ export default function Services() {
     <section id="services" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Our Core Services</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">Els Nostres Serveis Principals</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            We offer a complete suite of logistics services to power your business.
+            Oferim una suite completa de serveis logístics per impulsar el teu negoci.
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

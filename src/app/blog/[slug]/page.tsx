@@ -30,7 +30,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <Button variant="ghost" asChild>
                 <Link href="/blog">
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Blog
+                  Tornar al Blog
                 </Link>
               </Button>
             </div>

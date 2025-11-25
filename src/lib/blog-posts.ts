@@ -16,80 +16,82 @@ export type BlogPost = {
 };
 
 function createSlug(title: string) {
-  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]+/g, '');
+  return title.toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-àáâçèéêëíîïòóôöúûüñ]+/g, '');
 }
 
 const postsData = [
   {
     id: '1',
-    title: 'The Future of Logistics: AI and Automation',
-    author: 'Jane Doe, Logistics Expert',
-    date: 'July 15, 2024',
-    excerpt: 'Discover how Artificial Intelligence and automation are reshaping the logistics industry, from warehousing to last-mile delivery. We explore the benefits, challenges, and what to expect in the coming years.',
+    title: 'El Futur de la Logística: IA i Automatització',
+    author: 'Jane Doe, Experta en Logística',
+    date: '15 de juliol de 2024',
+    excerpt: 'Descobreix com la Intel·ligència Artificial i l\'automatització estan redefinint la indústria logística, des de l\'emmagatzematge fins a l\'entrega d\'última milla. Explorem els beneficis, els reptes i què esperar en els propers anys.',
     content: `
-<p>The logistics industry is on the brink of a massive transformation, driven by the rapid advancements in Artificial Intelligence (AI) and automation. At Ivora Solutions, we are at the forefront of this change, integrating smart technologies to deliver unparalleled efficiency and reliability.</p>
+<p>La indústria logística està a punt de viure una transformació massiva, impulsada pels ràpids avenços en Intel·ligència Artificial (IA) i automatització. A Ivora Solutions, estem a l'avantguarda d'aquest canvi, integrant tecnologies intel·ligents per oferir una eficiència i fiabilitat inigualables.</p>
 
-<h3 class="font-bold text-xl my-4">Smart Warehousing</h3>
-<p>AI-powered warehouse management systems (WMS) can optimize storage, predict inventory needs, and even manage robotic systems for picking and packing. This leads to fewer errors, faster processing times, and a significant reduction in labor costs. Imagine a warehouse that organizes itself based on demand forecasts, ensuring that high-demand items are always accessible.</p>
+<h3 class="font-bold text-xl my-4">Emmagatzematge Intel·ligent</h3>
+<p>Els sistemes de gestió de magatzems (SGM) impulsats per IA poden optimitzar l'emmagatzematge, predir les necessitats d'inventari i fins i tot gestionar sistemes robòtics per a la recollida i embalatge. Això es tradueix en menys errors, temps de processament més ràpids i una reducció significativa dels costos laborals. Imagina un magatzem que s'organitza a si mateix basant-se en previsions de demanda, assegurant que els articles de gran demanda estiguin sempre accessibles.</p>
 
-<h3 class="font-bold text-xl my-4">Predictive Analytics for Route Optimization</h3>
-<p>Long gone are the days of static delivery routes. AI algorithms can now analyze traffic data, weather conditions, and even potential delivery delays in real-time to suggest the most efficient routes for our fleet. This not only ensures timely deliveries but also reduces fuel consumption and our carbon footprint.</p>
+<h3 class="font-bold text-xl my-4">Anàlisi Predictiva per a l'Optimització de Rutes</h3>
+<p>Ja han passat els dies de les rutes de lliurament estàtiques. Els algorismes d'IA ara poden analitzar dades de trànsit, condicions meteorològiques i fins i tot possibles retards de lliurament en temps real per suggerir les rutes més eficients per a la nostra flota. Això no només garanteix lliuraments puntuals, sinó que també redueix el consum de combustible i la nostra petjada de carboni.</p>
 
-<h3 class="font-bold text-xl my-4">The Road Ahead</h3>
-<p>While the adoption of AI and automation presents some challenges, such as initial investment costs and the need for a skilled workforce, the benefits are undeniable. Companies that embrace these technologies will gain a significant competitive advantage. At Ivora Solutions, we are committed to helping our clients navigate this new landscape and unlock the full potential of their supply chain.</p>
+<h3 class="font-bold text-xl my-4">El Camí per Endavant</h3>
+<p>Tot i que l'adopció de la IA i l'automatització presenta alguns reptes, com els costos d'inversió inicials i la necessitat d'una mà d'obra qualificada, els beneficis són innegables. Les empreses que adoptin aquestes tecnologies obtindran un avantatge competitiu significatiu. A Ivora Solutions, estem compromesos a ajudar els nostres clients a navegar per aquest nou paisatge i a desbloquejar tot el potencial de la seva cadena de subministrament.</p>
 `
   },
   {
     id: '2',
-    title: '5 Strategies for a More Sustainable Supply Chain',
-    author: 'John Smith, Sustainability Officer',
-    date: 'July 10, 2024',
-    excerpt: 'Sustainability is no longer a buzzword; it\'s a business imperative. Learn five actionable strategies to make your supply chain more environmentally friendly and economically viable.',
+    title: '5 Estratègies per a una Cadena de Subministrament Més Sostenible',
+    author: 'Joan Smith, Director de Sostenibilitat',
+    date: '10 de juliol de 2024',
+    excerpt: 'La sostenibilitat ja no és una paraula de moda; és un imperatiu empresarial. Aprèn cinc estratègies accionables per fer la teva cadena de subministrament més respectuosa amb el medi ambient i econòmicament viable.',
     content: `
-<p>In today's world, a sustainable supply chain is not just good for the planet—it's good for business. Consumers are increasingly favoring eco-friendly brands, and efficient practices often lead to cost savings. Here are five strategies we recommend at Ivora Solutions to build a greener supply chain.</p>
+<p>En el món actual, una cadena de subministrament sostenible no només és bona per al planeta, sinó també per al negoci. Els consumidors afavoreixen cada cop més les marques ecològiques, i les pràctiques eficients sovint condueixen a estalvis de costos. Aquí teniu cinc estratègies que recomanem a Ivora Solutions per construir una cadena de subministrament més verda.</p>
 
-<h3 class="font-bold text-xl my-4">1. Optimize Transportation</h3>
-<p>This includes route optimization to reduce fuel consumption, using alternative fuels, and consolidating shipments to ensure trucks are always full. Every mile saved is a win for the environment and your bottom line.</p>
+<h3 class="font-bold text-xl my-4">1. Optimitzar el Transport</h3>
+<p>Això inclou l'optimització de rutes per reduir el consum de combustible, l'ús de combustibles alternatius i la consolidació d'enviaments per garantir que els camions estiguin sempre plens. Cada quilòmetre estalviat és una victòria per al medi ambient i per al teu compte de resultats.</p>
 
-<h3 class="font-bold text-xl my-4">2. Embrace Green Warehousing</h3>
-<p>From using solar panels to power facilities to implementing energy-efficient lighting and water-saving measures, green warehouses can drastically reduce their environmental impact.</p>
+<h3 class="font-bold text-xl my-4">2. Adoptar l'Emmagatzematge Verd</h3>
+<p>Des de l'ús de panells solars per alimentar les instal·lacions fins a la implementació d'il·luminació eficient energèticament i mesures d'estalvi d'aigua, els magatzems verds poden reduir dràsticament el seu impacte ambiental.</p>
 
-<h3 class="font-bold text-xl my-4">3. Reduce and Recycle Packaging</h3>
-<p>Minimizing packaging materials, using recycled content, and designing packaging for easy reuse or recycling are crucial steps. This not only reduces waste but can also lower material costs.</p>
+<h3 class="font-bold text-xl my-4">3. Reduir i Reciclar Embalatges</h3>
+<p>Minimitzar els materials d'embalatge, utilitzar contingut reciclat i dissenyar embalatges per a una fàcil reutilització o reciclatge són passos crucials. Això no només redueix els residus, sinó que també pot disminuir els costos de material.</p>
 
-<h3 class="font-bold text-xl my-4">4. Partner with Sustainable Suppliers</h3>
-<p>Your supply chain is only as strong as its weakest link. Work with suppliers who share your commitment to sustainability. This creates a ripple effect of positive change throughout the industry.</p>
+<h3 class="font-bold text-xl my-4">4. Col·laborar amb Proveïdors Sostenibles</h3>
+<p>La teva cadena de subministrament és tan forta com la seva baula més feble. Treballa amb proveïdors que comparteixin el teu compromís amb la sostenibilitat. Això crea un efecte dòmino de canvi positiu a tota la indústria.</p>
 
-<h3 class="font-bold text-xl my-4">5. Leverage Technology for Transparency</h3>
-<p>Use technology to track and measure your environmental impact. This data is essential for identifying areas for improvement and for transparently communicating your sustainability efforts to your customers.</p>
+<h3 class="font-bold text-xl my-4">5. Aprofitar la Tecnologia per a la Transparència</h3>
+<p>Utilitza la tecnologia per fer un seguiment i mesurar el teu impacte ambiental. Aquestes dades són essencials per identificar àrees de millora i per comunicar de manera transparent els teus esforços de sostenibilitat als teus clients.</p>
 `
   },
     {
     id: '3',
-    title: 'Cracking the Code of Last-Mile Delivery',
-    author: 'Emily White, Distribution Manager',
-    date: 'July 5, 2024',
-    excerpt: 'The final step of the delivery process is often the most complex and expensive. We dive into the challenges of last-mile delivery and explore innovative solutions to optimize it for speed and cost-effectiveness.',
+    title: 'Desxifrant el Codi del Lliurament d\'Última Milla',
+    author: 'Emily White, Gerent de Distribució',
+    date: '5 de juliol de 2024',
+    excerpt: 'El pas final del procés de lliurament és sovint el més complex i costós. Aprofundim en els reptes del lliurament d\'última milla i explorem solucions innovadores per optimitzar-lo en termes de velocitat i rendibilitat.',
     content: `
-<p>The last mile of delivery—the journey from a distribution center to the customer's doorstep—is a critical touchpoint. It's also the most challenging and costly part of the entire logistics process. Here's how we at Ivora Solutions are tackling this complex puzzle.</p>
+<p>L'última milla del lliurament —el trajecte des d'un centre de distribució fins a la porta del client— és un punt de contacte crític. També és la part més desafiant i costosa de tot el procés logístic. A continuació, expliquem com a Ivora Solutions abordem aquest complex trencaclosques.</p>
 
-<h3 class="font-bold text-xl my-4">The Urban Challenge</h3>
-<p>Dense urban environments present unique obstacles, including traffic congestion, parking restrictions, and a high volume of individual deliveries. This is where micro-fulfillment centers and innovative delivery methods come into play.</p>
+<h3 class="font-bold text-xl my-4">El Repte Urbà</h3>
+<p>Els entorns urbans densos presenten obstacles únics, com ara la congestió del trànsit, les restriccions d'aparcament i un alt volum de lliuraments individuals. És aquí on entren en joc els centres de micro-compliment i els mètodes de lliurament innovadors.</p>
 
-<h3 class="font-bold text-xl my-4">Technology as a Solution</h3>
-<p>Our AI-powered routing software is essential for navigating these challenges. It provides drivers with the most efficient routes in real-time, adapting to changing conditions on the ground. Furthermore, providing customers with real-time tracking and flexible delivery options significantly improves the customer experience.</p>
+<h3 class="font-bold text-xl my-4">La Tecnologia com a Solució</h3>
+<p>El nostre programari d'enrutament impulsat per IA és essencial per navegar aquests reptes. Proporciona als conductors les rutes més eficients en temps real, adaptant-se a les condicions canviants sobre el terreny. A més, oferir als clients un seguiment en temps real i opcions de lliurament flexibles millora significativament l'experiència del client.</p>
 
-<h3 class="font-bold text-xl my-4">Innovative Delivery Models</h3>
-<p>We are exploring various models to enhance last-mile efficiency, including:
+<h3 class="font-bold text-xl my-4">Models de Lliurament Innovadors</h3>
+<p>Estem explorant diversos models per millorar l'eficiència de l'última milla, entre els quals s'inclouen:
 <ul>
-  <li class="ml-4 list-disc"><strong>Locker Systems:</strong> Secure lockers in convenient locations allow customers to pick up packages at their leisure.</li>
-  <li class="ml-4 list-disc"><strong>Crowdsourced Delivery:</strong> Leveraging a network of local, independent drivers can provide flexibility during peak demand.</li>
-  <li class="ml-4 list-disc"><strong>Electric Vehicles (EVs):</strong> For urban deliveries, EVs reduce both carbon emissions and operational noise.</li>
+  <li class="ml-4 list-disc"><strong>Sistemes de Taquilles:</strong> Taquilles segures en ubicacions convenients permeten als clients recollir paquets quan els convingui.</li>
+  <li class="ml-4 list-disc"><strong>Lliurament Col·laboratiu (Crowdsourcing):</strong> Aprofitar una xarxa de conductors locals i independents pot proporcionar flexibilitat durant els pics de demanda.</li>
+  <li class="ml-4 list-disc"><strong>Vehicles Elèctrics (VE):</strong> Per als lliuraments urbans, els VE redueixen tant les emissions de carboni com el soroll operatiu.</li>
 </ul>
 </p>
 
-<h3 class="font-bold text-xl my-4">A Customer-Centric Approach</h3>
-<p>Ultimately, the goal of last-mile delivery is a satisfied customer. By offering speed, reliability, and transparency, we turn the final step of the supply chain into a lasting positive impression for your brand.</p>
+<h3 class="font-bold text-xl my-4">Un Enfocament Centrat en el Client</h3>
+<p>En última instància, l'objectiu del lliurament d'última milla és un client satisfet. En oferir velocitat, fiabilitat i transparència, convertim l'últim pas de la cadena de subministrament en una impressió positiva i duradora per a la teva marca.</p>
 `
   },
 ];
@@ -101,8 +103,8 @@ export const blogPosts: BlogPost[] = postsData.map(post => {
     slug: createSlug(post.title),
     image: {
       src: imagePlaceholder?.imageUrl || '',
-      alt: imagePlaceholder?.description || 'Blog post image',
-      hint: imagePlaceholder?.imageHint || 'blog post'
+      alt: imagePlaceholder?.description || 'Imatge de l\'article del blog',
+      hint: imagePlaceholder?.imageHint || 'article blog'
     }
   };
 });
