@@ -32,7 +32,7 @@ export default function Consulting() {
           </div>
           <div className="order-1 md:order-2">
             {consultingImage && (
-              <div className="overflow-hidden shadow-lg rounded-lg relative h-[450px]">
+               <div className="relative h-[450px] rounded-lg overflow-hidden shadow-lg">
                 <Image
                   src={consultingImage.imageUrl}
                   alt={consultingImage.description}
