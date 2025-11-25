@@ -29,6 +29,24 @@
       "description": "Avatar for a customer testimonial",
       "imageUrl": "https://images.unsplash.com/photo-1636377985931-898218afd306?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjM0OTU3MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "man portrait"
+    },
+    {
+      "id": "blog-post-1",
+      "description": "An image representing the future of logistics with AI",
+      "imageUrl": "https://images.unsplash.com/photo-1586781383963-8e66f88077ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxBSSUyMGxvZ2lzdGljc3xlbnwwfHx8fDE3NjQwODA4Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "AI logistics"
+    },
+    {
+      "id": "blog-post-2",
+      "description": "An image about sustainable supply chains",
+      "imageUrl": "https://images.unsplash.com/photo-1761489179730-5a11d5d7449a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdXN0YWluYWJsZSUyMHN1cHBseS1jaGFpbnxlbnwwfHx8fDE3NjQwODA4Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sustainable supply-chain"
+    },
+    {
+      "id": "blog-post-3",
+      "description": "An image about last-mile delivery optimization",
+      "imageUrl": "https://images.unsplash.com/photo-1659353740176-ab1d8f8c6c7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxkZWxpdmVyeSUyMG9wdGltaXphdGlvbnxlbnwwfHx8fDE3NjQwODA4Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "delivery optimization"
     }
   ]
 }
