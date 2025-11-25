@@ -20,6 +20,7 @@ const navLinks = [
   { href: '/optimitzador-ia', label: 'Optimitzador IA' },
   { href: '/atencio-al-client', label: 'Atenció al Client' },
   { href: '/blog', label: 'Blog' },
+  { href: '/ubicacio', label: 'Ubicació' },
   { href: '/contacte', label: 'Contacte' },
 ];
 

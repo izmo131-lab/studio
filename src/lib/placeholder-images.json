@@ -2,69 +2,75 @@
   "placeholderImages": [
     {
       "id": "hero-background",
-      "description": "Un camió modern movent-se per una carretera desenfocada, transmetent velocitat i eficiència logística.",
-      "imageUrl": "https://images.unsplash.com/photo-1641290451977-a427586acf49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYW1pJUMzJUIzJTIwbG9nJUMzJUFEc3RpY2F8ZW58MHx8fHwxNzY0MDg0NjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Un camió modern d'Ivora Logistics en una carretera al capvespre, simbolitzant eficiència i rapidesa.",
+      "imageUrl": "https://images.unsplash.com/photo-1754726370949-63be952a1d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjYW1pJUMzJUIzJTIwbG9nJUMzJUFEc3RpY2F8ZW58MHx8fHwxNzY0MDg0NjY4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "camió logística"
     },
     {
       "id": "about-us-image",
-      "description": "Un equip divers de professionals de la logística revisant documents en un magatzem ben il·luminat.",
+      "description": "Un equip de professionals de la logística col·laborant en un magatzem modern i lluminós.",
       "imageUrl": "https://picsum.photos/seed/logistics-team/800/600",
       "imageHint": "equip logística"
     },
     {
       "id": "consulting-image",
-      "description": "Una imatge conceptual de tecnologia i dades, amb gràfics i línies de codi sobre un fons fosc, representant la innovació.",
+      "description": "Una imatge abstracta que representa la intel·ligència artificial i la tecnologia a la logística.",
       "imageUrl": "https://images.unsplash.com/photo-1589829068083-7cbcc8f6eed4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbm5vdmFjaSVDMyVCMyUyMHRlY25vbG9naWF8ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "innovació tecnologia"
     },
     {
       "id": "testimonial-avatar-1",
       "description": "Retrat professional d'una dona somrient amb confiança.",
-      "imageUrl": "https://images.unsplash.com/photo-1752317591547-745de02a572e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582561612646-279947d3ab98?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "retrat dona"
     },
     {
       "id": "testimonial-avatar-2",
       "description": "Retrat professional d'un home amb un somriure amable.",
-      "imageUrl": "https://picsum.photos/seed/man1/200/200",
+      "imageUrl": "https://picsum.photos/seed/man-portrait1/200/200",
       "imageHint": "retrat home"
     },
     {
       "id": "testimonial-avatar-3",
       "description": "Retrat d'una dona jove i professional en un entorn d'oficina.",
-      "imageUrl": "https://images.unsplash.com/photo-1677537946831-4590ff82359c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmV0cmF0JTIwZG9uYXxlbnwwfHx8fDE3NjQwODM5OTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1752317591916-ed189e55bf25?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxyZXRyYXQlMjBkb25hfGVufDB8fHx8MTc2NDA4Mzk5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "retrat dona"
     },
     {
       "id": "blog-post-1",
       "description": "Un robot humanoide interactuant amb una pantalla de dades futurista, simbolitzant la IA a la logística.",
-      "imageUrl": "https://picsum.photos/seed/ai-robot/800/400",
+      "imageUrl": "https://picsum.photos/seed/ai-robot-blog/800/400",
       "imageHint": "IA logística"
     },
     {
       "id": "blog-post-2",
       "description": "Un paisatge verd amb un camió elèctric carregant-se en una estació d'energia solar.",
-      "imageUrl": "https://images.unsplash.com/photo-1712166040541-1ebe4ac6a7a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxsb2clQzMlQURzdGljYSUyMHNvc3RlbmlibGV8ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1723158098162-c326999a317e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsb2clQzMlQURzdGljYSUyMHNvc3RlbmlibGV8ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "logística sostenible"
     },
     {
       "id": "blog-post-3",
       "description": "Una representació visual d'una cadena de blocs segura, amb blocs connectats digitalment.",
-      "imageUrl": "https://images.unsplash.com/photo-1756365470772-11919eb315f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0cmElQzMlQTdhYmlsaXRhdCUyMGJsb2NrY2hhaW58ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1582693692339-3f6556e86f43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0cmElQzMlQTdhYmlsaXRhdCUyMGJsb2NrY2hhaW58ZW58MHx8fHwxNzY0MDg0Nzk3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "traçabilitat blockchain"
     },
     {
       "id": "product-design-specialists",
       "description": "Un sofà de disseny elegant en un interior minimalista, destacant la cura en el transport de mobles.",
-      "imageUrl": "https://images.unsplash.com/photo-1565523432209-be0c07963bf5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bW9ibGVzJTIwZGlzc2VueXxlbnwwfHx8fDE3NjQwODQ2Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1692216709296-f698ed0ff17d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtb2JsZXMlMjBkaXNzZW55fGVufDB8fHx8MTc2NDA4NDY2OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "mobles disseny"
     },
     {
       "id": "product-home-decor",
       "description": "Un prestatge ben decorat amb plantes, llibres i objectes d'art, mostrant productes de decoració.",
-      "imageUrl": "https://images.unsplash.com/photo-1674338575780-fa706807f1be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1694440507448-358aaba4f7d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkZWNvcmFjaSVDMyVCMyUyMGxsYXJ8ZW58MHx8fHwxNzY0MDgzOTkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "decoració llar"
+    },
+    {
+      "id": "location-map",
+      "description": "Un mapa que mostra la ubicació de Constantí a Tarragona.",
+      "imageUrl": "https://images.unsplash.com/photo-1568137223448-0708e0e4779c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYXBhJTIwdWJpY2FjaSVDMyVCM3xlbnwwfHx8fDE3NjQwODU1MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mapa ubicació"
     }
   ]
 }
