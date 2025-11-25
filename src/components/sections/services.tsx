@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Truck, Warehouse, Boxes, Wrench, Palette } from 'lucide-react';
+import { Truck, Warehouse, Boxes, Wrench } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface Service {
@@ -25,11 +25,6 @@ const services: Service[] = [
     description: 'Serveis d\'emmagatzematge segur al nostre magatzem de Constantí i distribució estratègica per optimitzar el teu inventari.',
   },
   {
-    icon: Palette,
-    title: 'Especialistes en Disseny',
-    description: 'Transport i emmagatzematge especialitzat per a productes de disseny i decoració, amb la màxima cura i precisió.',
-  },
-  {
     icon: Wrench,
     title: 'Solucions a Mida',
     description: 'Desenvolupem plans logístics personalitzats i serveis premium adaptats als reptes únics del teu negoci.',
@@ -38,7 +33,7 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 md:py-24 bg-secondary">
+    <section id="services" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-headline font-bold">Els Nostres Serveis</h2>
@@ -46,7 +41,7 @@ export default function Services() {
             Oferim una suite completa de serveis per combinar innovació, sostenibilitat i excel·lència.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Card key={index} className="flex flex-col text-center items-center hover:shadow-lg transition-shadow duration-300 bg-card">
               <CardHeader>
@@ -54,9 +49,9 @@ export default function Services() {
                   <service.icon className="h-10 w-10 text-primary" />
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex flex-col flex-grow">
                 <CardTitle className="mb-2 font-headline text-xl">{service.title}</CardTitle>
-                <p className="text-muted-foreground">{service.description}</p>
+                <p className="text-muted-foreground flex-grow">{service.description}</p>
               </CardContent>
             </Card>
           ))}

@@ -31,7 +31,7 @@ export default function Hero() {
             <Link href="#contact">Contacta amb Nosaltres</Link>
           </Button>
           <Button size="lg" variant="secondary" asChild>
-            <Link href="#services">Els Nostres Serveis</Link>
+            <Link href="#products">Els Nostres Productes</Link>
           </Button>
         </div>
       </div>

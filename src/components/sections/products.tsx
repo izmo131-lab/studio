@@ -10,21 +10,6 @@ interface Service {
 
 const services: Service[] = [
   {
-    icon: Truck,
-    title: 'Transport Internacional',
-    description: 'Solucions de transport internacional de mercaderies fiables i eficients, garantint lliuraments puntuals a tot el món.',
-  },
-  {
-    icon: Boxes,
-    title: 'Logística Integral',
-    description: 'Gestió completa de la teva cadena de subministrament, des de la planificació i l\'origen fins a la destinació final.',
-  },
-  {
-    icon: Warehouse,
-    title: 'Emmagatzematge i Distribució',
-    description: 'Serveis d\'emmagatzematge segur al nostre magatzem de Constantí i distribució estratègica per optimitzar el teu inventari.',
-  },
-  {
     icon: Palette,
     title: 'Especialistes en Disseny',
     description: 'Transport i emmagatzematge especialitzat per a productes de disseny i decoració, amb la màxima cura i precisió.',
@@ -33,6 +18,11 @@ const services: Service[] = [
     icon: Wrench,
     title: 'Solucions a Mida',
     description: 'Desenvolupem plans logístics personalitzats i serveis premium adaptats als reptes únics del teu negoci.',
+  },
+  {
+    icon: Boxes,
+    title: 'Logística Integral',
+    description: 'Gestió completa de la teva cadena de subministrament, des de la planificació i l\'origen fins a la destinació final.',
   },
 ];
 

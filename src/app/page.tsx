@@ -1,6 +1,7 @@
 import Header from '@/components/layout/header';
 import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
+import Services from '@/components/sections/services';
 import Products from '@/components/sections/products';
 import Consulting from '@/components/sections/consulting';
 import AiTool from '@/components/sections/ai-tool';
@@ -15,6 +16,7 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         <About />
+        <Services />
         <Products />
         <Consulting />
         <AiTool />
