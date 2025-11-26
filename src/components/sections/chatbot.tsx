@@ -106,8 +106,7 @@ export default function Chatbot() {
                 </ScrollArea>
             </CardContent>
             <CardFooter className="border-t pt-6">
-              <form action={formAction} ref={formRef} className="w-full">
-                <div className="flex w-full items-center space-x-2">
+              <form action={formAction} ref={formRef} className="w-full flex items-center space-x-2">
                   <Input
                     name="question"
                     placeholder="Escriu la teva pregunta aquí..."
@@ -115,7 +114,6 @@ export default function Chatbot() {
                     required
                   />
                   <SubmitButton />
-                </div>
                  {state.formError && (
                   <p className="text-sm font-medium text-destructive mt-2">{state.formError}</p>
                 )}
