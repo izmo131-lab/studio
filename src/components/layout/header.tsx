@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, Package, Globe, ChevronDown } from 'lucide-react';
+import { Menu, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
 import React from 'react';
+import IvoraLogo from './IvoraLogo';
 
 const mainLinks = [
   { href: '/serveis', label: 'Serveis' },
@@ -64,9 +65,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <Package className="h-6 w-6 text-primary" />
-          <span className="font-headline tracking-tight text-xl">Ivora Logistics</span>
+        <Link href="/" className="flex items-center gap-2">
+          <IvoraLogo className="h-8 w-auto text-foreground" />
         </Link>
         
         <NavigationMenu className="hidden md:flex">
@@ -135,9 +135,8 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
-                   <Link href="/" className="flex items-center gap-2 font-bold text-lg" onClick={() => setIsOpen(false)}>
-                      <Package className="h-6 w-6 text-primary" />
-                      <span className="font-headline tracking-tight text-xl">Ivora Logistics</span>
+                   <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                      <IvoraLogo className="h-8 w-auto text-foreground" />
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-4 p-4">
