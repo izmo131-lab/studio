@@ -84,7 +84,7 @@ export default function Chatbot() {
                             </div>
                         </div>
                     )}
-                    {state.conversation.map((entry, index) => (
+                    {state.conversation.map((entry: { role: string; content: string }, index: number) => (
                         <div key={index} className={`flex items-start gap-4 ${entry.role === 'user' ? 'justify-end' : ''}`}>
                         {entry.role === 'bot' && (
                             <Avatar>
