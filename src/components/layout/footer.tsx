@@ -35,7 +35,7 @@ export default function Footer() {
               <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacitat</Link>
               <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Cookies</Link>
             </div>
-             <p className="text-sm text-muted-foreground mt-4 md:mt-0">&copy; {new Date().getFullYear()} Ivora Logistics SL. Tots els drets reservats.</p>
+             <p className="text-sm text-muted-foreground mt-4 md:mt-0">&copy; {new Date().getFullYear()} Ivore Logistics SL. Tots els drets reservats.</p>
           </div>
         </div>
       </div>
