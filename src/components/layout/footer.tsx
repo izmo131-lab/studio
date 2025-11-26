@@ -1,3 +1,5 @@
+"use client"
+
 import Link from 'next/link';
 import { Package, Twitter, Facebook, Linkedin } from 'lucide-react';
 
@@ -27,6 +29,11 @@ export default function Footer() {
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
+            </div>
+            <div className="flex items-center space-x-4 mt-4">
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Avís Legal</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacitat</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Cookies</Link>
             </div>
              <p className="text-sm text-muted-foreground mt-4 md:mt-0">&copy; {new Date().getFullYear()} Ivora Logistics SL. Tots els drets reservats.</p>
           </div>
