@@ -1,23 +1,18 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Hero() {
-  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
-
   return (
     <section className="relative h-[70vh] md:h-screen w-full flex items-center justify-center text-center text-white">
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          className="object-cover"
-          priority
-          data-ai-hint={heroImage.imageHint}
-        />
-      )}
+      <Image
+        src="/vista-lateral-camion-rosa-moderno-fondo-blanco_62972-38224.avif"
+        alt="Camió rosa modern d'Ivora Logistics"
+        fill
+        className="object-cover"
+        priority
+        data-ai-hint="camió rosa"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-transparent" />
       <div className="relative z-10 max-w-4xl mx-auto px-4 animate-fade-in-up">
         <h1 className="text-4xl md:text-7xl font-headline font-bold mb-4 tracking-tight text-white text-shadow-lg">
