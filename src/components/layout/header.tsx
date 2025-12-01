@@ -66,7 +66,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-accent/95 backdrop-blur supports-[backdrop-filter]:bg-accent/60">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <IvoraLogo className="h-8 w-auto text-foreground" />
+          <IvoraLogo className="h-10 w-auto text-foreground" />
         </Link>
         
         <NavigationMenu className="hidden md:flex">
@@ -136,7 +136,7 @@ export default function Header() {
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-                      <IvoraLogo className="h-8 w-auto text-foreground" />
+                      <IvoraLogo className="h-10 w-auto text-foreground" />
                     </Link>
                 </div>
                 <nav className="flex flex-col gap-4 p-4">
