@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div className="flex-1">
             <Link href="/" className="flex items-center gap-3">
-              <IvoraLogo className="h-10 w-auto text-foreground" />
+              <IvoraLogo className="text-foreground" />
             </Link>
             <p className="mt-4 max-w-sm text-sm text-muted-foreground">Fundada per Wiam, Álvaro i Izan. La teva operadora de transport i logística de confiança. Ubicats al Polígon Industrial de Constantí.</p>
           </div>

@@ -7,8 +7,8 @@ export default function IvoraLogo({ className }: { className?: string }) {
     <Image
       src="/imatge-removebg-preview.png"
       alt="Ivore Logistics Logo"
-      width={160}
-      height={40}
+      width={200}
+      height={50}
       className={className}
       priority
     />
