@@ -27,7 +27,7 @@ const postsData = [
     author: 'Wiam, Co-fundador',
     date: '15 de juliol de 2024',
     image: {
-        src: '/camió.png',
+        src: '/camió.jpg',
         alt: 'Imatge d\'un camió',
         hint: 'camió'
     },
@@ -51,7 +51,7 @@ const postsData = [
     author: 'Álvaro, Co-fundador',
     date: '10 de juliol de 2024',
     image: {
-        src: '/logistica-y-transporte.png',
+        src: '/logistica-y-transporte.jpg',
         alt: 'Imatge sobre logística i transport',
         hint: 'logística transport'
     },
@@ -78,7 +78,7 @@ const postsData = [
     author: 'Izan, Co-fundador',
     date: '5 de juliol de 2024',
     image: {
-        src: '/transporte-logistico2.png',
+        src: '/transporte-logistico2.jpeg',
         alt: 'Imatge sobre transport logístic',
         hint: 'transport logístic'
     },
