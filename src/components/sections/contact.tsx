@@ -3,7 +3,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { submitContactForm } from '@/app/actions';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -13,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 const formSchema = z.object({
   name: z.string().min(2, "El nom ha de tenir almenys 2 caràcters."),
@@ -25,6 +25,7 @@ type FormData = z.infer<typeof formSchema>;
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,19 +36,25 @@ export default function Contact() {
     },
   });
 
-  const { isSubmitting } = form.formState;
-
   async function onSubmit(data: FormData) {
+    setIsSubmitting(true);
     try {
-      const result = await submitContactForm(data);
-      if (result.success) {
+      const response = await fetch("https://formspree.io/f/xeoyklyj", {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      if (response.ok) {
         toast({
           title: "Èxit!",
-          description: result.message,
+          description: "Gràcies pel teu missatge! Ens posarem en contacte aviat.",
         });
         form.reset();
       } else {
-        throw new Error(result.message);
+        throw new Error('Hi ha hagut un problema amb la teva sol·licitud.');
       }
     } catch (error) {
       toast({
@@ -55,6 +62,8 @@ export default function Contact() {
         title: "Oh, no! Alguna cosa ha anat malament.",
         description: "Hi ha hagut un problema amb la teva sol·licitud. Si us plau, torna-ho a provar.",
       });
+    } finally {
+        setIsSubmitting(false);
     }
   }
 

@@ -43,25 +43,6 @@ export async function getLogisticsSuggestion(prevState: any, formData: FormData)
   }
 }
 
-const contactFormSchema = z.object({
-    name: z.string().min(2, "El nom ha de tenir almenys 2 caràcters."),
-    email: z.string().email("Si us plau, introdueix una adreça de correu electrònic vàlida."),
-    inquiryType: z.string(),
-    message: z.string().min(10, "El missatge ha de tenir almenys 10 caràcters."),
-});
-
-export async function submitContactForm(data: z.infer<typeof contactFormSchema>) {
-    const validation = contactFormSchema.safeParse(data);
-
-    if (!validation.success) {
-        return { success: false, message: "Dades del formulari invàlides." };
-    }
-
-    console.log("Nou enviament de formulari de contacte:", validation.data);
-
-    return { success: true, message: "Gràcies pel teu missatge! Ens posarem en contacte aviat." };
-}
-
 const chatBotSchema = z.object({
   question: z.string().min(5, {
     message: 'La pregunta ha de tenir almenys 5 caràcters.',
