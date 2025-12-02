@@ -1,4 +1,3 @@
-import { PlaceHolderImages } from './placeholder-images';
 
 export type BlogPost = {
   id: string;
@@ -27,6 +26,11 @@ const postsData = [
     title: 'El Futur de la Logística: IA i Automatització a Ivora Logistics',
     author: 'Wiam, Co-fundador',
     date: '15 de juliol de 2024',
+    image: {
+        src: '/camió.png',
+        alt: 'Imatge d\'un camió',
+        hint: 'camió'
+    },
     excerpt: 'Descobreix com a Ivora Logistics aprofitem la Intel·ligència Artificial i l\'automatització per redefinir la logística, des del nostre magatzem a Constantí fins a l\'entrega internacional.',
     content: `
 <p>La indústria logística està en plena transformació, i a Ivora Logistics estem al capdavant, integrant la Intel·ligència Artificial (IA) i l'automatització per oferir una eficiència i fiabilitat sense precedents.</p>
@@ -46,6 +50,11 @@ const postsData = [
     title: 'La nostra aposta per una Cadena de Subministrament Sostenible',
     author: 'Álvaro, Co-fundador',
     date: '10 de juliol de 2024',
+    image: {
+        src: '/logistica-y-transporte.png',
+        alt: 'Imatge sobre logística i transport',
+        hint: 'logística transport'
+    },
     excerpt: 'La sostenibilitat és un pilar fonamental a Ivora Logistics. A continuació, expliquem les nostres estratègies per una cadena de subministrament més respectuosa amb el medi ambient.',
     content: `
 <p>A Ivora Logistics, entenem que una cadena de subministrament sostenible no només és bona per al planeta, sinó que és essencial per a un negoci responsable i eficient. Aquest és el nostre compromís.</p>
@@ -68,6 +77,11 @@ const postsData = [
     title: 'Transparència i Solucions a Mida: El Segell d\'Ivora Logistics',
     author: 'Izan, Co-fundador',
     date: '5 de juliol de 2024',
+    image: {
+        src: '/transporte-logistico2.png',
+        alt: 'Imatge sobre transport logístic',
+        hint: 'transport logístic'
+    },
     excerpt: 'La confiança del client es basa en la transparència i l\'adaptabilitat. Descobreix com la tecnologia blockchain i les nostres solucions personalitzades marquen la diferència.',
     content: `
 <p>A Ivora Logistics, creiem que cada client és únic i mereix una solució logística a la seva mida. A més, la transparència total és la base de la nostra relació amb ells.</p>
@@ -84,15 +98,7 @@ const postsData = [
   },
 ];
 
-export const blogPosts: BlogPost[] = postsData.map(post => {
-  const imagePlaceholder = PlaceHolderImages.find(p => p.id === `blog-post-${post.id}`);
-  return {
-    ...post,
-    slug: createSlug(post.title),
-    image: {
-      src: imagePlaceholder?.imageUrl || '',
-      alt: imagePlaceholder?.description || 'Imatge de l\'article del blog',
-      hint: imagePlaceholder?.imageHint || 'article blog'
-    }
-  };
-});
+export const blogPosts: BlogPost[] = postsData.map(post => ({
+  ...post,
+  slug: createSlug(post.title),
+}));
