@@ -31,7 +31,6 @@ export default function Contact() {
     defaultValues: {
       name: '',
       email: '',
-      inquiryType: 'custom-solution',
       message: '',
     },
   });
