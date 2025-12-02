@@ -75,7 +75,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Adreça de Correu Electrònic</Label>
-                  <Input id="email" name="_replyto" type="email" placeholder="el.teu@correu.com" required />
+                  <Input id="email" name="email" type="email" placeholder="el.teu@correu.com" required />
                 </div>
               </div>
               <div className="space-y-2">
