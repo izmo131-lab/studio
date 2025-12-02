@@ -1,13 +1,58 @@
 "use client";
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
+  const { toast } = useToast();
+  const [status, setStatus] = useState('');
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus('sending');
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xeoyklyj', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+        toast({
+          title: "Missatge enviat!",
+          description: "Gràcies per contactar-nos. Et respondrem aviat.",
+        });
+      } else {
+        const responseData = await response.json();
+        if (responseData.errors) {
+            const errorMessages = responseData.errors.map((error: any) => error.message).join(", ");
+            throw new Error(errorMessages);
+        } else {
+            throw new Error('Hi ha hagut un error en enviar el formulari.');
+        }
+      }
+    } catch (error: any) {
+      setStatus('error');
+      toast({
+        variant: "destructive",
+        title: "Error en l'enviament",
+        description: error.message || 'No s\'ha pogut enviar el missatge. Si us plau, torna-ho a provar.',
+      });
+    }
+  }
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-secondary">
@@ -20,7 +65,7 @@ export default function Contact() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form action="https://formspree.io/f/xeoyklyj" method="POST" className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">Nom Complert</Label>
@@ -56,8 +101,8 @@ export default function Contact() {
                 />
               </div>
               <div className="flex justify-end">
-                <Button type="submit">
-                  Envia Missatge
+                <Button type="submit" disabled={status === 'sending'}>
+                  {status === 'sending' ? 'Enviant...' : 'Envia Missatge'}
                 </Button>
               </div>
             </form>
