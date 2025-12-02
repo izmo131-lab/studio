@@ -17,14 +17,16 @@ export default function Contact() {
     event.preventDefault();
     setStatus('sending');
     const form = event.currentTarget;
-    const data = new FormData(form);
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
 
     try {
       const response = await fetch('https://formspree.io/f/xeoyklyj', {
         method: 'POST',
-        body: data,
+        body: JSON.stringify(data),
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
         }
       });
 
@@ -73,7 +75,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">Adreça de Correu Electrònic</Label>
-                  <Input id="email" name="email" type="email" placeholder="el.teu@correu.com" required />
+                  <Input id="email" name="_replyto" type="email" placeholder="el.teu@correu.com" required />
                 </div>
               </div>
               <div className="space-y-2">
