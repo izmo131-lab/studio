@@ -1,10 +1,7 @@
 import Image from 'next/image';
 import { CheckCircle } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function Consulting() {
-  const consultingImage = PlaceHolderImages.find(p => p.id === 'consulting-image');
-
   const benefits = [
     'Optimització de rutes i gestió d\'inventaris amb IA.',
     'Automatització i robòtica col·laborativa als nostres magatzems.',
@@ -31,17 +28,15 @@ export default function Consulting() {
             </ul>
           </div>
           <div className="order-1 md:order-2">
-            {consultingImage && (
-               <div className="relative h-[450px] rounded-lg overflow-hidden shadow-lg">
-                <Image
-                  src={consultingImage.imageUrl}
-                  alt={consultingImage.description}
-                  fill
-                  className="object-cover w-full h-full"
-                  data-ai-hint={consultingImage.imageHint}
-                />
-              </div>
-            )}
+            <div className="relative h-[450px] rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/Sostenible.jpg"
+                alt="Imatge sobre innovació i sostenibilitat a la logística"
+                fill
+                className="object-cover w-full h-full"
+                data-ai-hint="logística sostenible"
+              />
+            </div>
           </div>
         </div>
       </div>
