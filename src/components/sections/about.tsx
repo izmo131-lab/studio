@@ -1,12 +1,9 @@
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Users, Building, Target } from 'lucide-react';
 
 export default function About() {
-  const aboutImage = PlaceHolderImages.find(p => p.id === 'about-us-image');
-
   return (
     <section id="about" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -49,16 +46,13 @@ export default function About() {
               <Link href="/contacte">Descobreix com podem ajudar-te</Link>
             </Button>
           </div>
-          <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-lg">
-            {aboutImage && (
-              <Image
-                src={aboutImage.imageUrl}
-                alt={aboutImage.description}
-                fill
-                className="object-cover"
-                data-ai-hint={aboutImage.imageHint}
-              />
-            )}
+          <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden">
+            <Image
+              src="/imatge-removebg-preview.png"
+              alt="Logo de Ivore Logistics"
+              fill
+              className="object-contain"
+            />
           </div>
         </div>
       </div>
