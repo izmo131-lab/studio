@@ -27,7 +27,7 @@ const postsData = [
     author: 'Wiam, Co-fundador',
     date: '15 de juliol de 2024',
     image: {
-        src: '/camió.jpg',
+        src: '/camion.jpg',
         alt: 'Imatge d\'un camió',
         hint: 'camió'
     },
