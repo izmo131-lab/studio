@@ -10,16 +10,12 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
@@ -38,16 +34,6 @@ const dropdownLinks: { title: string; href: string; description: string }[] = [
         title: 'Innovació',
         href: '/innovacio',
         description: 'La nostra aposta per la tecnologia i la sostenibilitat.',
-    },
-    {
-        title: 'Optimitzador IA',
-        href: '/optimitzador-ia',
-        description: 'Eina d\'IA per optimitzar els teus reptes logístics.',
-    },
-    {
-        title: 'Atenció al Client',
-        href: '/atencio-al-client',
-        description: 'Resol els teus dubtes amb el nostre xatbot intel·ligent.',
     },
     {
         title: 'Blog',

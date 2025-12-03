@@ -13,20 +13,18 @@ export default function Contact() {
   const { toast } = useToast();
   const [status, setStatus] = useState('');
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus('sending');
     const form = event.currentTarget;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const data = new FormData(form);
 
     try {
       const response = await fetch('https://formspree.io/f/xeoyklyj', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: data,
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         }
       });
 
@@ -38,23 +36,17 @@ export default function Contact() {
           description: "Gràcies per contactar-nos. Et respondrem aviat.",
         });
       } else {
-        const responseData = await response.json();
-        if (responseData.errors) {
-            const errorMessages = responseData.errors.map((error: any) => error.message).join(", ");
-            throw new Error(errorMessages);
-        } else {
-            throw new Error('Hi ha hagut un error en enviar el formulari.');
-        }
+        throw new Error('Hi ha hagut un error en enviar el formulari.');
       }
-    } catch (error: any) {
+    } catch (error) {
       setStatus('error');
       toast({
         variant: "destructive",
         title: "Error en l'enviament",
-        description: error.message || 'No s\'ha pogut enviar el missatge. Si us plau, torna-ho a provar.',
+        description: 'No s\'ha pogut enviar el missatge. Si us plau, torna-ho a provar.',
       });
     }
-  }
+  };
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-secondary">
