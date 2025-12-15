@@ -26,6 +26,7 @@ const mainLinks = [
   { href: '/serveis', label: 'Serveis' },
   { href: '/productes', label: 'Productes' },
   { href: '/sobre-nosaltres', label: 'Sobre Nosaltres' },
+  { href: '/tracking', label: 'Seguiment' },
   { href: '/contacte', label: 'Contacte' },
 ];
 
