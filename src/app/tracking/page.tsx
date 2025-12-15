@@ -127,7 +127,7 @@ export default function TrackingPage() {
                         <span>Estat de l'enviament</span>
                         <span className="font-semibold text-foreground">{statusInfo.label}</span>
                      </div>
-                     <Progress value={statusInfo.progress} className={`h-3 [&>div]:bg-gradient-to-r [&>div]:from-pink-400 [&>div]:to-pink-600`} />
+                     <Progress value={statusInfo.progress} className="h-3" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
