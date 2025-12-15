@@ -5,10 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Search, MapPin, Calendar, Package, ArrowRight, Warehouse, Truck, CheckCircle, User } from 'lucide-react';
+import { Search, MapPin, Calendar, Package, ArrowRight, Warehouse, Truck, CheckCircle } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { cn } from '@/lib/utils';
+import { Progress } from '@/components/ui/progress';
 
 type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'Lliurat';
 
@@ -22,11 +23,12 @@ interface ShipmentData {
   Data: string;
 }
 
-const statusSteps: { status: ShipmentStatus; label: string; icon: React.ElementType }[] = [
-  { status: 'En magatzem', label: 'En Magatzem', icon: Warehouse },
-  { status: 'En trànsit', label: 'En Trànsit', icon: Truck },
-  { status: 'Lliurat', label: 'Lliurat', icon: CheckCircle },
-];
+const statusConfig: Record<ShipmentStatus, { progress: number; colorClass: string; label: string }> = {
+  'En magatzem': { progress: 10, colorClass: 'bg-tracking-in-warehouse', label: 'En Magatzem' },
+  'En trànsit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: 'En Trànsit' },
+  'Lliurat': { progress: 100, colorClass: 'bg-tracking-delivered', label: 'Lliurat' },
+};
+
 
 export default function TrackingPage() {
   const [trackingCode, setTrackingCode] = useState('');
@@ -64,7 +66,7 @@ export default function TrackingPage() {
     }
   };
   
-  const currentStatusIndex = shipment ? statusSteps.findIndex(step => step.status === shipment.Estat) : -1;
+  const statusInfo = shipment ? statusConfig[shipment.Estat] : null;
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -99,7 +101,7 @@ export default function TrackingPage() {
             </Alert>
           )}
 
-          {shipment && (
+          {shipment && statusInfo && (
             <Card className="w-full animate-fade-in-up">
               <CardHeader>
                 <CardTitle className="flex justify-between items-center">
@@ -117,40 +119,11 @@ export default function TrackingPage() {
                   </div>
                   
                   <div>
-                    <div className="relative pt-8">
-                      {/* Timeline line */}
-                      <div className="absolute left-0 top-3.5 w-full h-0.5 bg-border"></div>
-                      <div 
-                        className="absolute left-0 top-3.5 h-0.5"
-                        style={{ 
-                          width: `${currentStatusIndex * 50}%`,
-                          background: currentStatusIndex === 0 ? 'hsl(var(--tracking-in-warehouse))' : currentStatusIndex === 1 ? 'hsl(var(--tracking-in-transit))' : 'hsl(var(--tracking-delivered))',
-                          transition: 'width 0.5s ease-in-out',
-                        }}
-                      ></div>
-                      
-                      <div className="relative flex justify-between">
-                        {statusSteps.map((step, index) => {
-                          const isActive = index <= currentStatusIndex;
-                          return (
-                            <div key={step.status} className="flex flex-col items-center w-1/3">
-                              <div className={cn(
-                                "h-8 w-8 rounded-full flex items-center justify-center border-2 z-10 transition-colors duration-300",
-                                isActive ? "border-transparent" : "border-border bg-background",
-                                index === 0 && isActive && "bg-tracking-in-warehouse text-white",
-                                index === 1 && isActive && "bg-tracking-in-transit text-white",
-                                index === 2 && isActive && "bg-tracking-delivered text-white"
-                              )}>
-                                <step.icon className="h-5 w-5" />
-                              </div>
-                              <p className={cn("mt-2 text-xs md:text-sm text-center", isActive ? "font-semibold text-foreground" : "text-muted-foreground")}>
-                                {step.label}
-                              </p>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <div className="flex justify-between items-center mb-2">
+                        <p className="text-sm text-muted-foreground">Estat de l'enviament</p>
+                        <span className="font-semibold text-foreground">{statusInfo.label}</span>
+                     </div>
+                     <Progress value={statusInfo.progress} indicatorClassName={statusInfo.colorClass} />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
