@@ -26,10 +26,10 @@
     --radius: 0.75rem;
 
     /* Tracking colors */
-    --tracking-in-warehouse: 48 96% 51%; /* bg-yellow-500 */
-    --tracking-in-transit: 217 91% 60%; /* bg-blue-500 */
-    --tracking-delivered: 142 71% 45%; /* bg-green-500 */
-    --tracking-unknown: 215 28% 47%; /* bg-gray-500 */
+    --tracking-in-warehouse: 48 96% 51%; /* yellow-500 */
+    --tracking-in-transit: 217 91% 60%; /* blue-500 */
+    --tracking-delivered: 142 71% 45%; /* green-500 */
+    --tracking-unknown: 215 28% 47%; /* gray-500 */
   }
   .dark {
     --background: 25 45% 25%;
