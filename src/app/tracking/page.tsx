@@ -9,9 +9,8 @@ import { Search, MapPin, Calendar, Package, ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Progress } from '@/components/ui/progress';
-import { cn } from '@/lib/utils';
 
-type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'Lliurat';
+type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'En transit' | 'Lliurat';
 
 interface ShipmentData {
   tracking_code: string;
@@ -23,7 +22,7 @@ interface ShipmentData {
   Data: string;
 }
 
-const statusConfig: Record<ShipmentStatus, { progress: number; colorClass: string; label: string }> = {
+const statusConfig: Record<Exclude<ShipmentStatus, 'En transit'>, { progress: number; colorClass: string; label: string }> = {
   'En magatzem': { progress: 10, colorClass: 'bg-tracking-in-warehouse', label: 'En Magatzem' },
   'En trànsit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: 'En Trànsit' },
   'Lliurat': { progress: 100, colorClass: 'bg-tracking-delivered', label: 'Lliurat' },
@@ -55,7 +54,12 @@ export default function TrackingPage() {
       const data: ShipmentData[] = await response.json();
 
       if (data.length > 0) {
-        setShipment(data[0]);
+        const result = data[0];
+        // Normalize status
+        if (result.Estat === 'En transit') {
+          result.Estat = 'En trànsit';
+        }
+        setShipment(result);
       } else {
         setError('Codi no trobat. Si us plau, verifica el codi i torna-ho a provar.');
       }
@@ -66,7 +70,7 @@ export default function TrackingPage() {
     }
   };
   
-  const statusInfo = shipment ? statusConfig[shipment.Estat] : null;
+  const statusInfo = shipment ? statusConfig[shipment.Estat as Exclude<ShipmentStatus, 'En transit'>] : null;
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
