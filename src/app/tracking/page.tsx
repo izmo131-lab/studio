@@ -9,6 +9,7 @@ import { Search, MapPin, Calendar, Package, ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Progress } from '@/components/ui/progress';
+import { cn } from '@/lib/utils';
 
 type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'Lliurat';
 
@@ -103,11 +104,13 @@ export default function TrackingPage() {
           {shipment && statusInfo && (
             <Card className="w-full animate-fade-in-up">
               <CardHeader>
-                <CardTitle className="flex justify-between items-center">
-                  <span>Resultat de l'Enviament</span>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <CardTitle>Resultat de l'Enviament</CardTitle>
+                    <CardDescription>Informació detallada per a: <span className="font-semibold text-foreground">{shipment.Client}</span></CardDescription>
+                  </div>
                   <span className="text-sm font-mono bg-muted text-muted-foreground px-2 py-1 rounded-md">{shipment.tracking_code}</span>
-                </CardTitle>
-                 <CardDescription>Informació detallada del teu paquet per a: <span className="font-semibold text-foreground">{shipment.Client}</span></CardDescription>
+                </div>
               </CardHeader>
               <CardContent>
                 <div className="space-y-8">
