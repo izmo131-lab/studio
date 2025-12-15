@@ -21,16 +21,16 @@ interface ShipmentData {
   data: string;
 }
 
-const getStatusInfo = (status: ShipmentStatus): { progress: number; label: string } => {
+const getStatusInfo = (status: ShipmentStatus): { progress: number; label: string; colorClass: string } => {
   switch (status) {
     case 'En magatzem':
-      return { progress: 10, label: 'En Magatzem' };
+      return { progress: 10, label: 'En Magatzem', colorClass: 'bg-yellow-500' };
     case 'En trànsit':
-      return { progress: 50, label: 'En Trànsit' };
+      return { progress: 50, label: 'En Trànsit', colorClass: 'bg-blue-500' };
     case 'Lliurat':
-      return { progress: 100, label: 'Lliurat' };
+      return { progress: 100, label: 'Lliurat', colorClass: 'bg-green-500' };
     default:
-      return { progress: 0, label: 'Desconegut' };
+      return { progress: 0, label: 'Desconegut', colorClass: 'bg-gray-500' };
   }
 };
 
@@ -127,7 +127,7 @@ export default function TrackingPage() {
                         <span>Estat de l'enviament</span>
                         <span className="font-semibold text-foreground">{statusInfo.label}</span>
                      </div>
-                     <Progress value={statusInfo.progress} className="h-3" />
+                     <Progress value={statusInfo.progress} className="h-3" indicatorClassName={statusInfo.colorClass} />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
