@@ -24,13 +24,13 @@ interface ShipmentData {
 const getStatusInfo = (status: ShipmentStatus): { progress: number; label: string; colorClass: string } => {
   switch (status) {
     case 'En magatzem':
-      return { progress: 10, label: 'En Magatzem', colorClass: 'bg-yellow-500' };
+      return { progress: 10, label: 'En Magatzem', colorClass: 'tracking-in-warehouse' };
     case 'En trànsit':
-      return { progress: 50, label: 'En Trànsit', colorClass: 'bg-blue-500' };
+      return { progress: 50, label: 'En Trànsit', colorClass: 'tracking-in-transit' };
     case 'Lliurat':
-      return { progress: 100, label: 'Lliurat', colorClass: 'bg-green-500' };
+      return { progress: 100, label: 'Lliurat', colorClass: 'tracking-delivered' };
     default:
-      return { progress: 0, label: 'Desconegut', colorClass: 'bg-gray-500' };
+      return { progress: 0, label: 'Desconegut', colorClass: 'tracking-unknown' };
   }
 };
 
@@ -127,7 +127,7 @@ export default function TrackingPage() {
                         <span>Estat de l'enviament</span>
                         <span className="font-semibold text-foreground">{statusInfo.label}</span>
                      </div>
-                     <Progress value={statusInfo.progress} className="h-3" indicatorClassName={statusInfo.colorClass} />
+                     <Progress value={statusInfo.progress} className={cn("h-3", statusInfo.colorClass)} />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
