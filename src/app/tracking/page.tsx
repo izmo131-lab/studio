@@ -15,22 +15,22 @@ type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'Lliurat';
 interface ShipmentData {
   tracking_code: string;
   origen: string;
-  desti: string;
+  destinacio: string;
   estat: ShipmentStatus;
-  ubicacio_actual: string;
-  data_prevista: string;
+  ubicacio: string;
+  data: string;
 }
 
-const getStatusInfo = (status: ShipmentStatus): { progress: number; color: string; label: string } => {
+const getStatusInfo = (status: ShipmentStatus): { progress: number; label: string } => {
   switch (status) {
     case 'En magatzem':
-      return { progress: 10, color: 'bg-yellow-500', label: 'En Magatzem' };
+      return { progress: 10, label: 'En Magatzem' };
     case 'En trànsit':
-      return { progress: 50, color: 'bg-blue-500', label: 'En Trànsit' };
+      return { progress: 50, label: 'En Trànsit' };
     case 'Lliurat':
-      return { progress: 100, color: 'bg-green-500', label: 'Lliurat' };
+      return { progress: 100, label: 'Lliurat' };
     default:
-      return { progress: 0, color: 'bg-gray-400', label: 'Desconegut' };
+      return { progress: 0, label: 'Desconegut' };
   }
 };
 
@@ -89,7 +89,7 @@ export default function TrackingPage() {
               type="text"
               value={trackingCode}
               onChange={(e) => setTrackingCode(e.target.value)}
-              placeholder="Ex: IVORA123456"
+              placeholder="Ex: TRK-001"
               className="h-12 text-lg flex-grow"
               onKeyUp={(e) => e.key === 'Enter' && handleSearch()}
             />
@@ -119,7 +119,7 @@ export default function TrackingPage() {
                   <div className="flex items-center justify-between text-lg font-medium">
                      <span className="flex items-center gap-2"><MapPin className="h-5 w-5 text-muted-foreground" /> {shipment.origen}</span>
                      <ArrowRight className="h-6 w-6 text-primary" />
-                     <span className="flex items-center gap-2">{shipment.desti} <MapPin className="h-5 w-5 text-muted-foreground" /></span>
+                     <span className="flex items-center gap-2">{shipment.destinacio} <MapPin className="h-5 w-5 text-muted-foreground" /></span>
                   </div>
                   
                   <div className="space-y-2">
@@ -135,14 +135,14 @@ export default function TrackingPage() {
                         <Package className="h-6 w-6 text-primary"/>
                         <div>
                             <p className="text-muted-foreground">Ubicació Actual</p>
-                            <p className="font-semibold">{shipment.ubicacio_actual}</p>
+                            <p className="font-semibold">{shipment.ubicacio}</p>
                         </div>
                     </div>
                      <div className="flex items-center gap-3 bg-secondary/50 p-3 rounded-md">
                         <Calendar className="h-6 w-6 text-primary"/>
                         <div>
                             <p className="text-muted-foreground">Data Prevista (ETA)</p>
-                            <p className="font-semibold">{shipment.data_prevista}</p>
+                            <p className="font-semibold">{shipment.data}</p>
                         </div>
                     </div>
                   </div>
