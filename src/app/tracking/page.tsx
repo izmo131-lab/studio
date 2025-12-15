@@ -9,6 +9,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Search, MapPin, Calendar, Package, ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { cn } from '@/lib/utils';
 
 type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'Lliurat';
 
