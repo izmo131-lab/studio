@@ -5,10 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Search, MapPin, Calendar, Package, ArrowRight, Warehouse, Truck, CheckCircle } from 'lucide-react';
+import { Search, MapPin, Calendar, Package, ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { cn } from '@/lib/utils';
 import { Progress } from '@/components/ui/progress';
 
 type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'Lliurat';
