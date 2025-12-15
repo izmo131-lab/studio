@@ -67,16 +67,16 @@
 }
 
 @layer components {
-  .tracking-in-warehouse {
-    --progress-indicator-color: hsl(var(--tracking-in-warehouse));
+  .bg-tracking-in-warehouse {
+    @apply bg-[hsl(var(--tracking-in-warehouse))];
   }
-  .tracking-in-transit {
-    --progress-indicator-color: hsl(var(--tracking-in-transit));
+  .bg-tracking-in-transit {
+    @apply bg-[hsl(var(--tracking-in-transit))];
   }
-  .tracking-delivered {
-    --progress-indicator-color: hsl(var(--tracking-delivered));
+  .bg-tracking-delivered {
+    @apply bg-[hsl(var(--tracking-delivered))];
   }
-  .tracking-unknown {
-    --progress-indicator-color: hsl(var(--tracking-unknown));
+  .bg-tracking-unknown {
+    @apply bg-[hsl(var(--tracking-unknown))];
   }
 }
