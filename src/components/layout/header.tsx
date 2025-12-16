@@ -69,6 +69,7 @@ export default function Header() {
   const router = useRouter();
 
   useEffect(() => {
+    // This code will only run on the client
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
