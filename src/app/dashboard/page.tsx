@@ -49,12 +49,17 @@ export default function DashboardPage() {
     router.push('/login');
   };
 
-  if (isLoading || !userData) {
+  if (isLoading) {
     return (
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
             <main className="flex-grow flex items-center justify-center">
-                <p>Carregant...</p>
+                <div className="flex items-center space-x-2">
+                    <div className="w-4 h-4 rounded-full bg-primary animate-pulse"></div>
+                    <div className="w-4 h-4 rounded-full bg-primary animate-pulse [animation-delay:0.2s]"></div>
+                    <div className="w-4 h-4 rounded-full bg-primary animate-pulse [animation-delay:0.4s]"></div>
+                    <span className="ml-2 text-muted-foreground">Carregant...</span>
+                </div>
             </main>
             <Footer />
         </div>
@@ -66,39 +71,41 @@ export default function DashboardPage() {
       <Header />
       <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-2xl">
-          <Card>
-            <CardHeader className="text-center items-center">
-                <Avatar className="h-24 w-24 mb-4">
-                    <AvatarFallback className="text-3xl">
-                        {userData.name.charAt(0).toUpperCase()}
-                    </AvatarFallback>
-                </Avatar>
-              <CardTitle className="text-3xl font-headline">Benvingut, {userData.name}!</CardTitle>
-              <CardDescription>Aquest és el teu perfil d'usuari a Ivora Logistics.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-                <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-md">
-                    <User className="h-6 w-6 text-primary" />
-                    <div>
-                        <p className="text-sm text-muted-foreground">Nom d'Usuari</p>
-                        <p className="font-semibold">{userData.name}</p>
-                    </div>
-                </div>
-                <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-md">
-                    <Building className="h-6 w-6 text-primary" />
-                    <div>
-                        <p className="text-sm text-muted-foreground">Empresa</p>
-                        <p className="font-semibold">{userData.company}</p>
-                    </div>
-                </div>
-                <div className="pt-4 flex justify-end">
-                    <Button variant="outline" onClick={handleLogout}>
-                        <LogOut className="mr-2 h-4 w-4" />
-                        Tancar Sessió
-                    </Button>
-                </div>
-            </CardContent>
-          </Card>
+          {userData && (
+            <Card>
+              <CardHeader className="text-center items-center">
+                  <Avatar className="h-24 w-24 mb-4">
+                      <AvatarFallback className="text-3xl">
+                          {userData.name.charAt(0).toUpperCase()}
+                      </AvatarFallback>
+                  </Avatar>
+                <CardTitle className="text-3xl font-headline">Benvingut, {userData.name}!</CardTitle>
+                <CardDescription>Aquest és el teu perfil d'usuari a Ivora Logistics.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                  <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-md">
+                      <User className="h-6 w-6 text-primary" />
+                      <div>
+                          <p className="text-sm text-muted-foreground">Nom d'Usuari</p>
+                          <p className="font-semibold">{userData.name}</p>
+                      </div>
+                  </div>
+                  <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-md">
+                      <Building className="h-6 w-6 text-primary" />
+                      <div>
+                          <p className="text-sm text-muted-foreground">Empresa</p>
+                          <p className="font-semibold">{userData.company}</p>
+                      </div>
+                  </div>
+                  <div className="pt-4 flex justify-end">
+                      <Button variant="outline" onClick={handleLogout}>
+                          <LogOut className="mr-2 h-4 w-4" />
+                          Tancar Sessió
+                      </Button>
+                  </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </main>
       <Footer />
