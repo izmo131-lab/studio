@@ -29,7 +29,6 @@ const mainLinks = [
   { href: '/productes', label: 'Productes' },
   { href: '/sobre-nosaltres', label: 'Sobre Nosaltres' },
   { href: '/tracking', label: 'Seguiment' },
-  { href: '/contacte', label: 'Contacte' },
 ];
 
 const dropdownLinks: { title: string; href: string; description: string }[] = [
@@ -42,6 +41,11 @@ const dropdownLinks: { title: string; href: string; description: string }[] = [
         title: 'Blog',
         href: '/blog',
         description: 'Notícies i anàlisis sobre el sector de la logística.',
+    },
+    {
+        title: 'Contacte',
+        href: '/contacte',
+        description: 'Parla amb el nostre equip.',
     },
     {
         title: 'Ubicació',
@@ -58,11 +62,9 @@ interface UserData {
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<UserData | null>(null);
-  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    setIsClient(true);
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
@@ -144,7 +146,7 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {isClient && (user ? (
+          {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
@@ -198,14 +200,14 @@ export default function Header() {
                       {link.label || link.title}
                     </Link>
                   ))}
-                   {isClient && (user ? (
+                   {user ? (
                     <>
                       <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">El meu Perfil</Link>
                       <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">Tancar Sessió</button>
                     </>
                    ) : (
                     <Link href="/login" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">Login</Link>
-                   ))}
+                   )}
                 </nav>
                 <div className="mt-auto p-4 border-t">
                  <DropdownMenu>

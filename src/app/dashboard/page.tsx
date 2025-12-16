@@ -49,7 +49,7 @@ export default function DashboardPage() {
     router.push('/login');
   };
 
-  if (isLoading) {
+  if (isLoading || !userData) {
     return (
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
@@ -71,7 +71,6 @@ export default function DashboardPage() {
       <Header />
       <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-2xl">
-          {userData && (
             <Card>
               <CardHeader className="text-center items-center">
                   <Avatar className="h-24 w-24 mb-4">
@@ -105,7 +104,6 @@ export default function DashboardPage() {
                   </div>
               </CardContent>
             </Card>
-          )}
         </div>
       </main>
       <Footer />
