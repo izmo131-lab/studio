@@ -28,10 +28,14 @@ const mainLinks = [
   { href: '/serveis', label: 'Serveis' },
   { href: '/productes', label: 'Productes' },
   { href: '/sobre-nosaltres', label: 'Sobre Nosaltres' },
-  { href: '/tracking', label: 'Seguiment' },
 ];
 
 const dropdownLinks: { title: string; href: string; description: string }[] = [
+    {
+        title: 'Seguiment',
+        href: '/tracking',
+        description: 'Localitza el teu enviament en temps real.',
+    },
     {
         title: 'Innovació',
         href: '/innovacio',
@@ -170,7 +174,7 @@ export default function Header() {
              <Button asChild>
                 <Link href="/login">Login</Link>
              </Button>
-          ))}
+          )}
 
         </div>
 
