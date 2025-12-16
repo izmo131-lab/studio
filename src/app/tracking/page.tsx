@@ -10,7 +10,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Progress } from '@/components/ui/progress';
 
-type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'En transit' | 'Lliurat';
+type ShipmentStatus = 'En magatzem' | 'En trànsit' | 'En transit' | 'Lliurat' | 'LLIURAT';
 
 interface ShipmentData {
   tracking_code: string;
@@ -22,10 +22,11 @@ interface ShipmentData {
   Data: string;
 }
 
-const statusConfig: Record<Exclude<ShipmentStatus, 'En transit'>, { progress: number; colorClass: string; label: string }> = {
-  'En magatzem': { progress: 10, colorClass: 'bg-tracking-in-warehouse', label: 'En Magatzem' },
-  'En trànsit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: 'En Trànsit' },
-  'Lliurat': { progress: 100, colorClass: 'bg-tracking-delivered', label: 'Lliurat' },
+const statusConfig: Record<string, { progress: number; colorClass: string; label: string }> = {
+  'en magatzem': { progress: 10, colorClass: 'bg-tracking-in-warehouse', label: 'En Magatzem' },
+  'en trànsit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: 'En Trànsit' },
+  'en transit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: 'En Trànsit' },
+  'lliurat': { progress: 100, colorClass: 'bg-tracking-delivered', label: 'Lliurat' },
 };
 
 
@@ -54,12 +55,7 @@ export default function TrackingPage() {
       const data: ShipmentData[] = await response.json();
 
       if (data.length > 0) {
-        const result = data[0];
-        // Normalize status
-        if (result.Estat === 'En transit') {
-          result.Estat = 'En trànsit';
-        }
-        setShipment(result);
+        setShipment(data[0]);
       } else {
         setError('Codi no trobat. Si us plau, verifica el codi i torna-ho a provar.');
       }
@@ -70,7 +66,7 @@ export default function TrackingPage() {
     }
   };
   
-  const statusInfo = shipment ? statusConfig[shipment.Estat as Exclude<ShipmentStatus, 'En transit'>] : null;
+  const statusInfo = shipment ? statusConfig[shipment.Estat.toLowerCase()] : null;
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
