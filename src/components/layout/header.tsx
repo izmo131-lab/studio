@@ -58,13 +58,19 @@ interface UserData {
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<UserData | null>(null);
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    // Aquest codi només s'executa al client
+    setIsClient(true);
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (e) {
+        setUser(null);
+        localStorage.removeItem('user');
+      }
     }
   }, []);
 
@@ -72,6 +78,14 @@ export default function Header() {
     localStorage.removeItem('user');
     setUser(null);
     router.push('/login');
+  };
+
+  const handleProfileClick = () => {
+    if (user) {
+        router.push('/dashboard');
+    } else {
+        router.push('/login');
+    }
   };
 
   return (
@@ -130,7 +144,7 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {user ? (
+          {isClient && (user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="outline">
@@ -139,11 +153,9 @@ export default function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem asChild>
-                  <Link href="/dashboard">
+                <DropdownMenuItem onClick={handleProfileClick}>
                     <User className="mr-2 h-4 w-4" />
                     El meu Perfil
-                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
@@ -156,7 +168,7 @@ export default function Header() {
              <Button asChild>
                 <Link href="/login">Login</Link>
              </Button>
-          )}
+          ))}
 
         </div>
 
@@ -186,14 +198,14 @@ export default function Header() {
                       {link.label || link.title}
                     </Link>
                   ))}
-                   {user ? (
+                   {isClient && (user ? (
                     <>
                       <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">El meu Perfil</Link>
                       <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">Tancar Sessió</button>
                     </>
                    ) : (
                     <Link href="/login" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">Login</Link>
-                   )}
+                   ))}
                 </nav>
                 <div className="mt-auto p-4 border-t">
                  <DropdownMenu>

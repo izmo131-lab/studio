@@ -16,25 +16,40 @@ interface UserData {
 
 export default function DashboardPage() {
   const [userData, setUserData] = useState<UserData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
+    // Aquest codi només s'executarà al client
     const userJson = localStorage.getItem('user');
     if (userJson) {
-      const user = JSON.parse(userJson);
-      setUserData(user);
+      try {
+        const user = JSON.parse(userJson);
+        if (user && user.name && user.company) {
+          setUserData(user);
+        } else {
+          // Les dades guardades no són vàlides
+          localStorage.removeItem('user');
+          router.push('/login');
+        }
+      } catch (error) {
+        // Error en parsejar el JSON
+        localStorage.removeItem('user');
+        router.push('/login');
+      }
     } else {
-      // Si no hi ha usuari, redirigir a login
       router.push('/login');
     }
+    setIsLoading(false);
   }, [router]);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
+    setUserData(null);
     router.push('/login');
   };
 
-  if (!userData) {
+  if (isLoading || !userData) {
     return (
         <div className="flex flex-col min-h-screen bg-background">
             <Header />
