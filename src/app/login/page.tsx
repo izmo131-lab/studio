@@ -25,7 +25,7 @@ export default function LoginPage() {
     setError(null);
 
     try {
-      const response = await fetch(`${SHEETDB_API_URL}/search?Usuari=${user}&Contrasenya=${password}&sheet=usuaris`);
+      const response = await fetch(`${SHEETDB_API_URL}/search?usuari=${user}&password=${password}&sheet=usuaris`);
       if (!response.ok) {
         throw new Error('Error en la connexió amb el servidor.');
       }
@@ -33,7 +33,7 @@ export default function LoginPage() {
 
       if (data.length > 0) {
         const userData = data[0];
-        localStorage.setItem('user', JSON.stringify({ name: userData.Usuari, company: userData.Empresa }));
+        localStorage.setItem('user', JSON.stringify({ name: userData.nom, company: userData.empresa }));
         router.push('/dashboard');
       } else {
         setError('Dades incorrectes. Si us plau, verifica el teu usuari i contrasenya.');

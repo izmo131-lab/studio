@@ -20,7 +20,7 @@ export default function DashboardPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Aquest codi només s'executarà al client
+    // This code will only run on the client
     const userJson = localStorage.getItem('user');
     if (userJson) {
       try {
@@ -28,12 +28,12 @@ export default function DashboardPage() {
         if (user && user.name && user.company) {
           setUserData(user);
         } else {
-          // Les dades guardades no són vàlides
+          // The stored data is not valid
           localStorage.removeItem('user');
           router.push('/login');
         }
       } catch (error) {
-        // Error en parsejar el JSON
+        // Error parsing JSON
         localStorage.removeItem('user');
         router.push('/login');
       }
