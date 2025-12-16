@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, Globe, ChevronDown } from 'lucide-react';
+import { Menu, Globe, ChevronDown, User, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
@@ -10,6 +10,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 import {
   NavigationMenu,
@@ -21,6 +22,7 @@ import {
 import { cn } from "@/lib/utils"
 import React from 'react';
 import IvoraLogo from './IvoraLogo';
+import { useRouter } from 'next/navigation';
 
 const mainLinks = [
   { href: '/serveis', label: 'Serveis' },
@@ -48,8 +50,29 @@ const dropdownLinks: { title: string; href: string; description: string }[] = [
     },
 ];
 
+interface UserData {
+    name: string;
+    company: string;
+}
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<UserData | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Aquest codi només s'executa al client
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setUser(null);
+    router.push('/login');
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-accent/95 backdrop-blur supports-[backdrop-filter]:bg-accent/60">
@@ -106,9 +129,35 @@ export default function Header() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button asChild>
-            <Link href="/contacte">Demana un Pressupost</Link>
-          </Button>
+
+          {user ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline">
+                  <User className="mr-2 h-5 w-5" />
+                  {user.name}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem asChild>
+                  <Link href="/dashboard">
+                    <User className="mr-2 h-4 w-4" />
+                    El meu Perfil
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem onClick={handleLogout}>
+                  <LogOut className="mr-2 h-4 w-4" />
+                  Tancar Sessió
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+             <Button asChild>
+                <Link href="/login">Login</Link>
+             </Button>
+          )}
+
         </div>
 
         <div className="md:hidden">
@@ -137,6 +186,14 @@ export default function Header() {
                       {link.label || link.title}
                     </Link>
                   ))}
+                   {user ? (
+                    <>
+                      <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">El meu Perfil</Link>
+                      <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">Tancar Sessió</button>
+                    </>
+                   ) : (
+                    <Link href="/login" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">Login</Link>
+                   )}
                 </nav>
                 <div className="mt-auto p-4 border-t">
                  <DropdownMenu>
