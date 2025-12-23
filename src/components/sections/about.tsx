@@ -11,7 +11,7 @@ export default function About() {
           <div>
             <h2 className="text-3xl md:text-4xl font-headline font-bold mb-4">La Nostra Història, La Teva Solució</h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Ivora Logistics va néixer de la visió compartida de tres fundadors, Wiam, Álvaro i Izan, amb l'objectiu de redefinir l'excel·lència en el transport i la logística. Ens especialitzem en la manipulació i el transport de productes de disseny i decoració, oferint un servei que combina precisió, cura i eficiència.
+              Ivora va néixer de la visió compartida de tres fundadors, Wiam, Álvaro i Izan, amb l'objectiu de redefinir l'excel·lència en el transport i la logística. Ens especialitzem en la manipulació i el transport de productes de disseny i decoració, oferint un servei que combina precisió, cura i eficiència.
             </p>
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-4">
@@ -49,7 +49,7 @@ export default function About() {
           <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden">
             <Image
               src="/imatge-removebg-preview.png"
-              alt="Logo de Ivore Logistics"
+              alt="Logo de Ivora"
               fill
               className="object-contain"
             />

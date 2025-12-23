@@ -79,7 +79,7 @@ export default function DashboardPage() {
                       </AvatarFallback>
                   </Avatar>
                 <CardTitle className="text-3xl font-headline">Benvingut, {userData.name}!</CardTitle>
-                <CardDescription>Aquest és el teu perfil d'usuari a Ivora Logistics.</CardDescription>
+                <CardDescription>Aquest és el teu perfil d'usuari a Ivora.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                   <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-md">

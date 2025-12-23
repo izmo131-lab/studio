@@ -41,7 +41,7 @@ export default function Location() {
                   <Mail className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold">Correu Electrònic</h3>
-                    <p className="text-muted-foreground"><a href="mailto:contacte@ivoralogistics.com" className="hover:text-primary transition-colors">contacte@ivoralogistics.com</a></p>
+                    <p className="text-muted-foreground"><a href="mailto:contacte@ivora.cat" className="hover:text-primary transition-colors">contacte@ivora.cat</a></p>
                   </div>
                 </div>
               </CardContent>

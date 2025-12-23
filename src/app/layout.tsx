@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Ivore Logistics',
+  title: 'Ivora',
   description: 'Operadora de transport i logística. Solucions integrals, emmagatzematge i distribució.',
 };
 
