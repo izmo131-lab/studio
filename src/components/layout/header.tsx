@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, Globe, ChevronDown, User, LogOut } from 'lucide-react';
+import { Menu, Globe, ChevronDown, User, LogOut, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import {
@@ -164,6 +164,10 @@ export default function Header() {
                     <User className="mr-2 h-4 w-4" />
                     El meu Perfil
                 </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => router.push('/documents')}>
+                    <FileText className="mr-2 h-4 w-4" />
+                    Les meves Factures
+                </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />
@@ -208,6 +212,7 @@ export default function Header() {
                    {user ? (
                     <>
                       <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">El meu Perfil</Link>
+                      <Link href="/documents" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">Les meves Factures</Link>
                       <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">Tancar Sessió</button>
                     </>
                    ) : (
