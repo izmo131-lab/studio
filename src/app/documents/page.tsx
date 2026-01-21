@@ -191,7 +191,7 @@ export default function DocumentsPage() {
         fetchData();
     }
 
-  }, [router]);
+  }, []);
 
   const handlePrint = () => {
     window.print();
