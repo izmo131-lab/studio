@@ -73,8 +73,17 @@ export default function Header() {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
-        setUser(JSON.parse(storedUser));
+        const parsedUser = JSON.parse(storedUser);
+        // Add a check to ensure the user object is valid
+        if (parsedUser && parsedUser.name) {
+            setUser(parsedUser);
+        } else {
+            // Invalid data in localStorage
+            setUser(null);
+            localStorage.removeItem('user');
+        }
       } catch (e) {
+        // Error parsing, clear invalid data
         setUser(null);
         localStorage.removeItem('user');
       }
