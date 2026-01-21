@@ -9,6 +9,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Printer, ArrowLeft } from 'lucide-react';
 import IvoraLogo from '@/components/layout/IvoraLogo';
+import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 
 // Interfaces for data structures
 interface User {
@@ -31,12 +33,14 @@ interface DocumentLine {
   iva: string;
   dte: string;
   albara: string;
+  estat: string;
 }
 
 interface ProcessedInvoice {
   id: string;
   date: string;
   paymentMethod: string;
+  status: string;
   client: User;
   lines: {
     concept: string;
@@ -194,6 +198,7 @@ export default function DocumentsPage() {
             id: invoiceId,
             date: lines[0].data,
             paymentMethod: lines[0].fpagament,
+            status: lines[0].estat,
             client: clientData,
             lines: processedLines,
             subtotal,
@@ -286,6 +291,15 @@ export default function DocumentsPage() {
                         <h1 className="text-3xl font-bold font-headline text-foreground">FACTURA</h1>
                         <p className="text-lg mt-2">#{selectedInvoice.id}</p>
                         <p className="text-sm text-muted-foreground mt-1">Data: {parseCustomDate(selectedInvoice.date).toLocaleDateString('ca-ES')}</p>
+                        {selectedInvoice.status && (
+                            <Badge className={cn("mt-2 text-destructive-foreground border-transparent", {
+                                'bg-tracking-delivered hover:bg-tracking-delivered/80': selectedInvoice.status.toLowerCase() === 'pagada',
+                                'bg-tracking-in-warehouse hover:bg-tracking-in-warehouse/80': selectedInvoice.status.toLowerCase() === 'pendent',
+                                'bg-tracking-unknown hover:bg-tracking-unknown/80': !['pagada', 'pendent'].includes(selectedInvoice.status.toLowerCase())
+                            })}>
+                                {selectedInvoice.status}
+                            </Badge>
+                        )}
                     </div>
                 </header>
 
@@ -368,7 +382,18 @@ export default function DocumentsPage() {
                 {invoices.map(invoice => (
                     <Card key={invoice.id} className="hover:shadow-lg transition-shadow duration-300">
                         <CardHeader>
-                            <CardTitle>Factura #{invoice.id}</CardTitle>
+                            <div className="flex justify-between items-start">
+                                <CardTitle>Factura #{invoice.id}</CardTitle>
+                                {invoice.status && (
+                                    <Badge className={cn("text-destructive-foreground border-transparent", {
+                                        'bg-tracking-delivered hover:bg-tracking-delivered/80': invoice.status.toLowerCase() === 'pagada',
+                                        'bg-tracking-in-warehouse hover:bg-tracking-in-warehouse/80': invoice.status.toLowerCase() === 'pendent',
+                                        'bg-tracking-unknown hover:bg-tracking-unknown/80': !['pagada', 'pendent'].includes(invoice.status.toLowerCase())
+                                    })}>
+                                        {invoice.status}
+                                    </Badge>
+                                )}
+                            </div>
                             <CardDescription>Client: {invoice.client.empresa}</CardDescription>
                         </CardHeader>
                         <CardContent>
