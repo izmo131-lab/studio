@@ -6,11 +6,11 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow, TableFooter } from '@/components/ui/table';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Printer, ArrowLeft } from 'lucide-react';
 import IvoraLogo from '@/components/layout/IvoraLogo';
 
-// Define interfaces for our data structures
+// Interfaces for data structures
 interface User {
   usuari: string;
   rol: 'admin' | 'administrador' | 'treballador' | 'client';
@@ -55,6 +55,7 @@ interface ProcessedInvoice {
   total: number;
 }
 
+// This is the user object stored in localStorage
 interface ParsedUser {
     name: string;
     username: string;
@@ -65,23 +66,33 @@ const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/bxb74urqmw6ib';
 
 export default function DocumentsPage() {
   const router = useRouter();
-  const [currentUser, setCurrentUser] = useState<ParsedUser | null>(null);
   const [invoices, setInvoices] = useState<ProcessedInvoice[]>([]);
   const [selectedInvoice, setSelectedInvoice] = useState<ProcessedInvoice | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Authentication check
+    // This effect runs once to authenticate and fetch data
     const userJson = localStorage.getItem('user');
     if (!userJson) {
       router.push('/login');
       return;
     }
-    const parsedUser: ParsedUser = JSON.parse(userJson);
-    setCurrentUser(parsedUser);
 
-    // Data fetching
+    let parsedUser: ParsedUser;
+    try {
+        parsedUser = JSON.parse(userJson);
+        if(!parsedUser.username) {
+            localStorage.removeItem('user');
+            router.push('/login');
+            return;
+        }
+    } catch(e) {
+        localStorage.removeItem('user');
+        router.push('/login');
+        return;
+    }
+
     const fetchData = async () => {
       setIsLoading(true);
       setError(null);
@@ -92,46 +103,45 @@ export default function DocumentsPage() {
         ]);
 
         if (!usersRes.ok || !docsRes.ok) {
-          throw new Error('Error en obtenir les dades.');
+          throw new Error('Error en obtenir les dades de la base de dades.');
         }
 
         const users: User[] = await usersRes.json();
         const documents: DocumentLine[] = await docsRes.json();
         
-        const loggedInUser = users.find(u => u.usuari === parsedUser.username);
+        const loggedInUser = users.find(u => u.usuari.toLowerCase() === parsedUser.username.toLowerCase());
         if (!loggedInUser) {
           throw new Error("Usuari no trobat a la base de dades.");
         }
 
-        let filteredDocs: DocumentLine[];
         const userIsAdmin = ['admin', 'administrador', 'treballador'].includes(loggedInUser.rol.toLowerCase());
-
-        if (userIsAdmin) {
-          filteredDocs = documents;
-        } else {
-          filteredDocs = documents.filter(doc => doc.usuari === parsedUser.username);
+        const filteredDocs = userIsAdmin 
+            ? documents 
+            : documents.filter(doc => doc.usuari && doc.usuari.toLowerCase() === parsedUser.username.toLowerCase());
+        
+        if (!filteredDocs || filteredDocs.length === 0) {
+            setInvoices([]);
+            return;
         }
 
-        // Process data
         const groupedByInvoiceNumber = filteredDocs.reduce((acc, doc) => {
           if (doc.num_factura) {
-            acc[doc.num_factura] = acc[doc.num_factura] || [];
-            acc[doc.num_factura].push(doc);
+            (acc[doc.num_factura] = acc[doc.num_factura] || []).push(doc);
           }
           return acc;
         }, {} as Record<string, DocumentLine[]>);
 
         const processedInvoices: ProcessedInvoice[] = Object.entries(groupedByInvoiceNumber).map(([invoiceId, lines]) => {
-          const clientData = users.find(u => u.usuari === lines[0].usuari);
+          const clientData = users.find(u => u.usuari.toLowerCase() === lines[0].usuari.toLowerCase());
           if (!clientData) return null;
 
           let subtotal = 0;
           const vatMap: Record<string, { base: number; amount: number }> = {};
 
           const processedLines = lines.map(line => {
-            const unitPrice = parseFloat(line.preu_unitari) || 0;
+            const unitPrice = parseFloat(String(line.preu_unitari).replace(',','.')) || 0;
             const units = parseInt(line.unitats, 10) || 0;
-            const discount = parseFloat(line.dte) || 0;
+            const discount = parseFloat(String(line.dte).replace(',','.')) || 0;
             const vatRate = parseInt(line.iva, 10) || 0;
 
             const grossLineTotal = unitPrice * units;
@@ -179,7 +189,7 @@ export default function DocumentsPage() {
           };
         }).filter((invoice): invoice is ProcessedInvoice => invoice !== null);
 
-        setInvoices(processedInvoices);
+        setInvoices(processedInvoices.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()));
       } catch (err: any) {
         setError(err.message || 'Ha ocorregut un error inesperat.');
       } finally {
@@ -187,11 +197,9 @@ export default function DocumentsPage() {
       }
     };
 
-    if (parsedUser?.username) {
-        fetchData();
-    }
+    fetchData();
 
-  }, []);
+  }, [router]);
 
   const handlePrint = () => {
     window.print();
@@ -213,13 +221,17 @@ export default function DocumentsPage() {
       </div>
     );
   }
-
+  
   if (error) {
     return (
       <div className="flex flex-col min-h-screen bg-background">
         <Header />
-        <main className="flex-grow flex items-center justify-center">
-          <p className="text-destructive">{error}</p>
+        <main className="flex-grow flex items-center justify-center text-center">
+            <div>
+                <p className="text-destructive font-semibold text-lg mb-4">Ha ocorregut un error</p>
+                <p className="text-muted-foreground">{error}</p>
+                 <Button onClick={() => router.refresh()} className="mt-6">Tornar a intentar</Button>
+            </div>
         </main>
         <Footer />
       </div>
@@ -228,7 +240,7 @@ export default function DocumentsPage() {
 
   if (selectedInvoice) {
     return (
-      <div className="bg-secondary/30 min-h-screen">
+       <div className="bg-secondary/30 min-h-screen">
           <div className="container mx-auto p-4 sm:p-8">
             <div className="flex justify-between items-center mb-8 print:hidden">
                 <Button variant="ghost" onClick={() => setSelectedInvoice(null)}>
@@ -271,13 +283,13 @@ export default function DocumentsPage() {
                             <TableHead className="w-[50%]">Concepte</TableHead>
                             <TableHead className="text-right">Unitats</TableHead>
                             <TableHead className="text-right">Preu Unit.</TableHead>
-                            <TableHead className="text-right">Total</TableHead>
+                            <TableHead className="text-right">Total Net</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {selectedInvoice.lines.map((line, index) => (
                             <TableRow key={index}>
-                                <TableCell>{line.concept}</TableCell>
+                                <TableCell className="font-medium">{line.concept}</TableCell>
                                 <TableCell className="text-right">{line.units}</TableCell>
                                 <TableCell className="text-right">{line.unitPrice.toFixed(2)} €</TableCell>
                                 <TableCell className="text-right font-medium">{line.netTotal.toFixed(2)} €</TableCell>
@@ -294,7 +306,7 @@ export default function DocumentsPage() {
                         </div>
                          {selectedInvoice.vatBreakdown.map(vat => (
                             <div key={vat.rate} className="flex justify-between py-2 border-t">
-                                <span className="text-muted-foreground">IVA ({vat.rate}%)</span>
+                                <span className="text-muted-foreground">IVA ({vat.rate}%) sobre {vat.base.toFixed(2)}€</span>
                                 <span className="font-medium">{vat.amount.toFixed(2)} €</span>
                             </div>
                         ))}
@@ -309,7 +321,7 @@ export default function DocumentsPage() {
                      <p className="text-muted-foreground">{selectedInvoice.paymentMethod}</p>
                  </div>
 
-                <footer className="mt-12 pt-6 border-t text-xs text-muted-foreground">
+                <footer className="mt-12 pt-6 border-t text-xs text-muted-foreground text-center">
                     <p>Ivora Logistics SL, amb NIF B-12345678, inscrita al Registre Mercantil de Tarragona, Tom 123, Foli 45, Full T-6789. </p>
                     <p className="mt-2">De conformitat amb el que estableix el Reglament (UE) 2016/679 del Parlament Europeu i del Consell de 27 d'abril de 2016 (RGPD), li informem que les seves dades seran incorporades a un tractament sota la nostra responsabilitat, amb la finalitat de gestionar la relació comercial. No se cediran dades a tercers, excepte obligació legal.</p>
                 </footer>
@@ -324,17 +336,17 @@ export default function DocumentsPage() {
       <Header />
       <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto mb-12">
+          <div className="max-w-3xl mx-auto mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-headline font-bold">Les Meves Factures</h1>
             <p className="mt-4 text-xl text-muted-foreground">
               Aquí pots consultar i descarregar les teves factures.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {invoices.length > 0 ? (
-                invoices.map(invoice => (
-                    <Card key={invoice.id} className="hover:shadow-lg transition-shadow">
+          {invoices.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {invoices.map(invoice => (
+                    <Card key={invoice.id} className="hover:shadow-lg transition-shadow duration-300">
                         <CardHeader>
                             <CardTitle>Factura #{invoice.id}</CardTitle>
                             <CardDescription>Client: {invoice.client.empresa}</CardDescription>
@@ -345,19 +357,19 @@ export default function DocumentsPage() {
                                 <span className="font-bold text-lg">{invoice.total.toFixed(2)} €</span>
                             </div>
                             <Button className="w-full" onClick={() => setSelectedInvoice(invoice)}>
-                                Veure / Imprimir
+                                Veure Detalls
                             </Button>
                         </CardContent>
                     </Card>
-                ))
-            ) : (
-                <Card>
-                    <CardContent className="pt-6">
-                        <p>No s'han trobat factures per al teu usuari.</p>
-                    </CardContent>
-                </Card>
-            )}
-          </div>
+                ))}
+              </div>
+          ) : (
+             <Card>
+                <CardContent className="pt-6 text-center text-muted-foreground">
+                    <p>No s'han trobat factures per al teu usuari.</p>
+                </CardContent>
+            </Card>
+          )}
         </div>
       </main>
       <Footer />
