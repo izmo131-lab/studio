@@ -55,11 +55,17 @@ interface ProcessedInvoice {
   total: number;
 }
 
+interface ParsedUser {
+    name: string;
+    username: string;
+    company: string;
+}
+
 const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/bxb74urqmw6ib';
 
 export default function DocumentsPage() {
   const router = useRouter();
-  const [currentUser, setCurrentUser] = useState<{ name: string; company: string } | null>(null);
+  const [currentUser, setCurrentUser] = useState<ParsedUser | null>(null);
   const [invoices, setInvoices] = useState<ProcessedInvoice[]>([]);
   const [selectedInvoice, setSelectedInvoice] = useState<ProcessedInvoice | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -72,7 +78,7 @@ export default function DocumentsPage() {
       router.push('/login');
       return;
     }
-    const parsedUser = JSON.parse(userJson);
+    const parsedUser: ParsedUser = JSON.parse(userJson);
     setCurrentUser(parsedUser);
 
     // Data fetching
@@ -92,7 +98,7 @@ export default function DocumentsPage() {
         const users: User[] = await usersRes.json();
         const documents: DocumentLine[] = await docsRes.json();
         
-        const loggedInUser = users.find(u => u.usuari === parsedUser.name);
+        const loggedInUser = users.find(u => u.usuari === parsedUser.username);
         if (!loggedInUser) {
           throw new Error("Usuari no trobat a la base de dades.");
         }
@@ -103,7 +109,7 @@ export default function DocumentsPage() {
         if (userIsAdmin) {
           filteredDocs = documents;
         } else {
-          filteredDocs = documents.filter(doc => doc.usuari === parsedUser.name);
+          filteredDocs = documents.filter(doc => doc.usuari === parsedUser.username);
         }
 
         // Process data
@@ -181,7 +187,7 @@ export default function DocumentsPage() {
       }
     };
 
-    if (parsedUser?.name) {
+    if (parsedUser?.username) {
         fetchData();
     }
 

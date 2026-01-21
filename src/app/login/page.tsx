@@ -33,7 +33,7 @@ export default function LoginPage() {
 
       if (data.length > 0) {
         const userData = data[0];
-        localStorage.setItem('user', JSON.stringify({ name: userData.nom, company: userData.empresa }));
+        localStorage.setItem('user', JSON.stringify({ name: userData.nom, username: userData.usuari, company: userData.empresa }));
         router.push('/dashboard');
       } else {
         setError('Dades incorrectes. Si us plau, verifica el teu usuari i contrasenya.');
