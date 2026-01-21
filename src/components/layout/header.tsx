@@ -69,24 +69,26 @@ export default function Header() {
   const router = useRouter();
 
   useEffect(() => {
-    // This code will only run on the client
+    // This effect runs on the client after hydration
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser);
-        // Add a check to ensure the user object is valid
+        // Robust check to ensure the user object is valid
         if (parsedUser && parsedUser.name) {
             setUser(parsedUser);
         } else {
-            // Invalid data in localStorage
-            setUser(null);
+            // Invalid data in localStorage, clear it
             localStorage.removeItem('user');
+            setUser(null);
         }
       } catch (e) {
         // Error parsing, clear invalid data
-        setUser(null);
         localStorage.removeItem('user');
+        setUser(null);
       }
+    } else {
+      setUser(null);
     }
   }, []);
 
@@ -94,14 +96,12 @@ export default function Header() {
     localStorage.removeItem('user');
     setUser(null);
     router.push('/login');
+    // We might want to force a reload to ensure all state is cleared
+    window.location.href = '/login';
   };
 
   const handleProfileClick = () => {
-    if (user) {
-        router.push('/dashboard');
-    } else {
-        router.push('/login');
-    }
+    router.push('/dashboard');
   };
 
   return (

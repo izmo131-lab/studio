@@ -64,6 +64,15 @@ interface ParsedUser {
 
 const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/bxb74urqmw6ib';
 
+// Helper function to parse 'DD/MM/YYYY' dates to avoid browser inconsistencies
+const parseCustomDate = (dateStr: string): Date => {
+  if (!dateStr || typeof dateStr !== 'string') return new Date(NaN);
+  const parts = dateStr.split('/');
+  if (parts.length !== 3) return new Date(NaN);
+  // new Date(year, monthIndex, day)
+  return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]));
+};
+
 export default function DocumentsPage() {
   const router = useRouter();
   const [invoices, setInvoices] = useState<ProcessedInvoice[]>([]);
@@ -72,6 +81,8 @@ export default function DocumentsPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+    
     // This effect runs once to authenticate and fetch data
     const userJson = localStorage.getItem('user');
     if (!userJson) {
@@ -83,9 +94,7 @@ export default function DocumentsPage() {
     try {
         parsedUser = JSON.parse(userJson);
         if(!parsedUser.username) {
-            localStorage.removeItem('user');
-            router.push('/login');
-            return;
+            throw new Error("Invalid user data in storage");
         }
     } catch(e) {
         localStorage.removeItem('user');
@@ -94,6 +103,7 @@ export default function DocumentsPage() {
     }
 
     const fetchData = async () => {
+      if (!isMounted) return;
       setIsLoading(true);
       setError(null);
       try {
@@ -109,18 +119,19 @@ export default function DocumentsPage() {
         const users: User[] = await usersRes.json();
         const documents: DocumentLine[] = await docsRes.json();
         
-        const loggedInUser = users.find(u => u.usuari.toLowerCase() === parsedUser.username.toLowerCase());
+        const loggedInUser = users.find(u => u.usuari && u.usuari.toLowerCase() === parsedUser.username.toLowerCase());
+
         if (!loggedInUser) {
           throw new Error("Usuari no trobat a la base de dades.");
         }
 
-        const userIsAdmin = ['admin', 'administrador', 'treballador'].includes(loggedInUser.rol.toLowerCase());
+        const userIsAdmin = ['admin', 'administrador', 'treballador'].includes(loggedInUser.rol?.toLowerCase());
         const filteredDocs = userIsAdmin 
             ? documents 
             : documents.filter(doc => doc.usuari && doc.usuari.toLowerCase() === parsedUser.username.toLowerCase());
         
         if (!filteredDocs || filteredDocs.length === 0) {
-            setInvoices([]);
+            if (isMounted) setInvoices([]);
             return;
         }
 
@@ -132,17 +143,19 @@ export default function DocumentsPage() {
         }, {} as Record<string, DocumentLine[]>);
 
         const processedInvoices: ProcessedInvoice[] = Object.entries(groupedByInvoiceNumber).map(([invoiceId, lines]) => {
-          const clientData = users.find(u => u.usuari.toLowerCase() === lines[0].usuari.toLowerCase());
+          if (!lines || lines.length === 0 || !lines[0].usuari) return null;
+          
+          const clientData = users.find(u => u.usuari && u.usuari.toLowerCase() === lines[0].usuari.toLowerCase());
           if (!clientData) return null;
 
           let subtotal = 0;
           const vatMap: Record<string, { base: number; amount: number }> = {};
 
           const processedLines = lines.map(line => {
-            const unitPrice = parseFloat(String(line.preu_unitari).replace(',','.')) || 0;
-            const units = parseInt(line.unitats, 10) || 0;
-            const discount = parseFloat(String(line.dte).replace(',','.')) || 0;
-            const vatRate = parseInt(line.iva, 10) || 0;
+            const unitPrice = parseFloat(String(line.preu_unitari || '0').replace(',','.')) || 0;
+            const units = parseInt(String(line.unitats || '0'), 10) || 0;
+            const discount = parseFloat(String(line.dte || '0').replace(',','.')) || 0;
+            const vatRate = parseInt(String(line.iva || '0'), 10) || 0;
 
             const grossLineTotal = unitPrice * units;
             const discountAmount = grossLineTotal * (discount / 100);
@@ -188,18 +201,25 @@ export default function DocumentsPage() {
             total,
           };
         }).filter((invoice): invoice is ProcessedInvoice => invoice !== null);
+        
+        if (isMounted) {
+          const sortedInvoices = processedInvoices.sort((a, b) => parseCustomDate(b.date).getTime() - parseCustomDate(a.date).getTime());
+          setInvoices(sortedInvoices);
+        }
 
-        setInvoices(processedInvoices.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()));
       } catch (err: any) {
-        setError(err.message || 'Ha ocorregut un error inesperat.');
+        if (isMounted) setError(err.message || 'Ha ocorregut un error inesperat.');
       } finally {
-        setIsLoading(false);
+        if (isMounted) setIsLoading(false);
       }
     };
 
     fetchData();
 
-  }, [router]);
+    return () => {
+      isMounted = false;
+    };
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   const handlePrint = () => {
     window.print();
@@ -230,7 +250,7 @@ export default function DocumentsPage() {
             <div>
                 <p className="text-destructive font-semibold text-lg mb-4">Ha ocorregut un error</p>
                 <p className="text-muted-foreground">{error}</p>
-                 <Button onClick={() => router.refresh()} className="mt-6">Tornar a intentar</Button>
+                 <Button onClick={() => window.location.reload()} className="mt-6">Tornar a intentar</Button>
             </div>
         </main>
         <Footer />
@@ -265,7 +285,7 @@ export default function DocumentsPage() {
                     <div className="text-right">
                         <h1 className="text-3xl font-bold font-headline text-foreground">FACTURA</h1>
                         <p className="text-lg mt-2">#{selectedInvoice.id}</p>
-                        <p className="text-sm text-muted-foreground mt-1">Data: {new Date(selectedInvoice.date).toLocaleDateString('ca-ES')}</p>
+                        <p className="text-sm text-muted-foreground mt-1">Data: {parseCustomDate(selectedInvoice.date).toLocaleDateString('ca-ES')}</p>
                     </div>
                 </header>
 
@@ -353,7 +373,7 @@ export default function DocumentsPage() {
                         </CardHeader>
                         <CardContent>
                             <div className="flex justify-between items-center mb-4">
-                                <span className="text-sm text-muted-foreground">Data: {new Date(invoice.date).toLocaleDateString('ca-ES')}</span>
+                                <span className="text-sm text-muted-foreground">Data: {parseCustomDate(invoice.date).toLocaleDateString('ca-ES')}</span>
                                 <span className="font-bold text-lg">{invoice.total.toFixed(2)} €</span>
                             </div>
                             <Button className="w-full" onClick={() => setSelectedInvoice(invoice)}>

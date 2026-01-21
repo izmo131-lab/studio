@@ -33,6 +33,7 @@ export default function LoginPage() {
 
       if (data.length > 0) {
         const userData = data[0];
+        // Save user's full name, username, and company
         localStorage.setItem('user', JSON.stringify({ name: userData.nom, username: userData.usuari, company: userData.empresa }));
         router.push('/dashboard');
       } else {

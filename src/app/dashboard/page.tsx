@@ -41,7 +41,7 @@ export default function DashboardPage() {
       router.push('/login');
     }
     setIsLoading(false);
-  }, [router]);
+  }, []); // Empty dependency array ensures this runs only once
 
   const handleLogout = () => {
     localStorage.removeItem('user');
