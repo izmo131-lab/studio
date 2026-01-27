@@ -1,6 +1,5 @@
 import type {Metadata} from 'next';
 import '../globals.css';
-import { Toaster } from "@/components/ui/toaster";
 import { i18n } from '../../../i18n-config';
 import { Locale } from '../../../i18n-config';
 
@@ -20,17 +19,12 @@ export default function LangLayout({
   children: React.ReactNode;
   params: { lang: Locale };
 }) {
+  // Aquest component és un layout niuat. El layout arrel a src/app/layout.tsx
+  // ja renderitza les etiquetes <html> i <body>. Renderitzar-les aquí de nou
+  // causaria un HTML invàlid i un error d'hidratació.
   return (
-    <html lang={params.lang}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased">
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <>
+     {children}
+    </>
   );
 }
