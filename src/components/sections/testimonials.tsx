@@ -27,14 +27,14 @@ const testimonials = [
   },
 ];
 
-export default function Testimonials() {
+export default function Testimonials({ dictionary }: { dictionary: any }) {
   return (
     <section id="testimonials" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-headline font-bold">Què Diuen Els Nostres Clients</h2>
+          <h2 className="text-3xl md:text-4xl font-headline font-bold">{dictionary.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Estem orgullosos de la confiança que els nostres clients dipositen en nosaltres.
+            {dictionary.subtitle}
           </p>
         </div>
         <Carousel

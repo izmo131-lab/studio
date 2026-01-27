@@ -1,0 +1,40 @@
+{
+  "header": {
+    "services": "Servicios",
+    "products": "Productos",
+    "about": "Sobre Nosotros",
+    "more": "Más",
+    "tracking": "Seguimiento",
+    "innovation": "Innovación",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "location": "Ubicación",
+    "select_language": "Seleccionar idioma",
+    "catalan": "Catalán",
+    "english": "Inglés",
+    "spanish": "Español",
+    "login": "Login",
+    "my_profile": "Mi Perfil",
+    "my_invoices": "Mis Facturas",
+    "logout": "Cerrar Sesión",
+    "open_menu": "Abrir Menú",
+    "get_a_quote": "Pide un Presupuesto"
+  },
+  "footer": {
+    "about": "Fundada por Wiam, Álvaro e Izan. Tu operadora de transporte y logística de confianza. Ubicados en el Polígono Industrial de Constantí.",
+    "legal_notice": "Aviso Legal",
+    "privacy": "Privacidad",
+    "cookies": "Cookies",
+    "copyright": "© {year} Ivora Logistics SL. Todos los derechos reservados."
+  },
+  "hero": {
+    "title": "Ivora: Excelencia en transporte y logística.",
+    "subtitle": "Su operadora de transporte de confianza. Especialistas en productos de diseño y decoración, con soluciones integrales de logística y almacenamiento.",
+    "contact_us": "Contacta con Nosotros",
+    "our_services": "Nuestros Servicios"
+  },
+  "testimonials": {
+    "title": "Qué Dicen Nuestros Clientes",
+    "subtitle": "Estamos orgullosos de la confianza que nuestros clientes depositan en nosotros."
+  }
+}

@@ -22,92 +22,91 @@ import {
 import { cn } from "@/lib/utils"
 import React from 'react';
 import IvoraLogo from './IvoraLogo';
-import { useRouter } from 'next/navigation';
-
-const mainLinks = [
-  { href: '/serveis', label: 'Serveis' },
-  { href: '/productes', label: 'Productes' },
-  { href: '/sobre-nosaltres', label: 'Sobre Nosaltres' },
-];
-
-const dropdownLinks: { title: string; href: string; description: string }[] = [
-    {
-        title: 'Seguiment',
-        href: '/tracking',
-        description: 'Localitza el teu enviament en temps real.',
-    },
-    {
-        title: 'Innovació',
-        href: '/innovacio',
-        description: 'La nostra aposta per la tecnologia i la sostenibilitat.',
-    },
-    {
-        title: 'Blog',
-        href: '/blog',
-        description: 'Notícies i anàlisis sobre el sector de la logística.',
-    },
-    {
-        title: 'Contacte',
-        href: '/contacte',
-        description: 'Parla amb el nostre equip.',
-    },
-    {
-        title: 'Ubicació',
-        href: '/ubicacio',
-        description: 'On som i com pots contactar amb nosaltres.',
-    },
-];
+import { useRouter, usePathname } from 'next/navigation';
 
 interface UserData {
     name: string;
     company: string;
 }
 
-export default function Header() {
+export default function Header({ lang, dictionary }: { lang: string, dictionary: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<UserData | null>(null);
   const router = useRouter();
+  const pathname = usePathname();
+
+  const redirectedPathName = (locale: string) => {
+    if (!pathname) return '/';
+    const segments = pathname.split('/');
+    segments[1] = locale;
+    return segments.join('/');
+  };
 
   useEffect(() => {
-    // This effect runs on the client after hydration
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       try {
         const parsedUser = JSON.parse(storedUser);
-        // Robust check to ensure the user object is valid
         if (parsedUser && parsedUser.name) {
             setUser(parsedUser);
         } else {
-            // Invalid data in localStorage, clear it
             localStorage.removeItem('user');
-            setUser(null);
         }
       } catch (e) {
-        // Error parsing, clear invalid data
         localStorage.removeItem('user');
-        setUser(null);
       }
-    } else {
-      setUser(null);
     }
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    router.push('/login');
-    // We might want to force a reload to ensure all state is cleared
-    window.location.href = '/login';
+    router.push(`/${lang}/login`);
+    window.location.href = `/${lang}/login`;
   };
 
   const handleProfileClick = () => {
-    router.push('/dashboard');
+    router.push(`/${lang}/dashboard`);
   };
+  
+  const mainLinks = [
+    { href: `/${lang}/serveis`, label: dictionary.services },
+    { href: `/${lang}/productes`, label: dictionary.products },
+    { href: `/${lang}/sobre-nosaltres`, label: dictionary.about },
+  ];
+
+  const dropdownLinks: { title: string; href: string; description: string }[] = [
+      {
+          title: dictionary.tracking,
+          href: `/${lang}/tracking`,
+          description: 'Localitza el teu enviament en temps real.',
+      },
+      {
+          title: dictionary.innovation,
+          href: `/${lang}/innovacio`,
+          description: 'La nostra aposta per la tecnologia i la sostenibilitat.',
+      },
+      {
+          title: dictionary.blog,
+          href: `/${lang}/blog`,
+          description: 'Notícies i anàlisis sobre el sector de la logística.',
+      },
+      {
+          title: dictionary.contact,
+          href: `/${lang}/contacte`,
+          description: 'Parla amb el nostre equip.',
+      },
+      {
+          title: dictionary.location,
+          href: `/${lang}/ubicacio`,
+          description: 'On som i com pots contactar amb nosaltres.',
+      },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-accent/95 backdrop-blur supports-[backdrop-filter]:bg-accent/60">
       <div className="container flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href={`/${lang}`} className="flex items-center gap-2">
           <IvoraLogo className="text-foreground" />
         </Link>
         
@@ -124,7 +123,7 @@ export default function Header() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className={cn(navigationMenuTriggerStyle(), "gap-1")}>
-                  Més <ChevronDown className="h-4 w-4" />
+                  {dictionary.more} <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
@@ -144,18 +143,18 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Globe className="h-5 w-5" />
-                <span className="sr-only">Seleccionar idioma</span>
+                <span className="sr-only">{dictionary.select_language}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem>
-                Català
+              <DropdownMenuItem asChild>
+                <Link href={redirectedPathName('ca')}>{dictionary.catalan}</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                English
+              <DropdownMenuItem asChild>
+                <Link href={redirectedPathName('en')}>{dictionary.english}</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                Español
+              <DropdownMenuItem asChild>
+                <Link href={redirectedPathName('es')}>{dictionary.spanish}</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -171,22 +170,22 @@ export default function Header() {
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={handleProfileClick}>
                     <User className="mr-2 h-4 w-4" />
-                    El meu Perfil
+                    {dictionary.my_profile}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push('/documents')}>
+                <DropdownMenuItem onClick={() => router.push(`/${lang}/documents`)}>
                     <FileText className="mr-2 h-4 w-4" />
-                    Les meves Factures
+                    {dictionary.my_invoices}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />
-                  Tancar Sessió
+                  {dictionary.logout}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
              <Button asChild>
-                <Link href="/login">Login</Link>
+                <Link href={`/${lang}/login`}>{dictionary.login}</Link>
              </Button>
           )}
 
@@ -197,13 +196,13 @@ export default function Header() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
-                <span className="sr-only">Obrir Menú</span>
+                <span className="sr-only">{dictionary.open_menu}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center p-4 border-b">
-                   <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                   <Link href={`/${lang}`} className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
                       <IvoraLogo className="text-foreground" />
                     </Link>
                 </div>
@@ -220,12 +219,12 @@ export default function Header() {
                   ))}
                    {user ? (
                     <>
-                      <Link href="/dashboard" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">El meu Perfil</Link>
-                      <Link href="/documents" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">Les meves Factures</Link>
-                      <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">Tancar Sessió</button>
+                      <Link href={`/${lang}/dashboard`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary.my_profile}</Link>
+                      <Link href={`/${lang}/documents`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary.my_invoices}</Link>
+                      <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">{dictionary.logout}</button>
                     </>
                    ) : (
-                    <Link href="/login" onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">Login</Link>
+                    <Link href={`/${lang}/login`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary.login}</Link>
                    )}
                 </nav>
                 <div className="mt-auto p-4 border-t">
@@ -233,23 +232,23 @@ export default function Header() {
                     <DropdownMenuTrigger asChild>
                       <Button variant="outline" className="w-full justify-start mb-4">
                         <Globe className="mr-2 h-4 w-4" />
-                        Seleccionar idioma
+                        {dictionary.select_language}
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-[250px]">
-                      <DropdownMenuItem>
-                        Català
+                      <DropdownMenuItem asChild>
+                        <Link href={redirectedPathName('ca')}>{dictionary.catalan}</Link>
                       </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        English
+                      <DropdownMenuItem asChild>
+                        <Link href={redirectedPathName('en')}>{dictionary.english}</Link>
                       </DropdownMenuItem>
-                      <DropdownMenuItem>
-                        Español
+                       <DropdownMenuItem asChild>
+                        <Link href={redirectedPathName('es')}>{dictionary.spanish}</Link>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <Button asChild className="w-full">
-                    <Link href="/contacte" onClick={() => setIsOpen(false)}>Demana un Pressupost</Link>
+                    <Link href={`/${lang}/contacte`} onClick={() => setIsOpen(false)}>{dictionary.get_a_quote}</Link>
                   </Button>
                 </div>
               </div>

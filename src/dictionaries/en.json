@@ -1,0 +1,40 @@
+{
+  "header": {
+    "services": "Services",
+    "products": "Products",
+    "about": "About Us",
+    "more": "More",
+    "tracking": "Tracking",
+    "innovation": "Innovation",
+    "blog": "Blog",
+    "contact": "Contact",
+    "location": "Location",
+    "select_language": "Select language",
+    "catalan": "Catalan",
+    "english": "English",
+    "spanish": "Spanish",
+    "login": "Login",
+    "my_profile": "My Profile",
+    "my_invoices": "My Invoices",
+    "logout": "Log Out",
+    "open_menu": "Open Menu",
+    "get_a_quote": "Get a Quote"
+  },
+  "footer": {
+    "about": "Founded by Wiam, Álvaro, and Izan. Your trusted transport and logistics operator. Located in the Constantí Industrial Park.",
+    "legal_notice": "Legal Notice",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "copyright": "© {year} Ivora Logistics SL. All rights reserved."
+  },
+  "hero": {
+    "title": "Ivora: Excellence in transport and logistics.",
+    "subtitle": "Your trusted transport operator. Specialists in design and decoration products, with comprehensive logistics and storage solutions.",
+    "contact_us": "Contact Us",
+    "our_services": "Our Services"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "We are proud of the trust our clients place in us."
+  }
+}

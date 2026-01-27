@@ -4,16 +4,16 @@ import Link from 'next/link';
 import { Twitter, Facebook, Linkedin } from 'lucide-react';
 import IvoraLogo from './IvoraLogo';
 
-export default function Footer() {
+export default function Footer({ lang, dictionary }: { lang: string, dictionary: any }) {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
           <div className="flex-1">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href={`/${lang}`} className="flex items-center gap-3">
               <IvoraLogo className="text-foreground" />
             </Link>
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">Fundada per Wiam, Álvaro i Izan. La teva operadora de transport i logística de confiança. Ubicats al Polígon Industrial de Constantí.</p>
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground">{dictionary.about}</p>
           </div>
           <div className="flex-1 flex flex-col md:items-end gap-4 text-right">
             <div className="flex items-center space-x-4">
@@ -31,11 +31,11 @@ export default function Footer() {
               </Link>
             </div>
             <div className="flex items-center space-x-4 mt-4">
-              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Avís Legal</Link>
-              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacitat</Link>
-              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Cookies</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary.legal_notice}</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary.privacy}</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary.cookies}</Link>
             </div>
-             <p className="text-sm text-muted-foreground mt-4 md:mt-0">&copy; {new Date().getFullYear()} Ivora Logistics SL. Tots els drets reservats.</p>
+             <p className="text-sm text-muted-foreground mt-4 md:mt-0">{dictionary.copyright.replace('{year}', new Date().getFullYear())}</p>
           </div>
         </div>
       </div>
