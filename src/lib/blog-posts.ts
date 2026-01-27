@@ -14,10 +14,16 @@ export type BlogPost = {
   };
 };
 
-function createSlug(title: string) {
-  return title.toLowerCase()
-    .replace(/ /g, '-')
-    .replace(/[^\w-àáâçèéêëíîïòóôöúûüñ]+/g, '');
+function createSlug(text: string): string {
+    return text
+        .toString()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-');
 }
 
 const postsData = [
