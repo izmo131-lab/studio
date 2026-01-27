@@ -71,6 +71,30 @@
       "description": "Un mapa que mostra la ubicació de Constantí a Tarragona.",
       "imageUrl": "https://images.unsplash.com/photo-1568137223448-0708e0e4779c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxtYXBhJTIwdWJpY2FjaSVDMyVCM3xlbnwwfHx8fDE3NjQwODU1MzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "mapa ubicació"
+    },
+    {
+      "id": "service-international-transport",
+      "description": "Un avió de càrrega sobrevolant un port internacional, representant el transport global.",
+      "imageUrl": "https://images.unsplash.com/photo-1627761606605-386d26c828a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0cmFuc3BvcnQlMjBpbnRlcm5hY2lvbmFsfGVufDB8fHx8MTc2OTUyODU5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "transport internacional"
+    },
+    {
+      "id": "service-integral-logistics",
+      "description": "Un magatzem modern amb treballadors i carretons elevadors en moviment, mostrant una logística eficient.",
+      "imageUrl": "https://picsum.photos/seed/lamine/800/600",
+      "imageHint": "logística integral"
+    },
+    {
+      "id": "service-storage-distribution",
+      "description": "Prestatgeries altes en un magatzem ben organitzat, llestes per a la distribució.",
+      "imageUrl": "https://images.unsplash.com/photo-1600456899121-68eda5705257?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxlbW1hZ2F0emVtYXRnZSUyMGRpc3RyaWJ1Y2klQzMlQjN8ZW58MHx8fHwxNzY5NTI4NTk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "emmagatzematge distribució"
+    },
+    {
+      "id": "service-custom-solutions",
+      "description": "Dues persones analitzant un pla sobre una taula, simbolitzant la planificació de solucions a mida.",
+      "imageUrl": "https://picsum.photos/seed/nose/800/600",
+      "imageHint": "solucions a mida"
     }
   ]
 }
