@@ -78,12 +78,12 @@ const parseCustomDate = (dateStr: string): Date => {
 export default function DocumentsPage() {
   const router = useRouter();
   const params = useParams();
+  const lang = params.lang as Locale;
   const [invoices, setInvoices] = useState<ProcessedInvoice[]>([]);
   const [selectedInvoice, setSelectedInvoice] = useState<ProcessedInvoice | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dictionary, setDictionary] = useState<any>(null);
-  const lang = params.lang as Locale;
 
   useEffect(() => {
     let isMounted = true;
@@ -237,7 +237,7 @@ export default function DocumentsPage() {
   };
   
   const getStatus = (status: string) => {
-    if (!status) return null;
+    if (!dictionary || !status) return null;
     const lowerCaseStatus = status.toLowerCase();
     if (lowerCaseStatus === 'pagada') {
       return { label: dictionary.documents_page.status_paid, className: 'bg-tracking-delivered hover:bg-tracking-delivered/80' };
@@ -282,9 +282,9 @@ export default function DocumentsPage() {
   }
   
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="documents-page flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
-      <main className={`flex-grow ${selectedInvoice ? 'bg-secondary/30' : 'bg-background py-16 md:py-24'}`}>
+      <main className="flex-grow py-16 md:py-24">
         {selectedInvoice ? (
           <div className="container mx-auto p-4 sm:p-8">
             <div className="flex justify-between items-center mb-8 print-hidden">
