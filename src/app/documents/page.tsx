@@ -168,11 +168,13 @@ export default function DocumentsPage() {
             
             subtotal += netTotal;
 
-            if (vatMap[vatRate]) {
-              vatMap[vatRate].base += netTotal;
-              vatMap[vatRate].amount += vatAmount;
-            } else {
-              vatMap[vatRate] = { base: netTotal, amount: vatAmount };
+            if (vatRate > 0) {
+                if (vatMap[vatRate]) {
+                vatMap[vatRate].base += netTotal;
+                vatMap[vatRate].amount += vatAmount;
+                } else {
+                vatMap[vatRate] = { base: netTotal, amount: vatAmount };
+                }
             }
 
             return {
@@ -342,7 +344,7 @@ export default function DocumentsPage() {
                                 </div>
                                 {selectedInvoice.vatBreakdown.map(vat => (
                                     <div key={vat.rate} className="flex justify-between py-2 border-t">
-                                        <span className="text-muted-foreground">IVA ({vat.rate}%) sobre {vat.base.toFixed(2)}€</span>
+                                        <span className="text-muted-foreground">Base {vat.rate}%: {vat.base.toFixed(2)}€ | Quota</span>
                                         <span className="font-medium">{vat.amount.toFixed(2)} €</span>
                                     </div>
                                 ))}
