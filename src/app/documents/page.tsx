@@ -224,7 +224,7 @@ export default function DocumentsPage() {
     return () => {
       isMounted = false;
     };
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, [router]);
 
   const handlePrint = () => {
     window.print();
@@ -264,7 +264,7 @@ export default function DocumentsPage() {
   }
 
   return (
-    <div className="documents-page flex flex-col min-h-screen bg-background">
+    <div className="documents-page flex flex-col min-h-screen bg-background print:block">
         <Header />
         <main className="flex-grow py-16 md:py-24">
             {selectedInvoice ? (

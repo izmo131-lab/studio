@@ -251,7 +251,7 @@ export default function DocumentsPage() {
   if (isLoading || !dictionary) {
     return (
       <div className="flex flex-col min-h-screen bg-background">
-        <Header lang={lang} dictionary={dictionary?.header || {}} />
+        <Header lang={lang} dictionary={dictionary?.header} />
         <main className="flex-grow flex items-center justify-center">
           <div className="flex items-center space-x-2">
             <div className="w-4 h-4 rounded-full bg-primary animate-pulse"></div>
@@ -260,7 +260,7 @@ export default function DocumentsPage() {
             <span className="ml-2 text-muted-foreground">{dictionary?.documents_page.loading || 'Loading...'}</span>
           </div>
         </main>
-        <Footer lang={lang} dictionary={dictionary?.footer || {}} />
+        <Footer lang={lang} dictionary={dictionary?.footer} />
       </div>
     );
   }
@@ -282,7 +282,7 @@ export default function DocumentsPage() {
   }
   
   return (
-    <div className="documents-page flex flex-col min-h-screen bg-background">
+    <div className="documents-page flex flex-col min-h-screen bg-background print:block">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow py-16 md:py-24">
         {selectedInvoice ? (
