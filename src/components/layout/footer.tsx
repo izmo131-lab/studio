@@ -13,7 +13,7 @@ export default function Footer({ lang, dictionary }: { lang: string, dictionary:
             <Link href={`/${lang}`} className="flex items-center gap-3">
               <IvoraLogo className="text-foreground" />
             </Link>
-            <p className="mt-4 max-w-sm text-sm text-muted-foreground">{dictionary.about}</p>
+            <p className="mt-4 max-w-sm text-sm text-muted-foreground">{dictionary?.about}</p>
           </div>
           <div className="flex-1 flex flex-col md:items-end gap-4 text-right">
             <div className="flex items-center space-x-4">
@@ -31,11 +31,11 @@ export default function Footer({ lang, dictionary }: { lang: string, dictionary:
               </Link>
             </div>
             <div className="flex items-center space-x-4 mt-4">
-              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary.legal_notice}</Link>
-              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary.privacy}</Link>
-              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary.cookies}</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary?.legal_notice}</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary?.privacy}</Link>
+              <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">{dictionary?.cookies}</Link>
             </div>
-             <p className="text-sm text-muted-foreground mt-4 md:mt-0">{dictionary.copyright.replace('{year}', new Date().getFullYear())}</p>
+             <p className="text-sm text-muted-foreground mt-4 md:mt-0">{dictionary?.copyright?.replace('{year}', new Date().getFullYear().toString())}</p>
           </div>
         </div>
       </div>

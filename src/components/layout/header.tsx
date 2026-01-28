@@ -70,34 +70,34 @@ export default function Header({ lang, dictionary }: { lang: string, dictionary:
   };
   
   const mainLinks = [
-    { href: `/${lang}/serveis`, label: dictionary.services },
-    { href: `/${lang}/productes`, label: dictionary.products },
-    { href: `/${lang}/sobre-nosaltres`, label: dictionary.about },
+    { href: `/${lang}/serveis`, label: dictionary?.services },
+    { href: `/${lang}/productes`, label: dictionary?.products },
+    { href: `/${lang}/sobre-nosaltres`, label: dictionary?.about },
   ];
 
   const dropdownLinks: { title: string; href: string; description: string }[] = [
       {
-          title: dictionary.tracking,
+          title: dictionary?.tracking,
           href: `/${lang}/tracking`,
           description: 'Localitza el teu enviament en temps real.',
       },
       {
-          title: dictionary.innovation,
+          title: dictionary?.innovation,
           href: `/${lang}/innovacio`,
           description: 'La nostra aposta per la tecnologia i la sostenibilitat.',
       },
       {
-          title: dictionary.blog,
+          title: dictionary?.blog,
           href: `/${lang}/blog`,
           description: 'Notícies i anàlisis sobre el sector de la logística.',
       },
       {
-          title: dictionary.contact,
+          title: dictionary?.contact,
           href: `/${lang}/contacte`,
           description: 'Parla amb el nostre equip.',
       },
       {
-          title: dictionary.location,
+          title: dictionary?.location,
           href: `/${lang}/ubicacio`,
           description: 'On som i com pots contactar amb nosaltres.',
       },
@@ -123,7 +123,7 @@ export default function Header({ lang, dictionary }: { lang: string, dictionary:
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className={cn(navigationMenuTriggerStyle(), "gap-1")}>
-                  {dictionary.more} <ChevronDown className="h-4 w-4" />
+                  {dictionary?.more} <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
@@ -143,18 +143,18 @@ export default function Header({ lang, dictionary }: { lang: string, dictionary:
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Globe className="h-5 w-5" />
-                <span className="sr-only">{dictionary.select_language}</span>
+                <span className="sr-only">{dictionary?.select_language}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem asChild>
-                <Link href={redirectedPathName('ca')}>{dictionary.catalan}</Link>
+                <Link href={redirectedPathName('ca')}>{dictionary?.catalan}</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href={redirectedPathName('en')}>{dictionary.english}</Link>
+                <Link href={redirectedPathName('en')}>{dictionary?.english}</Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href={redirectedPathName('es')}>{dictionary.spanish}</Link>
+                <Link href={redirectedPathName('es')}>{dictionary?.spanish}</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -170,22 +170,22 @@ export default function Header({ lang, dictionary }: { lang: string, dictionary:
               <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={handleProfileClick}>
                     <User className="mr-2 h-4 w-4" />
-                    {dictionary.my_profile}
+                    {dictionary?.my_profile}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => router.push(`/${lang}/documents`)}>
                     <FileText className="mr-2 h-4 w-4" />
-                    {dictionary.my_invoices}
+                    {dictionary?.my_invoices}
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />
-                  {dictionary.logout}
+                  {dictionary?.logout}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
              <Button asChild>
-                <Link href={`/${lang}/login`}>{dictionary.login}</Link>
+                <Link href={`/${lang}/login`}>{dictionary?.login}</Link>
              </Button>
           )}
 
@@ -196,7 +196,7 @@ export default function Header({ lang, dictionary }: { lang: string, dictionary:
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
-                <span className="sr-only">{dictionary.open_menu}</span>
+                <span className="sr-only">{dictionary?.open_menu}</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
@@ -219,12 +219,12 @@ export default function Header({ lang, dictionary }: { lang: string, dictionary:
                   ))}
                    {user ? (
                     <>
-                      <Link href={`/${lang}/dashboard`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary.my_profile}</Link>
-                      <Link href={`/${lang}/documents`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary.my_invoices}</Link>
-                      <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">{dictionary.logout}</button>
+                      <Link href={`/${lang}/dashboard`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary?.my_profile}</Link>
+                      <Link href={`/${lang}/documents`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary?.my_invoices}</Link>
+                      <button onClick={() => { handleLogout(); setIsOpen(false); }} className="text-lg font-medium text-left text-foreground/80 transition-colors hover:text-foreground">{dictionary?.logout}</button>
                     </>
                    ) : (
-                    <Link href={`/${lang}/login`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary.login}</Link>
+                    <Link href={`/${lang}/login`} onClick={() => setIsOpen(false)} className="text-lg font-medium text-foreground/80 transition-colors hover:text-foreground">{dictionary?.login}</Link>
                    )}
                 </nav>
                 <div className="mt-auto p-4 border-t">
@@ -232,23 +232,23 @@ export default function Header({ lang, dictionary }: { lang: string, dictionary:
                     <DropdownMenuTrigger asChild>
                       <Button variant="outline" className="w-full justify-start mb-4">
                         <Globe className="mr-2 h-4 w-4" />
-                        {dictionary.select_language}
+                        {dictionary?.select_language}
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-[250px]">
                       <DropdownMenuItem asChild>
-                        <Link href={redirectedPathName('ca')}>{dictionary.catalan}</Link>
+                        <Link href={redirectedPathName('ca')}>{dictionary?.catalan}</Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem asChild>
-                        <Link href={redirectedPathName('en')}>{dictionary.english}</Link>
+                        <Link href={redirectedPathName('en')}>{dictionary?.english}</Link>
                       </DropdownMenuItem>
                        <DropdownMenuItem asChild>
-                        <Link href={redirectedPathName('es')}>{dictionary.spanish}</Link>
+                        <Link href={redirectedPathName('es')}>{dictionary?.spanish}</Link>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                   <Button asChild className="w-full">
-                    <Link href={`/${lang}/contacte`} onClick={() => setIsOpen(false)}>{dictionary.get_a_quote}</Link>
+                    <Link href={`/${lang}/contacte`} onClick={() => setIsOpen(false)}>{dictionary?.get_a_quote}</Link>
                   </Button>
                 </div>
               </div>
