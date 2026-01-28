@@ -10,7 +10,7 @@ export default async function UbicacioPage({ params: { lang } }: { params: { lan
     <div className="flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow">
-        <Location />
+        <Location dictionary={dictionary.location} />
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>

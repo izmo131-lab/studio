@@ -10,7 +10,7 @@ export default async function SobreNosaltresPage({ params: { lang } }: { params:
     <div className="flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow">
-        <About />
+        <About dictionary={dictionary.about} />
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>

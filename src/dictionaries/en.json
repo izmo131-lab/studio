@@ -36,5 +36,163 @@
   "testimonials": {
     "title": "What Our Clients Say",
     "subtitle": "We are proud of the trust our clients place in us."
+  },
+  "about": {
+    "title": "Our Story, Your Solution",
+    "subtitle": "Ivora was born from the shared vision of three founders, Wiam, Álvaro, and Izan, with the goal of redefining excellence in transport and logistics. We specialize in handling and transporting design and decoration products, offering a service that combines precision, care, and efficiency.",
+    "founded_by_experts_title": "Founded by Experts",
+    "founded_by_experts_desc": "Our company was founded with the passion and experience of Wiam, Álvaro, and Izan to offer a superior logistics service.",
+    "strategic_location_title": "Strategic Location",
+    "strategic_location_desc": "Our offices and warehouse are located in the Constantí Industrial Park, a key point for efficient distribution.",
+    "our_vision_title": "Our Vision",
+    "our_vision_desc": "We aim to be industry leaders by combining technological innovation, sustainable practices, and exceptional customer service.",
+    "cta_button": "Discover how we can help you"
+  },
+  "consulting": {
+    "title": "Innovation, Sustainability, and Technology",
+    "subtitle": "To remain leaders, we combine technological innovation, sustainability, and excellence. We adopt digitalization, AI, and automation to offer an efficient, safe, and environmentally friendly service.",
+    "benefits": [
+      "Route optimization and inventory management with AI.",
+      "Automation and collaborative robotics in our warehouses.",
+      "Green logistics with electric vehicles and sustainable packaging.",
+      "Full transparency with blockchain technology for traceability."
+    ]
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Have a question or need a custom logistics solution? Fill out the form.",
+    "name_label": "Full Name",
+    "name_placeholder": "Your name",
+    "email_label": "Email Address",
+    "email_placeholder": "your@email.com",
+    "inquiry_type_label": "Type of Inquiry",
+    "inquiry_type_placeholder": "Select an inquiry type",
+    "inquiry_types": {
+      "custom_solution": "Custom Design Solution",
+      "international": "International Transport",
+      "storage": "Storage",
+      "general": "General Question"
+    },
+    "message_label": "Your Message",
+    "message_placeholder": "Please describe your needs or question in detail...",
+    "submit_button": "Send Message",
+    "submit_button_sending": "Sending...",
+    "toast_success_title": "Message sent!",
+    "toast_success_description": "Thanks for contacting us. We will get back to you soon.",
+    "toast_error_title": "Submission Error",
+    "toast_error_description": "Could not send the message. Please try again."
+  },
+  "location": {
+    "title": "Where We Are",
+    "subtitle": "Visit our offices and warehouse in the logistics heart of Tarragona.",
+    "card_title": "Ivora Logistics SL",
+    "address_title": "Our Address",
+    "address_details": "Carrer de la Logística, 123<br />Polígon Industrial de Constantí<br />43120 Constantí, Tarragona",
+    "phone_title": "Contact Phone",
+    "email_title": "Email"
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Our specialized selection in design and decoration for your home or business.",
+    "design_specialists_title": "Design Specialists",
+    "design_specialists_desc": "Specialized transport and storage for design products, with the utmost care and precision.",
+    "home_decor_title": "Home Decoration",
+    "home_decor_desc": "We offer a curated selection of decoration products to transform any space."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "We offer a complete suite of services to combine innovation, sustainability, and excellence.",
+    "international_transport_title": "International Transport",
+    "international_transport_desc": "Reliable and efficient international freight solutions, ensuring timely deliveries worldwide.",
+    "integral_logistics_title": "Integral Logistics",
+    "integral_logistics_desc": "Complete management of your supply chain, from planning and origin to the final destination.",
+    "storage_distribution_title": "Storage and Distribution",
+    "storage_distribution_desc": "Secure storage services at our Constantí warehouse and strategic distribution to optimize your inventory.",
+    "custom_solutions_title": "Custom Solutions",
+    "custom_solutions_desc": "We develop personalized logistics plans and premium services adapted to the unique challenges of your business."
+  },
+  "tracking_page": {
+    "title": "Track your shipment",
+    "subtitle": "Enter the tracking code to see the current status of your package.",
+    "input_placeholder": "Ex: TRK-001",
+    "search_button": "Search",
+    "search_button_loading": "Searching...",
+    "error_enter_code": "Please enter a tracking code.",
+    "error_connect_service": "Could not connect to the tracking service.",
+    "error_code_not_found": "Code not found. Please check the code and try again.",
+    "error_generic": "There was a problem with the search. Please try again later.",
+    "results_title": "Shipment Result",
+    "results_description": "Detailed information for:",
+    "from": "Origin",
+    "to": "Destination",
+    "status": "Shipment status",
+    "current_location": "Current Location",
+    "eta": "Estimated Date (ETA)",
+    "status_in_warehouse": "In Warehouse",
+    "status_in_transit": "In Transit",
+    "status_delivered": "Delivered"
+  },
+  "login_page": {
+    "title": "User Access",
+    "subtitle": "Enter your credentials to access.",
+    "user_label": "User",
+    "user_placeholder": "Your username",
+    "password_label": "Password",
+    "password_placeholder": "Your password",
+    "error_server_connection": "Error connecting to the server.",
+    "error_incorrect_credentials": "Incorrect data. Please check your username and password.",
+    "error_generic": "An error has occurred. Please try again later.",
+    "login_button": "Log In",
+    "login_button_loading": "Verifying..."
+  },
+  "dashboard_page": {
+    "loading": "Loading...",
+    "welcome_title": "Welcome, {name}!",
+    "welcome_subtitle": "This is your user profile at Ivora.",
+    "username_label": "Username",
+    "company_label": "Company",
+    "logout_button": "Log Out"
+  },
+  "documents_page": {
+    "loading": "Loading documents...",
+    "error_title": "An error has occurred",
+    "error_generic": "An unexpected error occurred.",
+    "error_db": "Error getting data from the database.",
+    "error_user_not_found": "User not found in the database.",
+    "retry_button": "Try again",
+    "back_to_list": "Back to list",
+    "print_pdf": "Print PDF",
+    "invoice_title": "INVOICE",
+    "invoice_date": "Date:",
+    "invoice_to": "Invoice to:",
+    "invoice_table_concept": "Concept",
+    "invoice_table_units": "Units",
+    "invoice_table_unit_price": "Unit Price",
+    "invoice_table_net_total": "Net Total",
+    "subtotal": "Subtotal",
+    "vat_line": "VAT ({rate}%) on {base}€",
+    "total": "TOTAL",
+    "payment_method": "Payment method:",
+    "legal_footer_1": "Ivora Logistics SL, with NIF B-12345678, registered in the Mercantile Registry of Tarragona, Volume 123, Folio 45, Sheet T-6789.",
+    "legal_footer_2": "In accordance with the provisions of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR), we inform you that your data will be incorporated into a processing under our responsibility, for the purpose of managing the commercial relationship. No data will be transferred to third parties, except legal obligation.",
+    "page_title": "My Invoices",
+    "page_subtitle": "Here you can consult and download your invoices.",
+    "invoice_card_title": "Invoice #{id}",
+    "invoice_card_client": "Client:",
+    "invoice_card_date": "Date:",
+    "view_details_button": "View Details",
+    "no_invoices_found": "No invoices found for your user.",
+    "status_paid": "Paid",
+    "status_pending": "Pending"
+  },
+  "blog_page": {
+    "title": "Ivora Insights",
+    "subtitle": "Your source for the latest news, trends, and expert analysis in the logistics industry.",
+    "author": "Author",
+    "date": "Date",
+    "read_more": "Read More"
+  },
+  "blog_post_page": {
+    "back_to_blog": "Back to Blog"
   }
 }

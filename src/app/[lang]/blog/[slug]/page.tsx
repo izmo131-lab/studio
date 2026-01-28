@@ -34,7 +34,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string,
               <Button variant="ghost" asChild>
                 <Link href={`/${params.lang}/blog`}>
                   <ArrowLeft className="mr-2 h-4 w-4" />
-                  Tornar al Blog
+                  {dictionary.blog_post_page.back_to_blog}
                 </Link>
               </Button>
             </div>

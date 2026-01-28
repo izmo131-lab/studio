@@ -14,29 +14,30 @@ interface Product {
   imageId: string;
 }
 
-const products: Product[] = [
-  {
-    icon: Palette,
-    title: 'Especialistes en Disseny',
-    description: 'Transport i emmagatzematge especialitzat per a productes de disseny, amb la màxima cura i precisió.',
-    imageId: 'product-design-specialists',
-  },
-  {
-    icon: Home,
-    title: 'Decoració de la Llar',
-    description: 'Oferim una selecció curada de productes de decoració per transformar qualsevol espai.',
-    imageId: 'product-home-decor',
-  },
-];
+export default function Products({ dictionary }: { dictionary: any }) {
 
-export default function Products() {
+  const products: Product[] = [
+    {
+      icon: Palette,
+      title: dictionary.design_specialists_title,
+      description: dictionary.design_specialists_desc,
+      imageId: 'product-design-specialists',
+    },
+    {
+      icon: Home,
+      title: dictionary.home_decor_title,
+      description: dictionary.home_decor_desc,
+      imageId: 'product-home-decor',
+    },
+  ];
+
   return (
     <section id="products" className="py-16 md:py-24 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-tight">Els Nostres Productes</h2>
+          <h2 className="text-3xl md:text-5xl font-headline font-bold tracking-tight">{dictionary.title}</h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            La nostra selecció especialitzada en disseny i decoració per a la teva llar o negoci.
+            {dictionary.subtitle}
           </p>
         </div>
         <Carousel

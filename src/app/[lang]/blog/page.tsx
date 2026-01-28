@@ -17,9 +17,9 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: L
       <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-5xl font-headline font-bold">Ivora Insights</h1>
+            <h1 className="text-4xl md:text-5xl font-headline font-bold">{dictionary.blog_page.title}</h1>
             <p className="mt-4 text-xl text-muted-foreground">
-              La teva font per a les últimes notícies, tendències i anàlisis d'experts en la indústria logística.
+              {dictionary.blog_page.subtitle}
             </p>
           </div>
 
@@ -54,7 +54,7 @@ export default async function BlogPage({ params: { lang } }: { params: { lang: L
                   </div>
                   <p className="text-muted-foreground flex-grow">{post.excerpt}</p>
                   <Button asChild className="mt-4 self-start">
-                    <Link href={`/${lang}/blog/${post.slug}`}>Llegeix Més</Link>
+                    <Link href={`/${lang}/blog/${post.slug}`}>{dictionary.blog_page.read_more}</Link>
                   </Button>
                 </CardContent>
               </Card>

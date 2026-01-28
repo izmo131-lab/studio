@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from "@/hooks/use-toast";
 
-export default function Contact() {
+export default function Contact({ dictionary }: { dictionary: any }) {
   const { toast } = useToast();
   const [status, setStatus] = useState('');
 
@@ -32,18 +32,18 @@ export default function Contact() {
         setStatus('success');
         form.reset();
         toast({
-          title: "Missatge enviat!",
-          description: "Gràcies per contactar-nos. Et respondrem aviat.",
+          title: dictionary.toast_success_title,
+          description: dictionary.toast_success_description,
         });
       } else {
-        throw new Error('Hi ha hagut un error en enviar el formulari.');
+        throw new Error('There was an error sending the form.');
       }
     } catch (error) {
       setStatus('error');
       toast({
         variant: "destructive",
-        title: "Error en l'enviament",
-        description: 'No s\'ha pogut enviar el missatge. Si us plau, torna-ho a provar.',
+        title: dictionary.toast_error_title,
+        description: dictionary.toast_error_description,
       });
     }
   };
@@ -53,50 +53,50 @@ export default function Contact() {
       <div className="container mx-auto px-4 max-w-4xl">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl md:text-4xl font-headline">Posa't en Contacte</CardTitle>
+            <CardTitle className="text-3xl md:text-4xl font-headline">{dictionary.title}</CardTitle>
             <CardDescription className="text-lg">
-              Tens alguna pregunta o necessites una solució logística a mida? Emplena el formulari.
+              {dictionary.description}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name">Nom Complert</Label>
-                  <Input id="name" name="name" placeholder="El teu nom" required />
+                  <Label htmlFor="name">{dictionary.name_label}</Label>
+                  <Input id="name" name="name" placeholder={dictionary.name_placeholder} required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Adreça de Correu Electrònic</Label>
-                  <Input id="email" name="email" type="email" placeholder="el.teu@correu.com" required />
+                  <Label htmlFor="email">{dictionary.email_label}</Label>
+                  <Input id="email" name="email" type="email" placeholder={dictionary.email_placeholder} required />
                 </div>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="inquiryType">Tipus de Consulta</Label>
+                <Label htmlFor="inquiryType">{dictionary.inquiry_type_label}</Label>
                  <Select name="inquiryType">
                     <SelectTrigger id="inquiryType">
-                      <SelectValue placeholder="Selecciona un tipus de consulta" />
+                      <SelectValue placeholder={dictionary.inquiry_type_placeholder} />
                     </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="custom-solution">Solució a Mida per a Disseny</SelectItem>
-                    <SelectItem value="international">Transport Internacional</SelectItem>
-                    <SelectItem value="storage">Emmagatzematge</SelectItem>
-                    <SelectItem value="general">Pregunta General</SelectItem>
+                    <SelectItem value="custom-solution">{dictionary.inquiry_types.custom_solution}</SelectItem>
+                    <SelectItem value="international">{dictionary.inquiry_types.international}</SelectItem>
+                    <SelectItem value="storage">{dictionary.inquiry_types.storage}</SelectItem>
+                    <SelectItem value="general">{dictionary.inquiry_types.general}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               <div className="space-y-2">
-                 <Label htmlFor="message">El Teu Missatge</Label>
+                 <Label htmlFor="message">{dictionary.message_label}</Label>
                 <Textarea
                   id="message"
                   name="message"
-                  placeholder="Si us plau, descriu les teves necessitats o pregunta en detall..."
+                  placeholder={dictionary.message_placeholder}
                   className="min-h-[120px]"
                   required
                 />
               </div>
               <div className="flex justify-end">
                 <Button type="submit" disabled={status === 'sending'}>
-                  {status === 'sending' ? 'Enviant...' : 'Envia Missatge'}
+                  {status === 'sending' ? dictionary.submit_button_sending : dictionary.submit_button}
                 </Button>
               </div>
             </form>

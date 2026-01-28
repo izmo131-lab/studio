@@ -36,5 +36,163 @@
   "testimonials": {
     "title": "Què Diuen Els Nostres Clients",
     "subtitle": "Estem orgullosos de la confiança que els nostres clients dipositen en nosaltres."
+  },
+  "about": {
+    "title": "La Nostra Història, La Teva Solució",
+    "subtitle": "Ivora va néixer de la visió compartida de tres fundadors, Wiam, Álvaro i Izan, amb l'objectiu de redefinir l'excel·lència en el transport i la logística. Ens especialitzem en la manipulació i el transport de productes de disseny i decoració, oferint un servei que combina precisió, cura i eficiència.",
+    "founded_by_experts_title": "Fundada per Experts",
+    "founded_by_experts_desc": "La nostra empresa va ser fundada amb la passió i experiència de Wiam, Álvaro i Izan per oferir un servei logístic de qualitat superior.",
+    "strategic_location_title": "Ubicació Estratègica",
+    "strategic_location_desc": "Les nostres oficines i magatzem es troben al Polígon Industrial de Constantí, un punt clau per a la distribució eficient.",
+    "our_vision_title": "La Nostra Visió",
+    "our_vision_desc": "Aspirem a ser líders del sector combinant innovació tecnològica, pràctiques sostenibles i una atenció al client excepcional.",
+    "cta_button": "Descobreix com podem ajudar-te"
+  },
+  "consulting": {
+    "title": "Innovació, Sostenibilitat i Tecnologia",
+    "subtitle": "Per mantenir-nos com a referents, combinem innovació tecnològica, sostenibilitat i excel·lència. Adoptem la digitalització, la IA i l'automatització per oferir un servei eficient, segur i respectuós amb el medi ambient.",
+    "benefits": [
+      "Optimització de rutes i gestió d'inventaris amb IA.",
+      "Automatització i robòtica col·laborativa als nostres magatzems.",
+      "Logística verda amb vehicles elèctrics i embalatges sostenibles.",
+      "Transparència total amb tecnologia blockchain per a la traçabilitat."
+    ]
+  },
+  "contact": {
+    "title": "Posa't en Contacte",
+    "description": "Tens alguna pregunta o necessites una solució logística a mida? Emplena el formulari.",
+    "name_label": "Nom Complert",
+    "name_placeholder": "El teu nom",
+    "email_label": "Adreça de Correu Electrònic",
+    "email_placeholder": "el.teu@correu.com",
+    "inquiry_type_label": "Tipus de Consulta",
+    "inquiry_type_placeholder": "Selecciona un tipus de consulta",
+    "inquiry_types": {
+      "custom_solution": "Solució a Mida per a Disseny",
+      "international": "Transport Internacional",
+      "storage": "Emmagatzematge",
+      "general": "Pregunta General"
+    },
+    "message_label": "El Teu Missatge",
+    "message_placeholder": "Si us plau, descriu les teves necessitats o pregunta en detall...",
+    "submit_button": "Envia Missatge",
+    "submit_button_sending": "Enviant...",
+    "toast_success_title": "Missatge enviat!",
+    "toast_success_description": "Gràcies per contactar-nos. Et respondrem aviat.",
+    "toast_error_title": "Error en l'enviament",
+    "toast_error_description": "No s'ha pogut enviar el missatge. Si us plau, torna-ho a provar."
+  },
+  "location": {
+    "title": "On Som?",
+    "subtitle": "Visita les nostres oficines i magatzem al cor logístic de Tarragona.",
+    "card_title": "Ivora Logistics SL",
+    "address_title": "La Nostra Adreça",
+    "address_details": "Carrer de la Logística, 123<br />Polígon Industrial de Constantí<br />43120 Constantí, Tarragona",
+    "phone_title": "Telèfon de Contacte",
+    "email_title": "Correu Electrònic"
+  },
+  "products": {
+    "title": "Els Nostres Productes",
+    "subtitle": "La nostra selecció especialitzada en disseny i decoració per a la teva llar o negoci.",
+    "design_specialists_title": "Especialistes en Disseny",
+    "design_specialists_desc": "Transport i emmagatzematge especialitzat per a productes de disseny, amb la màxima cura i precisió.",
+    "home_decor_title": "Decoració de la Llar",
+    "home_decor_desc": "Oferim una selecció curada de productes de decoració per transformar qualsevol espai."
+  },
+  "services": {
+    "title": "Els Nostres Serveis",
+    "subtitle": "Oferim una suite completa de serveis per combinar innovació, sostenibilitat i excel·lència.",
+    "international_transport_title": "Transport Internacional",
+    "international_transport_desc": "Solucions de transport internacional de mercaderies fiables i eficients, garantint lliuraments puntuals a tot el món.",
+    "integral_logistics_title": "Logística Integral",
+    "integral_logistics_desc": "Gestió completa de la teva cadena de subministrament, des de la planificació i l'origen fins a la destinació final.",
+    "storage_distribution_title": "Emmagatzematge i Distribució",
+    "storage_distribution_desc": "Serveis d'emmagatzematge segur al nostre magatzem de Constantí i distribució estratègica per optimitzar el teu inventari.",
+    "custom_solutions_title": "Solucions a Mida",
+    "custom_solutions_desc": "Desenvolupem plans logístics personalitzats i serveis premium adaptats als reptes únics del teu negoci."
+  },
+  "tracking_page": {
+    "title": "Localitza el teu enviament",
+    "subtitle": "Introdueix el codi de seguiment per veure l'estat actual del teu paquet.",
+    "input_placeholder": "Ex: TRK-001",
+    "search_button": "Cercar",
+    "search_button_loading": "Cercant...",
+    "error_enter_code": "Si us plau, introdueix un codi de seguiment.",
+    "error_connect_service": "No s'ha pogut connectar amb el servei de seguiment.",
+    "error_code_not_found": "Codi no trobat. Si us plau, verifica el codi i torna-ho a provar.",
+    "error_generic": "Hi ha hagut un problema en fer la cerca. Intenta-ho de nou més tard.",
+    "results_title": "Resultat de l'Enviament",
+    "results_description": "Informació detallada per a:",
+    "from": "Origen",
+    "to": "Destinació",
+    "status": "Estat de l'enviament",
+    "current_location": "Ubicació Actual",
+    "eta": "Data Prevista (ETA)",
+    "status_in_warehouse": "En Magatzem",
+    "status_in_transit": "En Trànsit",
+    "status_delivered": "Lliurat"
+  },
+  "login_page": {
+    "title": "Accés d'Usuari",
+    "subtitle": "Introdueix les teves credencials per accedir.",
+    "user_label": "Usuari",
+    "user_placeholder": "El teu nom d'usuari",
+    "password_label": "Contrasenya",
+    "password_placeholder": "La teva contrasenya",
+    "error_server_connection": "Error en la connexió amb el servidor.",
+    "error_incorrect_credentials": "Dades incorrectes. Si us plau, verifica el teu usuari i contrasenya.",
+    "error_generic": "Ha ocorregut un error. Intenta-ho de nou més tard.",
+    "login_button": "Entrar",
+    "login_button_loading": "Verificant..."
+  },
+  "dashboard_page": {
+    "loading": "Carregant...",
+    "welcome_title": "Benvingut, {name}!",
+    "welcome_subtitle": "Aquest és el teu perfil d'usuari a Ivora.",
+    "username_label": "Nom d'Usuari",
+    "company_label": "Empresa",
+    "logout_button": "Tancar Sessió"
+  },
+  "documents_page": {
+    "loading": "Carregant documents...",
+    "error_title": "Ha ocorregut un error",
+    "error_generic": "Ha ocorregut un error inesperat.",
+    "error_db": "Error en obtenir les dades de la base de dades.",
+    "error_user_not_found": "Usuari no trobat a la base de dades.",
+    "retry_button": "Tornar a intentar",
+    "back_to_list": "Tornar al llistat",
+    "print_pdf": "Imprimir PDF",
+    "invoice_title": "FACTURA",
+    "invoice_date": "Data:",
+    "invoice_to": "Factura a:",
+    "invoice_table_concept": "Concepte",
+    "invoice_table_units": "Unitats",
+    "invoice_table_unit_price": "Preu Unit.",
+    "invoice_table_net_total": "Total Net",
+    "subtotal": "Subtotal",
+    "vat_line": "IVA ({rate}%) sobre {base}€",
+    "total": "TOTAL",
+    "payment_method": "Forma de pagament:",
+    "legal_footer_1": "Ivora Logistics SL, amb NIF B-12345678, inscrita al Registre Mercantil de Tarragona, Tom 123, Foli 45, Full T-6789. ",
+    "legal_footer_2": "De conformitat amb el que estableix el Reglament (UE) 2016/679 del Parlament Europeu i del Consell de 27 d'abril de 2016 (RGPD), li informem que les seves dades seran incorporades a un tractament sota la nostra responsabilitat, amb la finalitat de gestionar la relació comercial. No se cediran dades a tercers, excepte obligació legal.",
+    "page_title": "Les Meves Factures",
+    "page_subtitle": "Aquí pots consultar i descarregar les teves factures.",
+    "invoice_card_title": "Factura #{id}",
+    "invoice_card_client": "Client:",
+    "invoice_card_date": "Data:",
+    "view_details_button": "Veure Detalls",
+    "no_invoices_found": "No s'han trobat factures per al teu usuari.",
+    "status_paid": "Pagada",
+    "status_pending": "Pendent"
+  },
+  "blog_page": {
+    "title": "Ivora Insights",
+    "subtitle": "La teva font per a les últimes notícies, tendències i anàlisis d'experts en la indústria logística.",
+    "author": "Autor",
+    "date": "Data",
+    "read_more": "Llegeix Més"
+  },
+  "blog_post_page": {
+    "back_to_blog": "Tornar al Blog"
   }
 }

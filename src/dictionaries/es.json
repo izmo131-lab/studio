@@ -36,5 +36,163 @@
   "testimonials": {
     "title": "Qué Dicen Nuestros Clientes",
     "subtitle": "Estamos orgullosos de la confianza que nuestros clientes depositan en nosotros."
+  },
+  "about": {
+    "title": "Nuestra Historia, Tu Solución",
+    "subtitle": "Ivora nació de la visión compartida de tres fundadores, Wiam, Álvaro e Izan, con el objetivo de redefinir la excelencia en el transporte y la logística. Nos especializamos en la manipulación y el transporte de productos de diseño y decoración, ofreciendo un servicio que combina precisión, cuidado y eficiencia.",
+    "founded_by_experts_title": "Fundada por Expertos",
+    "founded_by_experts_desc": "Nuestra empresa fue fundada con la pasión y experiencia de Wiam, Álvaro e Izan para ofrecer un servicio logístico de calidad superior.",
+    "strategic_location_title": "Ubicación Estratégica",
+    "strategic_location_desc": "Nuestras oficinas y almacén se encuentran en el Polígono Industrial de Constantí, un punto clave para la distribución eficiente.",
+    "our_vision_title": "Nuestra Visión",
+    "our_vision_desc": "Aspiramos a ser líderes del sector combinando innovación tecnológica, prácticas sostenibles y una atención al cliente excepcional.",
+    "cta_button": "Descubre cómo podemos ayudarte"
+  },
+  "consulting": {
+    "title": "Innovación, Sostenibilidad y Tecnología",
+    "subtitle": "Para mantenernos como referentes, combinamos innovación tecnológica, sostenibilidad y excelencia. Adoptamos la digitalización, la IA y la automatización para ofrecer un servicio eficiente, seguro y respetuoso con el medio ambiente.",
+    "benefits": [
+      "Optimización de rutas y gestión de inventarios con IA.",
+      "Automatización y robótica colaborativa en nuestros almacenes.",
+      "Logística verde con vehículos eléctricos y embalajes sostenibles.",
+      "Transparencia total con tecnología blockchain para la trazabilidad."
+    ]
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "description": "¿Tienes alguna pregunta o necesitas una solución logística a medida? Rellena el formulario.",
+    "name_label": "Nombre Completo",
+    "name_placeholder": "Tu nombre",
+    "email_label": "Dirección de Correo Electrónico",
+    "email_placeholder": "tu@correo.com",
+    "inquiry_type_label": "Tipo de Consulta",
+    "inquiry_type_placeholder": "Selecciona un tipo de consulta",
+    "inquiry_types": {
+      "custom_solution": "Solución a Medida para Diseño",
+      "international": "Transporte Internacional",
+      "storage": "Almacenamiento",
+      "general": "Pregunta General"
+    },
+    "message_label": "Tu Mensaje",
+    "message_placeholder": "Por favor, describe tus necesidades o pregunta en detalle...",
+    "submit_button": "Enviar Mensaje",
+    "submit_button_sending": "Enviando...",
+    "toast_success_title": "¡Mensaje enviado!",
+    "toast_success_description": "Gracias por contactarnos. Te responderemos pronto.",
+    "toast_error_title": "Error en el envío",
+    "toast_error_description": "No se ha podido enviar el mensaje. Por favor, inténtalo de nuevo."
+  },
+  "location": {
+    "title": "¿Dónde Estamos?",
+    "subtitle": "Visita nuestras oficinas y almacén en el corazón logístico de Tarragona.",
+    "card_title": "Ivora Logistics SL",
+    "address_title": "Nuestra Dirección",
+    "address_details": "Carrer de la Logística, 123<br />Polígono Industrial de Constantí<br />43120 Constantí, Tarragona",
+    "phone_title": "Teléfono de Contacto",
+    "email_title": "Correo Electrónico"
+  },
+  "products": {
+    "title": "Nuestros Productos",
+    "subtitle": "Nuestra selección especializada en diseño y decoración para tu hogar o negocio.",
+    "design_specialists_title": "Especialistas en Diseño",
+    "design_specialists_desc": "Transporte y almacenamiento especializado para productos de diseño, con el máximo cuidado y precisión.",
+    "home_decor_title": "Decoración del Hogar",
+    "home_decor_desc": "Ofrecemos una selección curada de productos de decoración para transformar cualquier espacio."
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Ofrecemos una suite completa de servicios para combinar innovación, sostenibilidad y excelencia.",
+    "international_transport_title": "Transporte Internacional",
+    "international_transport_desc": "Soluciones de transporte internacional de mercancías fiables y eficientes, garantizando entregas puntuales en todo el mundo.",
+    "integral_logistics_title": "Logística Integral",
+    "integral_logistics_desc": "Gestión completa de tu cadena de suministro, desde la planificación y el origen hasta el destino final.",
+    "storage_distribution_title": "Almacenamiento y Distribución",
+    "storage_distribution_desc": "Servicios de almacenamiento seguro en nuestro almacén de Constantí y distribución estratégica para optimizar tu inventario.",
+    "custom_solutions_title": "Soluciones a Medida",
+    "custom_solutions_desc": "Desarrollamos planes logísticos personalizados y servicios premium adaptados a los retos únicos de tu negocio."
+  },
+  "tracking_page": {
+    "title": "Localiza tu envío",
+    "subtitle": "Introduce el código de seguimiento para ver el estado actual de tu paquete.",
+    "input_placeholder": "Ej: TRK-001",
+    "search_button": "Buscar",
+    "search_button_loading": "Buscando...",
+    "error_enter_code": "Por favor, introduce un código de seguimiento.",
+    "error_connect_service": "No se ha podido conectar con el servicio de seguimiento.",
+    "error_code_not_found": "Código no encontrado. Por favor, verifica el código y vuelve a intentarlo.",
+    "error_generic": "Ha habido un problema en la búsqueda. Inténtalo de nuevo más tarde.",
+    "results_title": "Resultado del Envío",
+    "results_description": "Información detallada para:",
+    "from": "Origen",
+    "to": "Destino",
+    "status": "Estado del envío",
+    "current_location": "Ubicación Actual",
+    "eta": "Fecha Prevista (ETA)",
+    "status_in_warehouse": "En Almacén",
+    "status_in_transit": "En Tránsito",
+    "status_delivered": "Entregado"
+  },
+  "login_page": {
+    "title": "Acceso de Usuario",
+    "subtitle": "Introduce tus credenciales para acceder.",
+    "user_label": "Usuario",
+    "user_placeholder": "Tu nombre de usuario",
+    "password_label": "Contraseña",
+    "password_placeholder": "Tu contraseña",
+    "error_server_connection": "Error en la conexión con el servidor.",
+    "error_incorrect_credentials": "Datos incorrectos. Por favor, verifica tu usuario y contraseña.",
+    "error_generic": "Ha ocurrido un error. Inténtalo de nuevo más tarde.",
+    "login_button": "Entrar",
+    "login_button_loading": "Verificando..."
+  },
+  "dashboard_page": {
+    "loading": "Cargando...",
+    "welcome_title": "¡Bienvenido, {name}!",
+    "welcome_subtitle": "Este es tu perfil de usuario en Ivora.",
+    "username_label": "Nombre de Usuario",
+    "company_label": "Empresa",
+    "logout_button": "Cerrar Sesión"
+  },
+  "documents_page": {
+    "loading": "Cargando documentos...",
+    "error_title": "Ha ocurrido un error",
+    "error_generic": "Ha ocurrido un error inesperado.",
+    "error_db": "Error al obtener los datos de la base de datos.",
+    "error_user_not_found": "Usuario no encontrado en la base de datos.",
+    "retry_button": "Volver a intentar",
+    "back_to_list": "Volver al listado",
+    "print_pdf": "Imprimir PDF",
+    "invoice_title": "FACTURA",
+    "invoice_date": "Fecha:",
+    "invoice_to": "Factura a:",
+    "invoice_table_concept": "Concepto",
+    "invoice_table_units": "Unidades",
+    "invoice_table_unit_price": "Precio Unit.",
+    "invoice_table_net_total": "Total Neto",
+    "subtotal": "Subtotal",
+    "vat_line": "IVA ({rate}%) sobre {base}€",
+    "total": "TOTAL",
+    "payment_method": "Forma de pago:",
+    "legal_footer_1": "Ivora Logistics SL, con NIF B-12345678, inscrita en el Registro Mercantil de Tarragona, Tomo 123, Folio 45, Hoja T-6789.",
+    "legal_footer_2": "De conformidad con lo dispuesto en el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016 (RGPD), le informamos que sus datos serán incorporados a un tratamiento bajo nuestra responsabilidad, con la finalidad de gestionar la relación comercial. No se cederán datos a terceros, salvo obligación legal.",
+    "page_title": "Mis Facturas",
+    "page_subtitle": "Aquí puedes consultar y descargar tus facturas.",
+    "invoice_card_title": "Factura #{id}",
+    "invoice_card_client": "Cliente:",
+    "invoice_card_date": "Fecha:",
+    "view_details_button": "Ver Detalles",
+    "no_invoices_found": "No se han encontrado facturas para tu usuario.",
+    "status_paid": "Pagada",
+    "status_pending": "Pendiente"
+  },
+  "blog_page": {
+    "title": "Ivora Insights",
+    "subtitle": "Tu fuente para las últimas noticias, tendencias y análisis de expertos en la industria logística.",
+    "author": "Autor",
+    "date": "Fecha",
+    "read_more": "Leer Más"
+  },
+  "blog_post_page": {
+    "back_to_blog": "Volver al Blog"
   }
 }

@@ -10,7 +10,7 @@ export default async function ProductesPage({ params: { lang } }: { params: { la
     <div className="flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow">
-        <Products />
+        <Products dictionary={dictionary.products} />
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>

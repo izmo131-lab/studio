@@ -24,14 +24,6 @@ interface ShipmentData {
   Data: string;
 }
 
-const statusConfig: Record<string, { progress: number; colorClass: string; label: string }> = {
-  'en magatzem': { progress: 10, colorClass: 'bg-tracking-in-warehouse', label: 'En Magatzem' },
-  'en trànsit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: 'En Trànsit' },
-  'en transit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: 'En Trànsit' },
-  'lliurat': { progress: 100, colorClass: 'bg-tracking-delivered', label: 'Lliurat' },
-};
-
-
 export default function TrackingPage({ params: { lang } }: { params: { lang: Locale } }) {
   const [trackingCode, setTrackingCode] = useState('');
   const [shipment, setShipment] = useState<ShipmentData | null>(null);
@@ -46,8 +38,9 @@ export default function TrackingPage({ params: { lang } }: { params: { lang: Loc
   const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/bxb74urqmw6ib';
 
   const handleSearch = async () => {
+    if (!dictionary) return;
     if (!trackingCode) {
-      setError('Si us plau, introdueix un codi de seguiment.');
+      setError(dictionary.tracking_page.error_enter_code);
       return;
     }
     setIsLoading(true);
@@ -57,25 +50,32 @@ export default function TrackingPage({ params: { lang } }: { params: { lang: Loc
     try {
       const response = await fetch(`${SHEETDB_API_URL}/search?tracking_code=${trackingCode}`);
       if (!response.ok) {
-        throw new Error('No s\'ha pogut connectar amb el servei de seguiment.');
+        throw new Error(dictionary.tracking_page.error_connect_service);
       }
       const data: ShipmentData[] = await response.json();
 
       if (data.length > 0) {
         setShipment(data[0]);
       } else {
-        setError('Codi no trobat. Si us plau, verifica el codi i torna-ho a provar.');
+        setError(dictionary.tracking_page.error_code_not_found);
       }
     } catch (err) {
-      setError('Hi ha hagut un problema en fer la cerca. Intenta-ho de nou més tard.');
+      setError(dictionary.tracking_page.error_generic);
     } finally {
       setIsLoading(false);
     }
   };
   
-  const statusInfo = shipment ? statusConfig[shipment.Estat.toLowerCase()] : null;
-  
   if (!dictionary) return null;
+
+  const statusConfig: Record<string, { progress: number; colorClass: string; label: string }> = {
+    'en magatzem': { progress: 10, colorClass: 'bg-tracking-in-warehouse', label: dictionary.tracking_page.status_in_warehouse },
+    'en trànsit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: dictionary.tracking_page.status_in_transit },
+    'en transit': { progress: 50, colorClass: 'bg-tracking-in-transit', label: dictionary.tracking_page.status_in_transit },
+    'lliurat': { progress: 100, colorClass: 'bg-tracking-delivered', label: dictionary.tracking_page.status_delivered },
+  };
+
+  const statusInfo = shipment ? statusConfig[shipment.Estat.toLowerCase()] : null;
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -83,9 +83,9 @@ export default function TrackingPage({ params: { lang } }: { params: { lang: Loc
       <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-headline font-bold">Localitza el teu enviament</h1>
+            <h1 className="text-4xl md:text-5xl font-headline font-bold">{dictionary.tracking_page.title}</h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Introdueix el codi de seguiment per veure l'estat actual del teu paquet.
+              {dictionary.tracking_page.subtitle}
             </p>
           </div>
 
@@ -94,13 +94,13 @@ export default function TrackingPage({ params: { lang } }: { params: { lang: Loc
               type="text"
               value={trackingCode}
               onChange={(e) => setTrackingCode(e.target.value)}
-              placeholder="Ex: TRK-001"
+              placeholder={dictionary.tracking_page.input_placeholder}
               className="h-12 text-lg flex-grow"
               onKeyUp={(e) => e.key === 'Enter' && handleSearch()}
             />
             <Button onClick={handleSearch} disabled={isLoading} size="lg" className="h-12">
               <Search className="mr-2 h-5 w-5" />
-              {isLoading ? 'Cercant...' : 'Cercar'}
+              {isLoading ? dictionary.tracking_page.search_button_loading : dictionary.tracking_page.search_button}
             </Button>
           </div>
 
@@ -115,8 +115,8 @@ export default function TrackingPage({ params: { lang } }: { params: { lang: Loc
               <CardHeader>
                 <div className="flex justify-between items-start">
                   <div>
-                    <CardTitle>Resultat de l'Enviament</CardTitle>
-                    <CardDescription>Informació detallada per a: <span className="font-semibold text-foreground">{shipment.Client}</span></CardDescription>
+                    <CardTitle>{dictionary.tracking_page.results_title}</CardTitle>
+                    <CardDescription>{dictionary.tracking_page.results_description} <span className="font-semibold text-foreground">{shipment.Client}</span></CardDescription>
                   </div>
                   <span className="text-sm font-mono bg-muted text-muted-foreground px-2 py-1 rounded-md">{shipment.tracking_code}</span>
                 </div>
@@ -131,7 +131,7 @@ export default function TrackingPage({ params: { lang } }: { params: { lang: Loc
                   
                   <div>
                     <div className="flex justify-between items-center mb-2">
-                        <p className="text-sm text-muted-foreground">Estat de l'enviament</p>
+                        <p className="text-sm text-muted-foreground">{dictionary.tracking_page.status}</p>
                         <span className="font-semibold text-foreground">{statusInfo.label}</span>
                      </div>
                      <Progress value={statusInfo.progress} indicatorClassName={statusInfo.colorClass} />
@@ -141,14 +141,14 @@ export default function TrackingPage({ params: { lang } }: { params: { lang: Loc
                     <div className="flex items-center gap-3 bg-secondary/50 p-3 rounded-md">
                         <Package className="h-6 w-6 text-primary"/>
                         <div>
-                            <p className="text-muted-foreground">Ubicació Actual</p>
+                            <p className="text-muted-foreground">{dictionary.tracking_page.current_location}</p>
                             <p className="font-semibold">{shipment.Ubicacio}</p>
                         </div>
                     </div>
                      <div className="flex items-center gap-3 bg-secondary/50 p-3 rounded-md">
                         <Calendar className="h-6 w-6 text-primary"/>
                         <div>
-                            <p className="text-muted-foreground">Data Prevista (ETA)</p>
+                            <p className="text-muted-foreground">{dictionary.tracking_page.eta}</p>
                             <p className="font-semibold">{shipment.Data}</p>
                         </div>
                     </div>

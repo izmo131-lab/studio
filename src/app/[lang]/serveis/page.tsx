@@ -10,7 +10,7 @@ export default async function ServeisPage({ params: { lang } }: { params: { lang
     <div className="flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow">
-        <Services />
+        <Services dictionary={dictionary.services} />
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>

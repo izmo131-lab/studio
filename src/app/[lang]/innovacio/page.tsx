@@ -10,7 +10,7 @@ export default async function InnovacioPage({ params: { lang } }: { params: { la
     <div className="flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow">
-        <Consulting />
+        <Consulting dictionary={dictionary.consulting} />
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>

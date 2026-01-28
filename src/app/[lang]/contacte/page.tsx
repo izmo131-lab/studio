@@ -10,7 +10,7 @@ export default async function ContactePage({ params: { lang } }: { params: { lan
     <div className="flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow">
-        <Contact />
+        <Contact dictionary={dictionary.contact} />
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>
