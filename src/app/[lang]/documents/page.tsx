@@ -287,7 +287,7 @@ export default function DocumentsPage() {
       <main className="flex-grow py-16 md:py-24">
         {selectedInvoice ? (
           <div className="container mx-auto p-4 sm:p-8">
-            <div className="flex justify-between items-center mb-8 print-hidden">
+            <div className="flex justify-between items-center mb-8 print:hidden">
                 <Button variant="ghost" onClick={() => setSelectedInvoice(null)}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     {dictionary.documents_page.back_to_list}
