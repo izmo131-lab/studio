@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useParams } from 'next/navigation';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,14 +16,17 @@ interface UserData {
   company: string;
 }
 
-export default function DashboardPage({ params: { lang } }: { params: { lang: Locale } }) {
+export default function DashboardPage() {
   const [userData, setUserData] = useState<UserData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const [dictionary, setDictionary] = useState<any>(null);
+  const params = useParams();
+  const lang = params.lang as Locale;
 
 
   useEffect(() => {
+    if (!lang) return;
     getDictionary(lang).then(setDictionary);
     
     const userJson = localStorage.getItem('user');

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -24,14 +25,17 @@ interface ShipmentData {
   Data: string;
 }
 
-export default function TrackingPage({ params: { lang } }: { params: { lang: Locale } }) {
+export default function TrackingPage() {
   const [trackingCode, setTrackingCode] = useState('');
   const [shipment, setShipment] = useState<ShipmentData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [dictionary, setDictionary] = useState<any>(null);
+  const params = useParams();
+  const lang = params.lang as Locale;
 
   useEffect(() => {
+    if (!lang) return;
     getDictionary(lang).then(setDictionary);
   }, [lang]);
 

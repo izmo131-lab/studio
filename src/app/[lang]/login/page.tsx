@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -13,15 +13,18 @@ import { LogIn } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionaries'
 import { Locale } from '../../../../i18n-config'
 
-export default function LoginPage({ params: { lang } }: { params: { lang: Locale } }) {
+export default function LoginPage() {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [dictionary, setDictionary] = useState<any>(null);
+  const params = useParams();
+  const lang = params.lang as Locale;
 
   useEffect(() => {
+    if (!lang) return;
     getDictionary(lang).then(setDictionary);
   }, [lang]);
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Button } from '@/components/ui/button';
@@ -75,18 +75,21 @@ const parseCustomDate = (dateStr: string): Date => {
   return new Date(Number(parts[2]), Number(parts[1]) - 1, Number(parts[0]));
 };
 
-export default function DocumentsPage({ params: { lang } }: { params: { lang: Locale } }) {
+export default function DocumentsPage() {
   const router = useRouter();
   const [invoices, setInvoices] = useState<ProcessedInvoice[]>([]);
   const [selectedInvoice, setSelectedInvoice] = useState<ProcessedInvoice | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dictionary, setDictionary] = useState<any>(null);
+  const params = useParams();
+  const lang = params.lang as Locale;
 
   useEffect(() => {
     let isMounted = true;
     
     async function initialize() {
+        if (!lang) return;
         const dict = await getDictionary(lang);
         if (isMounted) {
             setDictionary(dict);
