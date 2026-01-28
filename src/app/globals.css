@@ -81,7 +81,7 @@
 }
 
 @media print {
-  .documents-page > * {
+  body * {
     visibility: hidden;
   }
   #zona-factura,
