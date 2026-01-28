@@ -283,7 +283,7 @@ export default function DocumentsPage() {
   }
   
   return (
-    <div className="documents-page flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-4">
