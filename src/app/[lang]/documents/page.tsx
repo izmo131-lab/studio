@@ -77,12 +77,12 @@ const parseCustomDate = (dateStr: string): Date => {
 
 export default function DocumentsPage() {
   const router = useRouter();
+  const params = useParams();
   const [invoices, setInvoices] = useState<ProcessedInvoice[]>([]);
   const [selectedInvoice, setSelectedInvoice] = useState<ProcessedInvoice | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [dictionary, setDictionary] = useState<any>(null);
-  const params = useParams();
   const lang = params.lang as Locale;
 
   useEffect(() => {
@@ -236,9 +236,22 @@ export default function DocumentsPage() {
     window.print();
   };
   
+  const getStatus = (status: string) => {
+    if (!status) return null;
+    const lowerCaseStatus = status.toLowerCase();
+    if (lowerCaseStatus === 'pagada') {
+      return { label: dictionary.documents_page.status_paid, className: 'bg-tracking-delivered hover:bg-tracking-delivered/80' };
+    }
+    if (lowerCaseStatus === 'pendent') {
+      return { label: dictionary.documents_page.status_pending, className: 'bg-tracking-in-warehouse hover:bg-tracking-in-warehouse/80' };
+    }
+    return { label: status, className: 'bg-tracking-unknown hover:bg-tracking-unknown/80' };
+  };
+
   if (isLoading || !dictionary) {
     return (
       <div className="flex flex-col min-h-screen bg-background">
+        <Header lang={lang} dictionary={dictionary?.header || {}} />
         <main className="flex-grow flex items-center justify-center">
           <div className="flex items-center space-x-2">
             <div className="w-4 h-4 rounded-full bg-primary animate-pulse"></div>
@@ -247,6 +260,7 @@ export default function DocumentsPage() {
             <span className="ml-2 text-muted-foreground">{dictionary?.documents_page.loading || 'Loading...'}</span>
           </div>
         </main>
+        <Footer lang={lang} dictionary={dictionary?.footer || {}} />
       </div>
     );
   }
@@ -266,25 +280,14 @@ export default function DocumentsPage() {
       </div>
     );
   }
-
-  const getStatus = (status: string) => {
-    if (!status) return null;
-    const lowerCaseStatus = status.toLowerCase();
-    if (lowerCaseStatus === 'pagada') {
-      return { label: dictionary.documents_page.status_paid, className: 'bg-tracking-delivered hover:bg-tracking-delivered/80' };
-    }
-    if (lowerCaseStatus === 'pendent') {
-      return { label: dictionary.documents_page.status_pending, className: 'bg-tracking-in-warehouse hover:bg-tracking-in-warehouse/80' };
-    }
-    return { label: status, className: 'bg-tracking-unknown hover:bg-tracking-unknown/80' };
-  };
-
-  if (selectedInvoice) {
-    const statusInfo = getStatus(selectedInvoice.status);
-    return (
-       <div className="bg-secondary/30 min-h-screen">
+  
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      <Header lang={lang} dictionary={dictionary.header} />
+      <main className={`flex-grow ${selectedInvoice ? 'bg-secondary/30' : 'bg-background py-16 md:py-24'}`}>
+        {selectedInvoice ? (
           <div className="container mx-auto p-4 sm:p-8">
-            <div className="flex justify-between items-center mb-8 print:hidden">
+            <div className="flex justify-between items-center mb-8 print-hidden">
                 <Button variant="ghost" onClick={() => setSelectedInvoice(null)}>
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     {dictionary.documents_page.back_to_list}
@@ -294,7 +297,6 @@ export default function DocumentsPage() {
                     {dictionary.documents_page.print_pdf}
                 </Button>
             </div>
-
             <div id="zona-factura" className="p-8 bg-card border rounded-lg shadow-sm">
                 <header className="flex justify-between items-start pb-6 border-b mb-6">
                     <div>
@@ -308,11 +310,14 @@ export default function DocumentsPage() {
                         <h1 className="text-3xl font-bold font-headline text-foreground">{dictionary.documents_page.invoice_title}</h1>
                         <p className="text-lg mt-2">#{selectedInvoice.id}</p>
                         <p className="text-sm text-muted-foreground mt-1">{dictionary.documents_page.invoice_date} {parseCustomDate(selectedInvoice.date).toLocaleDateString(lang)}</p>
-                        {statusInfo && (
-                            <Badge className={cn("mt-2 text-destructive-foreground border-transparent", statusInfo.className)}>
-                                {statusInfo.label}
-                            </Badge>
-                        )}
+                        {(() => {
+                           const statusInfo = getStatus(selectedInvoice.status);
+                           return statusInfo && (
+                                <Badge className={cn("mt-2 text-destructive-foreground border-transparent", statusInfo.className)}>
+                                    {statusInfo.label}
+                                </Badge>
+                           );
+                        })()}
                     </div>
                 </header>
 
@@ -373,61 +378,55 @@ export default function DocumentsPage() {
                     <p className="mt-2">{dictionary.documents_page.legal_footer_2}</p>
                 </footer>
             </div>
-        </div>
-      </div>
-    );
-  }
-  
-  return (
-    <div className="flex flex-col min-h-screen bg-background">
-      <Header lang={lang} dictionary={dictionary.header} />
-      <main className="flex-grow py-16 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-headline font-bold">{dictionary.documents_page.page_title}</h1>
-            <p className="mt-4 text-xl text-muted-foreground">
-              {dictionary.documents_page.page_subtitle}
-            </p>
           </div>
-          
-          {invoices.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {invoices.map(invoice => {
-                    const statusInfo = getStatus(invoice.status);
-                    return (
-                        <Card key={invoice.id} className="hover:shadow-lg transition-shadow duration-300">
-                            <CardHeader>
-                                <div className="flex justify-between items-start">
-                                    <CardTitle>{dictionary.documents_page.invoice_card_title.replace('{id}', invoice.id)}</CardTitle>
-                                    {statusInfo && (
-                                        <Badge className={cn("text-destructive-foreground border-transparent", statusInfo.className)}>
-                                            {statusInfo.label}
-                                        </Badge>
-                                    )}
-                                </div>
-                                <CardDescription>{dictionary.documents_page.invoice_card_client} {invoice.client.empresa}</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="flex justify-between items-center mb-4">
-                                    <span className="text-sm text-muted-foreground">{dictionary.documents_page.invoice_card_date} {parseCustomDate(invoice.date).toLocaleDateString(lang)}</span>
-                                    <span className="font-bold text-lg">{invoice.total.toFixed(2)} €</span>
-                                </div>
-                                <Button className="w-full" onClick={() => setSelectedInvoice(invoice)}>
-                                    {dictionary.documents_page.view_details_button}
-                                </Button>
-                            </CardContent>
-                        </Card>
-                    );
-                })}
-              </div>
-          ) : (
-             <Card>
-                <CardContent className="pt-6 text-center text-muted-foreground">
-                    <p>{dictionary.documents_page.no_invoices_found}</p>
-                </CardContent>
-            </Card>
-          )}
-        </div>
+        ) : (
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto mb-12 text-center">
+              <h1 className="text-4xl md:text-5xl font-headline font-bold">{dictionary.documents_page.page_title}</h1>
+              <p className="mt-4 text-xl text-muted-foreground">
+                {dictionary.documents_page.page_subtitle}
+              </p>
+            </div>
+            
+            {invoices.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {invoices.map(invoice => {
+                      const statusInfo = getStatus(invoice.status);
+                      return (
+                          <Card key={invoice.id} className="hover:shadow-lg transition-shadow duration-300">
+                              <CardHeader>
+                                  <div className="flex justify-between items-start">
+                                      <CardTitle>{dictionary.documents_page.invoice_card_title.replace('{id}', invoice.id)}</CardTitle>
+                                      {statusInfo && (
+                                          <Badge className={cn("text-destructive-foreground border-transparent", statusInfo.className)}>
+                                              {statusInfo.label}
+                                          </Badge>
+                                      )}
+                                  </div>
+                                  <CardDescription>{dictionary.documents_page.invoice_card_client} {invoice.client.empresa}</CardDescription>
+                              </CardHeader>
+                              <CardContent>
+                                  <div className="flex justify-between items-center mb-4">
+                                      <span className="text-sm text-muted-foreground">{dictionary.documents_page.invoice_card_date} {parseCustomDate(invoice.date).toLocaleDateString(lang)}</span>
+                                      <span className="font-bold text-lg">{invoice.total.toFixed(2)} €</span>
+                                  </div>
+                                  <Button className="w-full" onClick={() => setSelectedInvoice(invoice)}>
+                                      {dictionary.documents_page.view_details_button}
+                                  </Button>
+                              </CardContent>
+                          </Card>
+                      );
+                  })}
+                </div>
+            ) : (
+               <Card>
+                  <CardContent className="pt-6 text-center text-muted-foreground">
+                      <p>{dictionary.documents_page.no_invoices_found}</p>
+                  </CardContent>
+              </Card>
+            )}
+          </div>
+        )}
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>
