@@ -123,7 +123,7 @@ export default function DocumentsPage() {
           ]);
 
           if (!usersRes.ok || !docsRes.ok) {
-            throw new Error(dict.documents_page.error_db);
+            throw new Error(dictionary.documents_page.error_db);
           }
 
           const users: User[] = await usersRes.json();
@@ -132,7 +132,7 @@ export default function DocumentsPage() {
           const loggedInUser = users.find(u => u.usuari && u.usuari.toLowerCase() === parsedUser.username.toLowerCase());
 
           if (!loggedInUser) {
-            throw new Error(dict.documents_page.error_user_not_found);
+            throw new Error(dictionary.documents_page.error_user_not_found);
           }
 
           const userIsAdmin = ['admin', 'administrador', 'treballador'].includes(loggedInUser.rol?.toLowerCase());
@@ -164,21 +164,20 @@ export default function DocumentsPage() {
                 const unitPrice = parseFloat(String(line.preu_unitari || '0').replace(',','.')) || 0;
                 const units = parseInt(String(line.unitats || '0'), 10) || 0;
                 const discount = parseFloat(String(line.dte || '0').replace(',','.')) || 0;
-                const vatRate = parseInt(String(line.iva || '0'), 10) || 0;
 
                 const grossLineTotal = unitPrice * units;
                 const discountAmount = grossLineTotal * (discount / 100);
                 const netTotal = grossLineTotal - discountAmount;
-                const vatAmount = netTotal * (vatRate / 100);
-                
                 subtotal += netTotal;
 
+                const vatRate = parseInt(String(line.iva || '0'), 10) || 0;
                 if (vatRate > 0) {
+                    const vatAmount = netTotal * (vatRate / 100);
                     if (vatMap[vatRate]) {
-                    vatMap[vatRate].base += netTotal;
-                    vatMap[vatRate].amount += vatAmount;
+                      vatMap[vatRate].base += netTotal;
+                      vatMap[vatRate].amount += vatAmount;
                     } else {
-                    vatMap[vatRate] = { base: netTotal, amount: vatAmount };
+                      vatMap[vatRate] = { base: netTotal, amount: vatAmount };
                     }
                 }
 
@@ -221,7 +220,7 @@ export default function DocumentsPage() {
           }
 
         } catch (err: any) {
-          if (isMounted) setError(err.message || dict.documents_page.error_generic);
+          if (isMounted) setError(err.message || dictionary.documents_page.error_generic);
         } finally {
           if (isMounted) setIsLoading(false);
         }
@@ -232,7 +231,7 @@ export default function DocumentsPage() {
     return () => {
       isMounted = false;
     };
-  }, [lang, router]);
+  }, [lang, router, dictionary]);
 
   const handlePrint = () => {
     window.print();
@@ -284,151 +283,153 @@ export default function DocumentsPage() {
   }
   
   return (
-    <div className="documents-page flex flex-col min-h-screen bg-background print:block">
+    <div className="documents-page flex flex-col min-h-screen bg-background">
       <Header lang={lang} dictionary={dictionary.header} />
       <main className="flex-grow py-16 md:py-24">
-        {selectedInvoice ? (
-          <div className="container mx-auto p-4 sm:p-8">
-            <div className="flex justify-between items-center mb-8 print:hidden">
-                <Button variant="ghost" onClick={() => setSelectedInvoice(null)}>
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    {dictionary.documents_page.back_to_list}
-                </Button>
-                <Button onClick={handlePrint}>
-                    <Printer className="mr-2 h-4 w-4" />
-                    {dictionary.documents_page.print_pdf}
-                </Button>
-            </div>
-            <div id="zona-factura" className="p-8 bg-card border rounded-lg shadow-sm">
-                <header className="flex justify-between items-start pb-6 border-b mb-6">
-                    <div>
-                        <IvoraLogo />
-                        <p className="font-semibold mt-4">Ivora Logistics SL</p>
-                        <p className="text-sm text-muted-foreground">Carrer de la Logística, 123</p>
-                        <p className="text-sm text-muted-foreground">Polígon Industrial de Constantí</p>
-                        <p className="text-sm text-muted-foreground">43120 Constantí, Tarragona</p>
-                    </div>
-                    <div className="text-right">
-                        <h1 className="text-3xl font-bold font-headline text-foreground">{dictionary.documents_page.invoice_title}</h1>
-                        <p className="text-lg mt-2">#{selectedInvoice.id}</p>
-                        <p className="text-sm text-muted-foreground mt-1">{dictionary.documents_page.invoice_date} {parseCustomDate(selectedInvoice.date).toLocaleDateString(lang)}</p>
-                        {(() => {
-                           const statusInfo = getStatus(selectedInvoice.status);
-                           return statusInfo && (
+        <div className="container mx-auto px-4">
+          {selectedInvoice ? (
+            <div>
+              <div className="flex justify-between items-center mb-8">
+                  <Button variant="ghost" onClick={() => setSelectedInvoice(null)}>
+                      <ArrowLeft className="mr-2 h-4 w-4" />
+                      {dictionary.documents_page.back_to_list}
+                  </Button>
+                  <Button onClick={handlePrint}>
+                      <Printer className="mr-2 h-4 w-4" />
+                      {dictionary.documents_page.print_pdf}
+                  </Button>
+              </div>
+              <div id="zona-factura" className="p-8 bg-card border rounded-lg shadow-sm">
+                  <header className="flex justify-between items-start pb-6 border-b mb-6">
+                      <div>
+                          <IvoraLogo />
+                          <p className="font-semibold mt-4">Ivora Logistics SL</p>
+                          <p className="text-sm text-muted-foreground">Carrer de la Logística, 123</p>
+                          <p className="text-sm text-muted-foreground">Polígon Industrial de Constantí</p>
+                          <p className="text-sm text-muted-foreground">43120 Constantí, Tarragona</p>
+                      </div>
+                      <div className="text-right">
+                          <h1 className="text-3xl font-bold font-headline text-foreground">{dictionary.documents_page.invoice_title}</h1>
+                          <p className="text-lg mt-2">#{selectedInvoice.id}</p>
+                          <p className="text-sm text-muted-foreground mt-1">{dictionary.documents_page.invoice_date} {parseCustomDate(selectedInvoice.date).toLocaleDateString(lang)}</p>
+                          {(() => {
+                            const statusInfo = getStatus(selectedInvoice.status);
+                            return statusInfo && (
                                 <Badge className={cn("mt-2 text-destructive-foreground border-transparent", statusInfo.className)}>
                                     {statusInfo.label}
                                 </Badge>
-                           );
-                        })()}
-                    </div>
-                </header>
+                            );
+                          })()}
+                      </div>
+                  </header>
 
-                <section className="mb-8">
-                    <h2 className="text-sm font-semibold uppercase text-muted-foreground mb-2">{dictionary.documents_page.invoice_to}</h2>
-                    <p className="font-bold text-lg">{selectedInvoice.client.empresa}</p>
-                    <p>{selectedInvoice.client.adreca}</p>
-                    <p>ID Fiscal: {selectedInvoice.client.fiscalid}</p>
-                    <p>Telèfon: {selectedInvoice.client.telefon}</p>
-                </section>
+                  <section className="mb-8">
+                      <h2 className="text-sm font-semibold uppercase text-muted-foreground mb-2">{dictionary.documents_page.invoice_to}</h2>
+                      <p className="font-bold text-lg">{selectedInvoice.client.empresa}</p>
+                      <p>{selectedInvoice.client.adreca}</p>
+                      <p>ID Fiscal: {selectedInvoice.client.fiscalid}</p>
+                      <p>Telèfon: {selectedInvoice.client.telefon}</p>
+                  </section>
 
-                <Table>
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead className="w-[50%]">{dictionary.documents_page.invoice_table_concept}</TableHead>
-                            <TableHead className="text-right">{dictionary.documents_page.invoice_table_units}</TableHead>
-                            <TableHead className="text-right">{dictionary.documents_page.invoice_table_unit_price}</TableHead>
-                            <TableHead className="text-right">{dictionary.documents_page.invoice_table_net_total}</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {selectedInvoice.lines.map((line, index) => (
-                            <TableRow key={index}>
-                                <TableCell className="font-medium">{line.concept}</TableCell>
-                                <TableCell className="text-right">{line.units}</TableCell>
-                                <TableCell className="text-right">{line.unitPrice.toFixed(2)} €</TableCell>
-                                <TableCell className="text-right font-medium">{line.netTotal.toFixed(2)} €</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
+                  <Table>
+                      <TableHeader>
+                          <TableRow>
+                              <TableHead className="w-[50%]">{dictionary.documents_page.invoice_table_concept}</TableHead>
+                              <TableHead className="text-right">{dictionary.documents_page.invoice_table_units}</TableHead>
+                              <TableHead className="text-right">{dictionary.documents_page.invoice_table_unit_price}</TableHead>
+                              <TableHead className="text-right">{dictionary.documents_page.invoice_table_net_total}</TableHead>
+                          </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                          {selectedInvoice.lines.map((line, index) => (
+                              <TableRow key={index}>
+                                  <TableCell className="font-medium">{line.concept}</TableCell>
+                                  <TableCell className="text-right">{line.units}</TableCell>
+                                  <TableCell className="text-right">{line.unitPrice.toFixed(2)} €</TableCell>
+                                  <TableCell className="text-right font-medium">{line.netTotal.toFixed(2)} €</TableCell>
+                              </TableRow>
+                          ))}
+                      </TableBody>
+                  </Table>
 
-                <div className="flex justify-end mt-8">
-                    <div className="w-full max-w-sm">
-                        <div className="flex justify-between py-2">
-                            <span className="text-muted-foreground">{dictionary.documents_page.subtotal}</span>
-                            <span className="font-medium">{selectedInvoice.subtotal.toFixed(2)} €</span>
-                        </div>
-                         {selectedInvoice.vatBreakdown.map(vat => (
-                            <div key={vat.rate} className="flex justify-between py-2 border-t">
-                                <span className="text-muted-foreground">{dictionary.documents_page.base_label} {vat.rate}%: {vat.base.toFixed(2)}€ | {dictionary.documents_page.quota_label}</span>
-                                <span className="font-medium">{vat.amount.toFixed(2)} €</span>
-                            </div>
-                        ))}
-                        <div className="flex justify-between py-3 border-t-2 mt-2">
-                            <span className="text-lg font-bold">{dictionary.documents_page.total}</span>
-                            <span className="text-lg font-bold">{selectedInvoice.total.toFixed(2)} €</span>
-                        </div>
-                    </div>
-                </div>
-                 <div className="mt-8">
-                     <h3 className="font-semibold">{dictionary.documents_page.payment_method}</h3>
-                     <p className="text-muted-foreground">{selectedInvoice.paymentMethod}</p>
-                 </div>
+                  <div className="flex justify-end mt-8">
+                      <div className="w-full max-w-sm">
+                          <div className="flex justify-between py-2">
+                              <span className="text-muted-foreground">{dictionary.documents_page.subtotal}</span>
+                              <span className="font-medium">{selectedInvoice.subtotal.toFixed(2)} €</span>
+                          </div>
+                          {selectedInvoice.vatBreakdown.map(vat => (
+                              <div key={vat.rate} className="flex justify-between py-2 border-t">
+                                  <span className="text-muted-foreground">{dictionary.documents_page.base_label} {vat.rate}%: {vat.base.toFixed(2)}€ | {dictionary.documents_page.quota_label}</span>
+                                  <span className="font-medium">{vat.amount.toFixed(2)} €</span>
+                              </div>
+                          ))}
+                          <div className="flex justify-between py-3 border-t-2 mt-2">
+                              <span className="text-lg font-bold">{dictionary.documents_page.total}</span>
+                              <span className="text-lg font-bold">{selectedInvoice.total.toFixed(2)} €</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="mt-8">
+                      <h3 className="font-semibold">{dictionary.documents_page.payment_method}</h3>
+                      <p className="text-muted-foreground">{selectedInvoice.paymentMethod}</p>
+                  </div>
 
-                <footer className="mt-12 pt-6 border-t text-xs text-muted-foreground text-center">
-                    <p>{dictionary.documents_page.legal_footer_1}</p>
-                    <p className="mt-2">{dictionary.documents_page.legal_footer_2}</p>
-                </footer>
+                  <footer className="mt-12 pt-6 border-t text-xs text-muted-foreground text-center">
+                      <p>{dictionary.documents_page.legal_footer_1}</p>
+                      <p className="mt-2">{dictionary.documents_page.legal_footer_2}</p>
+                  </footer>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto mb-12 text-center">
-              <h1 className="text-4xl md:text-5xl font-headline font-bold">{dictionary.documents_page.page_title}</h1>
-              <p className="mt-4 text-xl text-muted-foreground">
-                {dictionary.documents_page.page_subtitle}
-              </p>
+          ) : (
+            <div>
+              <div className="max-w-3xl mx-auto mb-12 text-center">
+                <h1 className="text-4xl md:text-5xl font-headline font-bold">{dictionary.documents_page.page_title}</h1>
+                <p className="mt-4 text-xl text-muted-foreground">
+                  {dictionary.documents_page.page_subtitle}
+                </p>
+              </div>
+              
+              {invoices.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {invoices.map(invoice => {
+                        const statusInfo = getStatus(invoice.status);
+                        return (
+                            <Card key={invoice.id} className="hover:shadow-lg transition-shadow duration-300">
+                                <CardHeader>
+                                    <div className="flex justify-between items-start">
+                                        <CardTitle>{dictionary.documents_page.invoice_card_title.replace('{id}', invoice.id)}</CardTitle>
+                                        {statusInfo && (
+                                            <Badge className={cn("text-destructive-foreground border-transparent", statusInfo.className)}>
+                                                {statusInfo.label}
+                                            </Badge>
+                                        )}
+                                    </div>
+                                    <CardDescription>{dictionary.documents_page.invoice_card_client} {invoice.client.empresa}</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="flex justify-between items-center mb-4">
+                                        <span className="text-sm text-muted-foreground">{dictionary.documents_page.invoice_card_date} {parseCustomDate(invoice.date).toLocaleDateString(lang)}</span>
+                                        <span className="font-bold text-lg">{invoice.total.toFixed(2)} €</span>
+                                    </div>
+                                    <Button className="w-full" onClick={() => setSelectedInvoice(invoice)}>
+                                        {dictionary.documents_page.view_details_button}
+                                    </Button>
+                                </CardContent>
+                            </Card>
+                        );
+                    })}
+                  </div>
+              ) : (
+                <Card>
+                    <CardContent className="pt-6 text-center text-muted-foreground">
+                        <p>{dictionary.documents_page.no_invoices_found}</p>
+                    </CardContent>
+                </Card>
+              )}
             </div>
-            
-            {invoices.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {invoices.map(invoice => {
-                      const statusInfo = getStatus(invoice.status);
-                      return (
-                          <Card key={invoice.id} className="hover:shadow-lg transition-shadow duration-300">
-                              <CardHeader>
-                                  <div className="flex justify-between items-start">
-                                      <CardTitle>{dictionary.documents_page.invoice_card_title.replace('{id}', invoice.id)}</CardTitle>
-                                      {statusInfo && (
-                                          <Badge className={cn("text-destructive-foreground border-transparent", statusInfo.className)}>
-                                              {statusInfo.label}
-                                          </Badge>
-                                      )}
-                                  </div>
-                                  <CardDescription>{dictionary.documents_page.invoice_card_client} {invoice.client.empresa}</CardDescription>
-                              </CardHeader>
-                              <CardContent>
-                                  <div className="flex justify-between items-center mb-4">
-                                      <span className="text-sm text-muted-foreground">{dictionary.documents_page.invoice_card_date} {parseCustomDate(invoice.date).toLocaleDateString(lang)}</span>
-                                      <span className="font-bold text-lg">{invoice.total.toFixed(2)} €</span>
-                                  </div>
-                                  <Button className="w-full" onClick={() => setSelectedInvoice(invoice)}>
-                                      {dictionary.documents_page.view_details_button}
-                                  </Button>
-                              </CardContent>
-                          </Card>
-                      );
-                  })}
-                </div>
-            ) : (
-               <Card>
-                  <CardContent className="pt-6 text-center text-muted-foreground">
-                      <p>{dictionary.documents_page.no_invoices_found}</p>
-                  </CardContent>
-              </Card>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </main>
       <Footer lang={lang} dictionary={dictionary.footer} />
     </div>
